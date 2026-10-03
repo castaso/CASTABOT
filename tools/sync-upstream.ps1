@@ -78,6 +78,24 @@ function Invoke-Git {
     Invoke-Native -File 'git' -NativeArgs (@('-C', $RepoRoot) + $NativeArgs)
 }
 
+# Two PowerShell traps live here, and both present as git exiting 128:
+#
+#  1. A bare `--` is consumed by the parser as its own end-of-parameters marker, so
+#     git never receives it.
+#  2. Passing an array into a [string[]] parameter that also declares
+#     ValueFromRemainingArguments is ambiguous -- the array can bind as one
+#     argument instead of splatting, and git then gets a single bogus pathspec.
+#
+# This takes the pathspec list as its own named parameter so it always arrives as
+# separate arguments, and uses no bare `--`.
+function Invoke-GitPaths {
+    param(
+        [Parameter(Mandatory = $true)][string[]]$GitArgs,
+        [Parameter(Mandatory = $true)][string[]]$Paths
+    )
+    Invoke-Native -File 'git' -NativeArgs (@('-C', $RepoRoot) + $GitArgs + $Paths)
+}
+
 function Invoke-Apply {
     param([Parameter(Mandatory = $true)][string[]]$ApplyArgs)
     Invoke-Native -File 'python' -NativeArgs (@((Join-Path $RepoRoot 'branding/apply.py')) + $ApplyArgs)
@@ -144,7 +162,7 @@ try {
     Invoke-Apply -ApplyArgs @('--check')
 
     Write-Step 'Gate 2  Touched Python files still compile'
-    $pys = @(Invoke-Git diff --name-only -- '*.py')
+    $pys = @(Invoke-GitPaths -GitArgs @('diff', '--name-only') -Paths @('*.py'))
     if ($pys.Count -gt 0) {
         $checker = @'
 import sys
@@ -172,13 +190,14 @@ sys.exit(1 if bad else 0)
         'package-lock.json', '.github', 'apps/desktop/product-identity.cjs',
         'apps/desktop/electron-builder.config.cjs'
     )
-    $leaked = @(Invoke-Git diff --name-only -- $protectedPaths)
+    $leaked = @(Invoke-GitPaths -GitArgs @('diff', '--name-only') -Paths $protectedPaths)
     if ($leaked.Count -gt 0) {
         throw "protected files were modified: $($leaked -join ', ')"
     }
     Write-Host '  no protected file modified'
 
-    $licenseRemovals = @(Invoke-Git diff --unified=0 -- LICENSE | Where-Object { $_ -match '^-[^-]' })
+    $licenseRemovals = @(Invoke-GitPaths -GitArgs @('diff', '--unified=0') -Paths @('LICENSE') |
+        Where-Object { $_ -match '^-[^-]' })
     if ($licenseRemovals.Count -gt 0) {
         throw "LICENSE has removed lines; the append must be additive only:`n$($licenseRemovals -join "`n")"
     }
