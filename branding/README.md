@@ -25,6 +25,26 @@ own just stamps the tree.
 | `templates/LICENSE.append.md` | **Appended** to `LICENSE`; the MIT grant above it is never touched |
 | `EXEMPT.md` | Known references that are deliberately left as-is, and why |
 
+## One-time remote setup
+
+GitHub exposes the **entire fork network** through the fork's ref namespace:
+`git ls-remote origin` on this fork returns upstream's 2,300+ branches alongside our
+three. A default fetch materialises all of them, and the first clone of this repo
+took 13 minutes because of it. Pin both remotes:
+
+```bash
+git config --unset-all remote.origin.fetch
+git config --add remote.origin.fetch '+refs/heads/main:refs/remotes/origin/main'
+git config --add remote.origin.fetch '+refs/heads/brand-tooling:refs/remotes/origin/brand-tooling'
+git config --add remote.origin.fetch '+refs/heads/rebrand/CASTABOT:refs/remotes/origin/rebrand/CASTABOT'
+
+git config --unset-all remote.upstream.fetch
+git config --add remote.upstream.fetch '+refs/heads/main:refs/remotes/upstream/main'
+```
+
+`sync-upstream.ps1` / `.sh` repair both automatically, so a fresh clone only needs
+this once.
+
 ## Why rebuild instead of merge
 
 A merge-based fork has to resolve conflicts every time upstream edits a line you

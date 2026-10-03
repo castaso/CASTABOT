@@ -44,15 +44,32 @@ step 'Checking branch roles'
 git_at config rerere.enabled true
 git_at config rerere.autoupdate true
 
-# Upstream has 2000+ branches; a default fetch would create a remote-tracking ref
-# for each. Only main is ever synced.
-expected="+refs/heads/main:refs/remotes/$UPSTREAM/main"
-actual="$(git_at config --get "remote.$UPSTREAM.fetch" || true)"
-if [ "$actual" != "$expected" ]; then
-  echo "remote.$UPSTREAM.fetch is '$actual', expected '$expected'." >&2
-  echo "Upstream has 2000+ branches; a wide refspec is a footgun." >&2
-  exit 1
-fi
+# GitHub exposes the ENTIRE fork network through the fork's ref namespace: a plain
+# `git ls-remote origin` on this fork returns upstream's 2,300+ branches alongside our
+# three. A default fetch therefore materialises thousands of remote-tracking refs, and
+# the first clone of this repo took 13 minutes because of it. Pin both remotes.
+repair_refspec() {
+  local remote="$1"; shift
+  local current
+  current="$(git_at config --get-all "remote.$remote.fetch" || true)"
+  local wanted
+  wanted="$(printf '%s\n' "$@")"
+  if [ "$current" != "$wanted" ]; then
+    step "Repairing remote.$remote.fetch (a wide refspec drags in the whole fork network)"
+    git_at config --unset-all "remote.$remote.fetch" || true
+    local spec
+    for spec in "$@"; do
+      git_at config --add "remote.$remote.fetch" "$spec"
+    done
+  fi
+}
+
+repair_refspec origin \
+  '+refs/heads/main:refs/remotes/origin/main' \
+  '+refs/heads/brand-tooling:refs/remotes/origin/brand-tooling' \
+  '+refs/heads/rebrand/CASTABOT:refs/remotes/origin/rebrand/CASTABOT'
+repair_refspec upstream \
+  '+refs/heads/main:refs/remotes/upstream/main'
 
 if [ "$DRY_RUN" -eq 1 ]; then
   step 'Dry run'

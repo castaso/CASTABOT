@@ -121,19 +121,38 @@ function Reset-GeneratedTree {
     Invoke-Git clean -fd
 }
 
+# GitHub exposes the ENTIRE fork network through the fork's ref namespace: a plain
+# `git ls-remote origin` on this fork returns upstream's 2,300+ branches alongside our
+# three. A default fetch therefore materialises thousands of remote-tracking refs, and
+# the very first clone of this repo took 13 minutes because of it. Pin both remotes to
+# the branches that actually exist here.
+function Set-NarrowRefspecs {
+    $required = [ordered]@{
+        'origin' = @(
+            '+refs/heads/main:refs/remotes/origin/main',
+            '+refs/heads/brand-tooling:refs/remotes/origin/brand-tooling',
+            '+refs/heads/rebrand/CASTABOT:refs/remotes/origin/rebrand/CASTABOT'
+        )
+        'upstream' = @('+refs/heads/main:refs/remotes/upstream/main')
+    }
+    foreach ($remote in $required.Keys) {
+        $current = @(Invoke-Git config --get-all "remote.$remote.fetch")
+        if (Compare-Object $current $required[$remote]) {
+            Write-Step "Repairing remote.$remote.fetch (a wide refspec drags in the whole fork network)"
+            Invoke-Git config --unset-all "remote.$remote.fetch" | Out-Null
+            foreach ($spec in $required[$remote]) {
+                Invoke-Git config --add "remote.$remote.fetch" $spec | Out-Null
+            }
+        }
+    }
+}
+
 Push-Location $RepoRoot
 try {
     Write-Step 'Checking branch roles'
     Invoke-Git config rerere.enabled true | Out-Null
     Invoke-Git config rerere.autoupdate true | Out-Null
-
-    # Upstream has 2000+ branches. A default fetch would create a remote-tracking ref
-    # for every one of them; only main is ever synced.
-    $expected = "+refs/heads/main:refs/remotes/$Upstream/main"
-    $actual = (Invoke-Git config --get "remote.$Upstream.fetch" | Select-Object -First 1)
-    if ($actual -ne $expected) {
-        throw "remote.$Upstream.fetch is '$actual', expected '$expected'. Upstream has 2000+ branches and a wide refspec is a footgun."
-    }
+    Set-NarrowRefspecs
 
     if ($DryRun) {
         Write-Step 'Dry run'
