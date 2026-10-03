@@ -181,7 +181,15 @@ def load_map() -> dict:
 
 def build_rulesets(data: dict) -> list[RuleSet]:
     """Rule sets from the map. `probes` default to each rule's own literal, or
-    the explicit `probe` on the rule for regex rules (a conservative superset)."""
+    the explicit `probe` on the rule for regex rules (a conservative superset).
+
+    Template-managed targets are excluded from every rule set. They are installed
+    verbatim, so re-branding them is both meaningless and destructive: the README
+    deliberately links `NousResearch/hermes-agent` to attribute upstream, and a
+    second pass rewrites those links to this fork -- so the fork would present
+    itself as the author of code it did not write.
+    """
+    managed = tuple(spec["to"] for spec in data.get("templates", []))
     sets: list[RuleSet] = []
     for spec in data["rule_sets"]:
         rules = []
@@ -196,7 +204,7 @@ def build_rulesets(data: dict) -> list[RuleSet]:
                 name=spec["name"],
                 rules=rules,
                 include=tuple(spec.get("include", ["**"])),
-                exclude=tuple(spec.get("exclude", [])),
+                exclude=tuple(spec.get("exclude", [])) + managed,
                 probes=tuple(dict.fromkeys(probes)),
             )
         )

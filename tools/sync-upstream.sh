@@ -10,7 +10,9 @@
 #      to conflict. The previous branded tip is replaced.
 #   3. The overlay is applied and gated before anything is pushed.
 #
-# brand-tooling is the single source of truth for branding/ and tools/.
+# brand-tooling is the single source of truth for branding/ and tools/ --
+# including this script. Step 2 checks it out over the working tree, so edit
+# tooling on brand-tooling and COMMIT it before running a sync.
 #
 # Usage: tools/sync-upstream.sh [--dry-run] [--skip-push]
 
@@ -41,6 +43,9 @@ cd "$REPO_ROOT"
 step 'Checking branch roles'
 git_at config rerere.enabled true
 git_at config rerere.autoupdate true
+
+# Upstream has 2000+ branches; a default fetch would create a remote-tracking ref
+# for each. Only main is ever synced.
 expected="+refs/heads/main:refs/remotes/$UPSTREAM/main"
 actual="$(git_at config --get "remote.$UPSTREAM.fetch" || true)"
 if [ "$actual" != "$expected" ]; then
@@ -52,17 +57,41 @@ fi
 if [ "$DRY_RUN" -eq 1 ]; then
   step 'Dry run'
   echo "Would: fetch $UPSTREAM main; ff-merge into $MIRROR;"
-  echo "       rebuild $BRANDED from $MIRROR; apply branding; push."
+  echo "       rebuild $BRANDED from $MIRROR; apply the overlay; gate; push."
   exit 0
 fi
 
 step "Step 1/3  Fast-forwarding $MIRROR from $UPSTREAM/main"
+
+# main, rebrand/CASTABOT and brand-tooling are all GENERATED. A dirty tree there is
+# leftover from an interrupted run, and it makes `git merge --ff-only` fail outright,
+# so it is discarded. Any other branch is a developer's work and is never touched.
+current="$(git_at rev-parse --abbrev-ref HEAD)"
+dirty="$(git_at status --porcelain || true)"
+if [ -n "$dirty" ]; then
+  case "$current" in
+    "$MIRROR"|"$BRANDED"|"$TOOLING")
+      step "Discarding leftover changes on generated branch '$current'"
+      git_at reset --hard HEAD
+      # no -x: .git/info/exclude holds the local .planning/ directory
+      git_at clean -fd
+      ;;
+    *)
+      echo "on '$current' with uncommitted changes; commit or stash before syncing" >&2
+      exit 1
+      ;;
+  esac
+fi
+
 git_at checkout "$MIRROR"
 git_at fetch "$UPSTREAM" main
 git_at merge --ff-only "$UPSTREAM/main"
 
 step "Step 2/3  Rebuilding $BRANDED from $MIRROR"
 git_at checkout -B "$BRANDED" "$MIRROR"
+# checkout -B carries the working tree along; without this the rebuild would inherit
+# whatever was dirty and would not actually be "main + overlay".
+git_at reset --hard HEAD
 git_at checkout "$TOOLING" -- branding tools
 
 step 'Step 3/3  Applying the branding overlay'
@@ -90,13 +119,21 @@ PY
 fi
 
 step 'Gate 3  Nothing protected was modified'
-# LICENSE legitimately gains an appended notice; everything else must be pristine.
-leaked="$(git_at diff --name-only -- LICENSE SECURITY.md SECURITY.es.md pyproject.toml uv.lock package-lock.json .github apps/desktop/product-identity.cjs apps/desktop/electron-builder.config.cjs | grep -v '^LICENSE$' || true)"
+# LICENSE legitimately gains an APPENDED notice; the MIT grant above it must be
+# untouched. Everything else on this list must be byte-identical to upstream.
+leaked="$(git_at diff --name-only -- SECURITY.md SECURITY.es.md pyproject.toml uv.lock package-lock.json .github apps/desktop/product-identity.cjs apps/desktop/electron-builder.config.cjs || true)"
 if [ -n "$leaked" ]; then
   echo "protected files were modified: $leaked" >&2
   exit 1
 fi
-echo '  no protected file modified (LICENSE append is expected)'
+echo '  no protected file modified'
+
+if git_at diff --unified=0 -- LICENSE | grep -q '^-[^-]'; then
+  echo 'LICENSE has removed lines; the append must be additive only' >&2
+  git_at diff --unified=0 -- LICENSE | grep '^-[^-]' >&2
+  exit 1
+fi
+echo '  LICENSE is append-only (MIT grant intact)'
 
 sha="$(git_at rev-parse --short "$UPSTREAM/main")"
 tag="upstream-sync/$(date +%Y%m%d)"
@@ -107,7 +144,7 @@ git_at commit -m "brand: CASTABOT overlay on upstream $sha"
 git_at tag -f "$tag"
 
 if [ "$SKIP_PUSH" -eq 1 ]; then
-  step 'Done (--skip-push: not pushing)'
+  step 'Done (--skip-push: nothing pushed)'
   exit 0
 fi
 
