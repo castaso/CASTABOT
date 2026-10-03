@@ -1,14 +1,14 @@
 ---
 sidebar_position: 12
 title: "Kanban（多 Agent 看板）"
-description: "基于 SQLite 的持久化任务看板，用于协调多个 Hermes 配置文件"
+description: "基于 SQLite 的持久化任务看板，用于协调多个 CASTABOT 配置文件"
 ---
 
 # Kanban — 多 Agent 配置文件协作
 
 > **想要详细教程？** 请阅读 [Kanban 教程](./kanban-tutorial) —— 包含四个用户故事（独立开发者、批量任务、带重试的角色流水线、熔断器），并附有各场景的仪表盘截图。本页是参考文档，教程是叙述性说明。
 
-Hermes Kanban 是一个持久化任务看板，在所有 Hermes 配置文件之间共享，允许多个具名 agent 协作完成工作，而无需脆弱的进程内子 agent 集群。每个任务都是 `~/.hermes/kanban.db` 中的一行记录；每次交接都是任何人都可以读写的一行记录；每个 worker 都是拥有独立身份的完整 OS 进程。
+CASTABOT Kanban 是一个持久化任务看板，在所有 CASTABOT 配置文件之间共享，允许多个具名 agent 协作完成工作，而无需脆弱的进程内子 agent 集群。每个任务都是 `~/.hermes/kanban.db` 中的一行记录；每次交接都是任何人都可以读写的一行记录；每个 worker 都是拥有独立身份的完整 OS 进程。
 
 ### 两个操作界面：模型通过工具交互，你通过 CLI 交互
 
@@ -383,7 +383,7 @@ kanban_complete(
 
 ## 仪表盘（GUI）
 
-`/kanban` CLI 和斜杠命令足以无头运行看板，但可视化看板通常是人工介入的正确界面：分诊、跨配置文件监督、阅读评论线程以及在列之间拖动卡片。Hermes 将此作为**内置仪表盘插件**在 `plugins/kanban/` 中提供 —— 不是核心功能，不是单独的服务 —— 遵循[扩展仪表盘](./extending-the-dashboard)中描述的模型。
+`/kanban` CLI 和斜杠命令足以无头运行看板，但可视化看板通常是人工介入的正确界面：分诊、跨配置文件监督、阅读评论线程以及在列之间拖动卡片。CASTABOT 将此作为**内置仪表盘插件**在 `plugins/kanban/` 中提供 —— 不是核心功能，不是单独的服务 —— 遵循[扩展仪表盘](./extending-the-dashboard)中描述的模型。
 
 使用以下命令打开：
 
@@ -528,7 +528,7 @@ WebSocket 额外增加了一步：它要求仪表盘的临时会话 token 作为
 
 ### 扩展
 
-插件使用标准的 Hermes 仪表盘插件契约 —— 完整的 manifest 参考、shell 槽、页面范围槽和 Plugin SDK，请参阅[扩展仪表盘](./extending-the-dashboard)。额外的列、自定义卡片样式、租户过滤布局或完整的 `tab.override` 替换都可以表达，无需 fork 此插件。
+插件使用标准的 CASTABOT 仪表盘插件契约 —— 完整的 manifest 参考、shell 槽、页面范围槽和 Plugin SDK，请参阅[扩展仪表盘](./extending-the-dashboard)。额外的列、自定义卡片样式、租户过滤布局或完整的 `tab.override` 替换都可以表达，无需 fork 此插件。
 
 要禁用而不删除：在 `config.yaml` 中添加 `dashboard.plugins.kanban.enabled: false`（或删除 `plugins/kanban/dashboard/manifest.json`）。
 
@@ -701,7 +701,7 @@ EOF
 
 ### 调解冲突的 worker 分支
 
-在工程流水线（使用 worktree 的 P1/P2）中，两个 worker 的分支合并时可能发生冲突。不要让任一 worker 自行裁决 —— 发生冲突的 agent 缺乏对方的上下文，往往会覆盖对方的改动或放弃自己的改动。正确做法是：创建一张调解卡片，指派给**第三个中立配置文件**，并把**两张**冲突卡片都链接为其父任务：父任务链接会把双方的完成摘要带入调解者的上下文，使其同时获得双方的 diff *和*双方的意图。内置的 [`agent-merge-conflict-arbiter` 技能](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/autonomous-ai-agents/agent-merge-conflict-arbiter/SKILL.md) 为该 worker 提供完整流程：对每个冲突块分类、公正地解决、验证，并在交回摘要中说明每一项决定。
+在工程流水线（使用 worktree 的 P1/P2）中，两个 worker 的分支合并时可能发生冲突。不要让任一 worker 自行裁决 —— 发生冲突的 agent 缺乏对方的上下文，往往会覆盖对方的改动或放弃自己的改动。正确做法是：创建一张调解卡片，指派给**第三个中立配置文件**，并把**两张**冲突卡片都链接为其父任务：父任务链接会把双方的完成摘要带入调解者的上下文，使其同时获得双方的 diff *和*双方的意图。内置的 [`agent-merge-conflict-arbiter` 技能](https://github.com/castaso/CASTABOT/blob/main/optional-skills/autonomous-ai-agents/agent-merge-conflict-arbiter/SKILL.md) 为该 worker 提供完整流程：对每个冲突块分类、公正地解决、验证，并在交回摘要中说明每一项决定。
 
 ### 并行战役中的碰撞热点（Collision hotspots）
 

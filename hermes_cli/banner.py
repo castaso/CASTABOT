@@ -144,7 +144,7 @@ def get_available_skills() -> Dict[str, List[str]]:
 
 
 def _resolve_repo_dir() -> Optional[Path]:
-    """The active Hermes git checkout, or None if this isn't a git install.
+    """The active CASTABOT git checkout, or None if this isn't a git install.
 
     Prefers the running code's location: ``$HERMES_HOME/hermes-agent/`` may be a stale copy
     carried over by ``--clone-all``.
@@ -210,7 +210,7 @@ def format_banner_version_label() -> str:
 
     stamp = read_install_stamp(get_project_root())
     if stamp.get("distribution") == "desktop-app":
-        label = f"Hermes Agent v{get_version_info().derived_version}"
+        label = f"CASTABOT v{get_version_info().derived_version}"
         if stamp.get("source") == "commit-build":
             return f"{label} · commit-build · {str(stamp.get('commit') or '')[:12]}"
         if stamp.get("tag"):
@@ -223,7 +223,7 @@ def format_banner_version_label() -> str:
             return f"{label} · installer"
         return label
 
-    base = f"Hermes Agent v{get_version_info().derived_version} ({RELEASE_DATE})"
+    base = f"CASTABOT v{get_version_info().derived_version} ({RELEASE_DATE})"
     from hermes_cli.config import load_config
     from hermes_cli.update_channel import resolve_update_channel
 
@@ -615,7 +615,7 @@ def _banner_left_lines(model: str, cwd: str, session_id, context_length, provide
     lines = []
     pin = " (pinned)" if context_pinned else ""
     ctx_str = _dim_sep(f"{_format_context_length(context_length)} context{pin}") if context_length else ""
-    nous_str = _dim_sep("Nous Research")
+    nous_str = _dim_sep("CastaSo")
     if not (model or "").strip():
         # Credentials resolve lazily on the first message; the banner prints first. Ask the route
         # the same question so a fresh free-tier install shows its model, not a red "unconfigured".

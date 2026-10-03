@@ -352,14 +352,14 @@ python scripts/release.py --channel pm-preview --build-commit my-branch --remote
 python scripts/release.py --channels --remote origin
 ```
 
-By default a preview channel installs as its own side-by-side app (`Hermes
+By default a preview channel installs as its own side-by-side app (`CASTABOT
 NAME`, its own package ID). To test an exact commit as the regular app instead,
 create the channel with `--branding stable`: it copies the published stable
 channel's name, icon and package ID, so the build installs over the official
 app, shares its desktop settings, and later updates follow the channel. Branding is fixed when the channel is
 created; repeat the flag on every dispatch of that channel and use a new channel
 name to change it. `--branding` needs `--channel`, since a plain one-off commit
-build always carries its `Hermes Agent <sha>` identity.
+build always carries its `CASTABOT <sha>` identity.
 
 ```sh
 python scripts/release.py --channel my-commit --branding stable --build-commit SHA --remote origin --publish
@@ -431,7 +431,7 @@ claim tag object's immutable tagger timestamp (`year.hourOfYear.secondOfHour.0`)
 independently of the SemVer payload tag.
 Missing baseline
 artifacts are a blocker, not permission to fabricate or skip acceptance.
-See [the bundled update contract](https://github.com/NousResearch/hermes-agent/blob/main/tests/install/BUNDLED_UPDATES.md).
+See [the bundled update contract](https://github.com/castaso/CASTABOT/blob/main/tests/install/BUNDLED_UPDATES.md).
 
 ## Explicit exclusions and policy
 

@@ -152,7 +152,7 @@ def test_page_fields_screenshots_readme_url_and_maintainer_slug(mod, tmp_path):
     catalog.mkdir()
     shot = "https://raw.githubusercontent.com/owner/repo/38fe0fb53eff98d477f807432e965429e665ca33/docs/1.png"
     _write_entry(catalog, "gh", screenshots=[shot, "https://cdn.example.com/x.png"], readme=True, subdir="catalog",
-                 maintainer="Nous Research")
+                 maintainer="CastaSo")
     _write_entry(catalog, "gl", repo="https://gitlab.com/group/proj", readme=True)
     _write_entry(catalog, "other", repo="https://codeberg.org/o/r", readme=True)
     _write_entry(catalog, "plain")

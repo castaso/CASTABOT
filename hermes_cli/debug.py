@@ -1,4 +1,4 @@
-"""``hermes debug`` debug tools for Hermes Agent."""
+"""``hermes debug`` debug tools for CASTABOT."""
 
 import contextlib
 import datetime
@@ -231,7 +231,7 @@ def _primary_log_path(log_name: str) -> Optional[Path]:
 # share`; a bare "(file not found)" would read as "the app logged nothing" and misdirect triage.
 _CLIENT_SIDE_LOGS = {
     "desktop": (
-        "written by Hermes Desktop on the machine running the app, not by this "
+        "written by CASTABOT Desktop on the machine running the app, not by this "
         "backend. If the desktop connects to a remote/docker/SSH backend, collect "
         "it on that client machine")}
 

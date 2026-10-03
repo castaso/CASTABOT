@@ -6,7 +6,7 @@ description: "开箱即用的自动化蓝图——定时任务、GitHub 事件�
 
 # 自动化蓝图
 
-常见自动化模式的复制粘贴蓝图。每个蓝图使用 Hermes 内置的 [cron 调度器](../user-guide/features/cron.md) 实现基于时间的触发，使用 [webhook 平台](../user-guide/messaging/webhooks.md) 实现事件驱动触发。
+常见自动化模式的复制粘贴蓝图。每个蓝图使用 CASTABOT 内置的 [cron 调度器](../user-guide/features/cron.md) 实现基于时间的触发，使用 [webhook 平台](../user-guide/messaging/webhooks.md) 实现事件驱动触发。
 
 所有蓝图适用于**任意模型**——不绑定单一提供商。
 
@@ -34,9 +34,9 @@ description: "开箱即用的自动化蓝图——定时任务、GitHub 事件�
 
 ```bash
 hermes cron create "0 2 * * *" \
-  "You are a project manager triaging the NousResearch/hermes-agent GitHub repo.
+  "You are a project manager triaging the castaso/CASTABOT GitHub repo.
 
-1. Run: gh issue list --repo NousResearch/hermes-agent --state open --json number,title,labels,author,createdAt --limit 30
+1. Run: gh issue list --repo castaso/CASTABOT --state open --json number,title,labels,author,createdAt --limit 30
 2. Identify issues opened in the last 24 hours
 3. For each new issue:
    - Suggest a priority label (P0-critical, P1-high, P2-medium, P3-low)
@@ -116,9 +116,9 @@ platforms:
 
 ```bash
 hermes cron create "0 9 * * 1" \
-  "Scan the NousResearch/hermes-agent repo for documentation drift.
+  "Scan the castaso/CASTABOT repo for documentation drift.
 
-1. Run: gh pr list --repo NousResearch/hermes-agent --state merged --json number,title,files,mergedAt --limit 30
+1. Run: gh pr list --repo castaso/CASTABOT --state merged --json number,title,files,mergedAt --limit 30
 2. Filter to PRs merged in the last 7 days
 3. For each merged PR, check if it modified:
    - Tool schemas (tools/*.py) — may need docs/reference/tools-reference.md update
@@ -142,8 +142,8 @@ Report any gaps where code changed but docs didn't. If everything is in sync, re
 hermes cron create "0 6 * * *" \
   "Run a dependency security audit on the hermes-agent project.
 
-1. Locate the hermes-agent checkout and its pyproject.toml and uv.lock. Do not activate or mutate Hermes's dependency environment.
-2. Scan uv.lock with an independently installed scanner that supports that lock format (check its --help). Preserve the complete findings and errors. If no scanner is available, report the blocker; do not install one into Hermes.
+1. Locate the hermes-agent checkout and its pyproject.toml and uv.lock. Do not activate or mutate CASTABOT'ss dependency environment.
+2. Scan uv.lock with an independently installed scanner that supports that lock format (check its --help). Preserve the complete findings and errors. If no scanner is available, report the blocker; do not install one into CASTABOT.
 3. Run: npm audit --json in website/ if it exists. Preserve stderr and distinguish findings from a failed scan.
 4. Check for any CVEs with CVSS score >= 7.0
 
@@ -336,7 +336,7 @@ Keep each item to 1-2 sentences. Include links. Total under 600 words." \
 
 ```bash
 hermes cron create "0 8 * * *" \
-  "Search arXiv for the 3 most interesting papers on 'language model reasoning' OR 'tool-use agents' from the past day. For each paper, create an Obsidian note with the title, authors, abstract summary, key contribution, and potential relevance to Hermes Agent development." \
+  "Search arXiv for the 3 most interesting papers on 'language model reasoning' OR 'tool-use agents' from the past day. For each paper, create an Obsidian note with the title, authors, abstract summary, key contribution, and potential relevance to CASTABOT development." \
   --skill arxiv --skill obsidian \
   --name "Paper digest" \
   --deliver local

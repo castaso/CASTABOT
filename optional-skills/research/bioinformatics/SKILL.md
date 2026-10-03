@@ -2,7 +2,7 @@
 name: bioinformatics
 description: Gateway to 400+ genomics and computational biology skills.
 version: 1.0.0
-author: Teknium (teknium1), Hermes Agent
+author: Teknium (teknium1), CASTABOT
 license: MIT
 platforms: [linux, macos]
 metadata:
@@ -229,7 +229,7 @@ conda install -c bioconda samtools bcftools blast minimap2 bedtools fastp kraken
 
 ## Pitfalls
 
-- The fetched skills are NOT in Hermes SKILL.md format. They use their own structure (bioSkills: code pattern cookbooks; ClawBio: README + Python scripts). Read them as expert reference material.
+- The fetched skills are NOT in CASTABOT SKILL.md format. They use their own structure (bioSkills: code pattern cookbooks; ClawBio: README + Python scripts). Read them as expert reference material.
 - bioSkills are reference guides — they show correct parameters and code patterns but aren't executable pipelines.
 - ClawBio skills are executable — many have `--demo` flags and can be run directly.
 - Both repos assume bioinformatics tools are installed. Check prerequisites before running pipelines.

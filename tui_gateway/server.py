@@ -1426,9 +1426,9 @@ _TOUR_PROBE_TIMEOUT_S = 10
 
 _TOUR_BRIDGE_UNAVAILABLE = json.dumps({
     "success": False,
-    "error": ("No Hermes Desktop window answered the tour request. The tour is driven by the desktop app's "
+    "error": ("No CASTABOT Desktop window answered the tour request. The tour is driven by the desktop app's "
               "renderer, which updates separately from this backend, so an app build older than the tour tool "
-              "has nothing listening. Update the Hermes Desktop app and start a new session. Do not retry tour "
+              "has nothing listening. Update the CASTABOT Desktop app and start a new session. Do not retry tour "
               "in this session.")})
 
 
@@ -1469,10 +1469,10 @@ _PREVIEW_ACTION_REPROBE_COOLDOWN_S = 30
 
 _PREVIEW_ACTION_BRIDGE_UNAVAILABLE = json.dumps({
     "success": False,
-    "error": ("No Hermes Desktop window answered the preview action request. The drive_preview / "
+    "error": ("No CASTABOT Desktop window answered the preview action request. The drive_preview / "
               "annotate_preview bridge is served by the desktop app's renderer, which updates "
               "separately from this backend, so an app build older than the tool has nothing "
-              "listening. Update the Hermes Desktop app, open a page with open_preview, and try "
+              "listening. Update the CASTABOT Desktop app, open a page with open_preview, and try "
               "again in this session after a short cooldown.")})
 
 # One in-flight cooldown-expiry reprobe per session: concurrent callers fail fast.

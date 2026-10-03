@@ -1,6 +1,6 @@
 ---
 title: "State DB Recovery"
-description: "How Hermes recovers state.db when the FTS index or the file itself is corrupt"
+description: "How CASTABOT recovers state.db when the FTS index or the file itself is corrupt"
 ---
 
 # State database and FTS recovery

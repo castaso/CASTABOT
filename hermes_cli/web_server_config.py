@@ -589,7 +589,7 @@ def _dashboard_skew_restart_hint() -> str:
     if os.environ.get("HERMES_SERVE_HEADLESS") == "1":
         return (
             "restart the Desktop-owned backend to load the new code "
-            "(use Restart backend in Hermes Desktop, or quit and reopen the app)"
+            "(use Restart backend in CASTABOT Desktop, or quit and reopen the app)"
         )
     return (
         "restart this Hermes process to load the new code "

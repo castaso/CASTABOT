@@ -4,7 +4,7 @@ repo: https://github.com/NMTZ-z/system-one-benchmark-lab
 sha: 823aff58d97b989f3468dbd2c2b12526c6e6936e
 subdir: integrations/hermes/local-system-one-hermes
 description: >-
-  Local System One / Laya Typed Decisions control plane for Hermes Agent. Sends task text to a
+  Local System One / Laya Typed Decisions control plane for CASTABOT. Sends task text to a
   loopback sidecar for reversible OFF/Shadow/Canary routing decisions, with explicit Canary
   acknowledgement and fail-open behavior. Disclosure — executes nothing and does not start the
   sidecar. In Shadow/Canary mode it POSTs each turn's task text (last user message up to 4000 chars,

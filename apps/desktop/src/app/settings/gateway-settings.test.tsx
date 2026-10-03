@@ -379,7 +379,7 @@ describe('GatewaySettings', () => {
       // The env override still owns the URL: the editor stays read-only.
       expect(((await screen.findByDisplayValue(envUrl)) as HTMLInputElement).disabled).toBe(true)
 
-      fireEvent.click(await screen.findByRole('button', { name: 'Sign in with Nous Research' }))
+      fireEvent.click(await screen.findByRole('button', { name: 'Sign in with CastaSo' }))
 
       await waitFor(() => expect(oauthLoginConnectionConfig).toHaveBeenCalledWith(envUrl))
     })
@@ -396,7 +396,7 @@ describe('GatewaySettings', () => {
       render(<GatewaySettings embedded />)
 
       expect(((await screen.findByDisplayValue(envUrl)) as HTMLInputElement).disabled).toBe(false)
-      expect(await screen.findByRole('button', { name: 'Sign in with Nous Research' })).toBeTruthy()
+      expect(await screen.findByRole('button', { name: 'Sign in with CastaSo' })).toBeTruthy()
       expect(oauthLoginConnectionConfig).not.toHaveBeenCalled()
     })
   })

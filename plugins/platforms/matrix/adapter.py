@@ -1182,7 +1182,7 @@ class MatrixAdapter(BasePlatformAdapter):
         elif self._password and self._user_id:
             try:
                 resp = await client.login(
-                    identifier=self._user_id, password=self._password, device_name="Hermes Agent",
+                    identifier=self._user_id, password=self._password, device_name="CASTABOT",
                     device_id=self._device_id or None)
                 if resp and hasattr(resp, "device_id"):
                     client.device_id = resp.device_id
@@ -2952,7 +2952,7 @@ class MatrixAdapter(BasePlatformAdapter):
 
     def _strip_mention(self, body: str) -> str:
         """Strip explicit ``@user:server`` / ``@localpart`` tokens only — never bare localpart
-        words, or "Hermes Agent" would become "Agent"."""
+        words, or "CASTABOT" would become "Agent"."""
         if not body:
             return ""
         if self._user_id:

@@ -1,4 +1,4 @@
-"""Default configuration data for Hermes Agent: DEFAULT_CONFIG and OPTIONAL_ENV_VARS.
+"""Default configuration data for CASTABOT: DEFAULT_CONFIG and OPTIONAL_ENV_VARS.
 
 Pure-data leaf module — must not import from hermes_cli.config. Comments are the user-facing
 docs of config.yaml.
@@ -1623,7 +1623,7 @@ DEFAULT_CONFIG = {
     },
 
     "whatsapp": {
-        # reply_prefix: None = built-in "☤ *Hermes Agent*" header; "" disables; \n allowed.
+        # reply_prefix: None = built-in "☤ *CASTABOT*" header; "" disables; \n allowed.
     },
 
     "telegram": {
@@ -2516,7 +2516,7 @@ DEFAULT_CONFIG = {
         "geometry": "1440x900",
         # Opt-in: start the screen automatically the first time computer_use needs a display on a headless
         # host. Off by default so installing TigerVNC for other reasons never yields a screen nobody asked
-        # for; Hermes Desktop's Screen pane offers Start and this toggle.
+        # for; CASTABOT Desktop's Screen pane offers Start and this toggle.
         "auto_start": False,
         # Refuse to start below this much free memory (MB), measured on the host or its container cgroup,
         # whichever is tighter. Xvnc + Xfce idle at ~220 MB and a takeover's browser adds 0.5-1 GB, so a
@@ -2613,7 +2613,7 @@ DEFAULT_CONFIG = {
         # (`*.foo.com`) supported.
         "extra_allowed_hosts": [],
     },
-    "desktop": {  # Hermes Desktop (Electron) launch options; only affect `hermes desktop`.
+    "desktop": {  # CASTABOT Desktop (Electron) launch options; only affect `hermes desktop`.
         # CSS font-family for the app's chat and UI text (e.g. "OpenDyslexic"). Layered in front
         # of the active theme's own sans stack so missing glyphs still fall through. Empty = the
         # theme's face. The terminal pane is terminal.font_family.

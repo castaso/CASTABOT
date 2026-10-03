@@ -432,7 +432,7 @@ describe('createProject', () => {
   })
 
   it.each(['default', 'coder'])('creates in the active %s profile without leaving All profiles', async profile => {
-    const created = { folders: [], id: 'p_new', name: 'Hermes Agent', primary_path: '/srv/hermes' }
+    const created = { folders: [], id: 'p_new', name: 'CASTABOT', primary_path: '/srv/hermes' }
     const tree = { id: created.id, label: created.name, path: created.primary_path, repos: [], sessionCount: 0 }
     const request = vi.fn().mockResolvedValue({ project: created })
     activeGateway.mockReturnValue({ connectionState: 'open', request } as never)
@@ -460,7 +460,7 @@ describe('createProject', () => {
     $activeGatewayProfile.set('coder')
     setShowAllProfiles(true)
 
-    const pending = createProject({ folders: ['/srv/hermes'], name: 'Hermes Agent' })
+    const pending = createProject({ folders: ['/srv/hermes'], name: 'CASTABOT' })
     const rejection = expect(pending).rejects.toThrow('Active Hermes profile changed while connecting')
     const otherGateway = { connectionState: 'open', request }
     $activeGatewayProfile.set('other')

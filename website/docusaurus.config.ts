@@ -4,15 +4,15 @@ import type * as Preset from '@docusaurus/preset-classic';
 import relativeDocLinks from './src/remark/relativeDocLinks';
 
 const config: Config = {
-  title: 'Hermes Agent',
+  title: 'CASTABOT',
   tagline: 'The self-improving AI agent',
   favicon: 'img/favicon.ico',
 
-  url: 'https://hermes-agent.nousresearch.com',
+  url: 'https://castaso.github.io/CASTABOT',
   baseUrl: '/docs/',
 
-  organizationName: 'NousResearch',
-  projectName: 'hermes-agent',
+  organizationName: 'castaso',
+  projectName: 'CASTABOT',
 
   onBrokenLinks: 'warn',
 
@@ -83,7 +83,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',  // Docs at the root of /docs/
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/NousResearch/hermes-agent/edit/main/website/',
+          editUrl: 'https://github.com/castaso/CASTABOT/edit/main/website/',
           // Relative `.md` links (readable on GitHub, #114428) must also resolve
           // across the zh-Hans fallback boundary; see src/remark/relativeDocLinks.js.
           beforeDefaultRemarkPlugins: [[relativeDocLinks, {siteDir: __dirname}]],
@@ -109,7 +109,7 @@ const config: Config = {
     algolia: {
       appId: '2JLBVEYZN5',
       apiKey: '9629ec26628d1a126535fd5ef408990d',
-      indexName: 'hermes docs',
+      indexName: 'CASTABOT docs',
       contextualSearch: true,
     },
     colorMode: {
@@ -123,9 +123,9 @@ const config: Config = {
       },
     },
     navbar: {
-      title: 'Hermes Agent',
+      title: 'CASTABOT',
       logo: {
-        alt: 'Hermes Agent',
+        alt: 'CASTABOT',
         src: 'img/logo.png',
         srcDark: 'img/logo-dark.png',
       },
@@ -147,7 +147,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://hermes-agent.nousresearch.com/',
+          href: 'https://castaso.github.io/CASTABOT/',
           label: 'Download',
           position: 'left',
         },
@@ -156,12 +156,12 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://hermes-agent.nousresearch.com',
+          href: 'https://castaso.github.io/CASTABOT',
           label: 'Home',
           position: 'right',
         },
         {
-          href: 'https://github.com/NousResearch/hermes-agent',
+          href: 'https://github.com/castaso/CASTABOT',
           label: 'GitHub',
           position: 'right',
         },
@@ -188,20 +188,20 @@ const config: Config = {
           title: 'Community',
           items: [
             { label: 'Discord', href: 'https://discord.gg/NousResearch' },
-            { label: 'GitHub Issues', href: 'https://github.com/NousResearch/hermes-agent/issues' },
+            { label: 'GitHub Issues', href: 'https://github.com/castaso/CASTABOT/issues' },
             { label: 'Skills Hub', href: 'https://agentskills.io' },
           ],
         },
         {
           title: 'More',
           items: [
-            { label: 'Desktop Download', href: 'https://hermes-agent.nousresearch.com/' },
-            { label: 'GitHub', href: 'https://github.com/NousResearch/hermes-agent' },
-            { label: 'Nous Research', href: 'https://nousresearch.com' },
+            { label: 'Desktop Download', href: 'https://castaso.github.io/CASTABOT/' },
+            { label: 'GitHub', href: 'https://github.com/castaso/CASTABOT' },
+            { label: 'CastaSo', href: 'https://github.com/castaso' },
           ],
         },
       ],
-      copyright: `Built by <a href="https://nousresearch.com">Nous Research</a> · MIT License · ${new Date().getFullYear()}`,
+      copyright: `Built by <a href="https://github.com/castaso">CastaSo</a> · MIT License · ${new Date().getFullYear()}`,
     },
     prism: {
       theme: prismThemes.github,

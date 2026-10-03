@@ -1242,7 +1242,7 @@ test('connect() respawns when the requested remote profile differs from the lock
     [/print\("OWNED"/, 'OWNED\n'],
     [cmd => /pidfd_open/.test(cmd), 'TERMINATED\n'],
     [/kill 333/, ''],
-    [/--version/, 'Hermes Agent v0.18.2\n'],
+    [/--version/, 'CASTABOT v0.18.2\n'],
     [/grep -q ssh-session-token-file/, 'YES\n'],
     [/python3 -c/, ''],
     [/setsid/, '890\n'],
@@ -1271,7 +1271,7 @@ test('connect() respawns when the lockfile hermesPath differs from the resolved 
     [/cat .*lock\.json/, JSON.stringify(lock)],
     [/kill -0/, 'ALIVE'],
     [/print\("OWNED"/, 'FOREIGN\n'],
-    [/--version/, 'Hermes Agent v0.18.2\n'],
+    [/--version/, 'CASTABOT v0.18.2\n'],
     [/grep -q ssh-session-token-file/, 'YES\n'],
     [/python3 -c/, ''],
     [/setsid/, '890\n'],
@@ -1982,12 +1982,12 @@ test('probes run under the remote watchdog so a hung CLI cannot orphan (#110478)
       (cmd: string) => {
         versionProbe = cmd
 
-        return 'Hermes Agent v0.18.2 (abc123)\n'
+        return 'CASTABOT v0.18.2 (abc123)\n'
       }
     ]
   ])
 
-  assert.equal(await probeHermesVersion(versionSsh, '/x/hermes'), 'Hermes Agent v0.18.2 (abc123)')
+  assert.equal(await probeHermesVersion(versionSsh, '/x/hermes'), 'CASTABOT v0.18.2 (abc123)')
   assert.ok(versionProbe.includes('kill -9'), 'version probe wrapped in the remote watchdog')
 
   let helpProbe = ''

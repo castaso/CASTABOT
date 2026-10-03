@@ -9,7 +9,7 @@ from typing import IO
 
 
 class DesktopBuildLock:
-    """Advisory lock held while npm installs and packages Hermes Desktop.
+    """Advisory lock held while npm installs and packages CASTABOT Desktop.
 
     ``node_modules`` and ``apps/desktop/release`` are checkout-scoped even
     when two commands use different Hermes profiles.  The lock therefore

@@ -1,4 +1,4 @@
-"""Multi-provider authentication system for Hermes Agent.
+"""Multi-provider authentication system for CASTABOT.
 
 - ``ProviderConfig`` / ``PROVIDER_REGISTRY`` describe every known inference provider.
 - The auth store (``~/.hermes/auth.json``) holds per-provider state, the credential pool and

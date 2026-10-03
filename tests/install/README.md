@@ -21,7 +21,7 @@ To declare a new method, edit the generator. To implement a method, flip the gat
 
 ## The isolation trick
 
-Source drivers redirect canonical Hermes Git URLs to a local bare clone at
+Source drivers redirect canonical CASTABOT Git URLs to a local bare clone at
 `serve.git`, using a driver-owned `GIT_CONFIG_GLOBAL` rewrite. This controls
 the source install/update boundary, not all network access: tool/dependency
 downloads and published bootstrap artifacts can still use the network.
@@ -187,7 +187,7 @@ Per-leg timeouts and GitHub's matrix limits remain workflow constraints, not
 proof that every declared combination ran. Native package acceptance is separate
 from the deferred desktop Playwright application suite.
 
-Running the drivers locally: don't, except in a disposable VM. The windows driver kills every process named Hermes during teardown and the macos driver operates on `/Applications/Hermes.app`; on a machine with a real Hermes install they will interfere with it.
+Running the drivers locally: don't, except in a disposable VM. The windows driver kills every process named CASTABOT during teardown and the macos driver operates on `/Applications/CASTABOT.app`; on a machine with a real CASTABOT install they will interfere with it.
 
 ## Plugin upgrade preservation
 

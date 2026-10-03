@@ -234,7 +234,7 @@ let
       defaultWorkingDirectoryText,
     }:
     {
-      enable = lib.mkEnableOption "Hermes Agent";
+      enable = lib.mkEnableOption "CASTABOT";
 
       # ── Package ────────────────────────────────────────────────────────
       package = mkOption {
@@ -503,7 +503,7 @@ let
       # `hermes serve` and `hermes dashboard` are the same entry point,
       # hermes_cli.main:cmd_dashboard, with one flag of difference. serve runs
       # without a user interface. dashboard also serves the web application.
-      # Both give the /api/ws and /api/pty sockets that Hermes Desktop
+      # Both give the /api/ws and /api/pty sockets that CASTABOT Desktop
       # connects to. They are one process, and you can run only one of them.
       # Thus this option is an enum and not two booleans.
       #
@@ -636,7 +636,7 @@ let
 
             The backend reads the file at each start and gives the value to
             HERMES_DASHBOARD_SESSION_TOKEN. That token authorizes the /api
-            routes and the /api/ws socket. Hermes Desktop presents the same
+            routes and the /api/ws socket. CASTABOT Desktop presents the same
             value, so the application reaches this backend and starts no
             second one.
 
@@ -1054,9 +1054,9 @@ let
   backendDescription =
     cfg:
     if cfg.backend.mode == "dashboard" then
-      "Hermes Agent web dashboard and desktop backend"
+      "CASTABOT web dashboard and desktop backend"
     else
-      "Hermes Agent backend for Hermes Desktop";
+      "CASTABOT backend for CASTABOT Desktop";
 
   # The environment that each Hermes process needs, from either module.
   #

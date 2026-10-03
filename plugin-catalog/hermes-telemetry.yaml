@@ -1,7 +1,7 @@
 name: hermes-telemetry
 repo: https://github.com/nujovich/hermes-telemetry
 sha: 146f6744fc4117ade784eefd7aa231c9b3f36281
-description: Observability + budget guardrails for Hermes Agent — tokens, cost, latency, tool calls per
+description: Observability + budget guardrails for CASTABOT — tokens, cost, latency, tool calls per
   session and cron job. Persists to local SQLite. Exposes /stats and /budget slash commands.
 maintainer: nujovich
 tier: community

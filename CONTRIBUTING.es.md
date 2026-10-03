@@ -1,6 +1,6 @@
-# Contribuir a Hermes Agent
+# Contribuir a CASTABOT
 
-¡Gracias por contribuir a Hermes Agent! Esta guía cubre todo lo que necesitas: configurar tu entorno de desarrollo, entender la arquitectura, decidir qué construir y conseguir que tu PR sea aceptado.
+¡Gracias por contribuir a CASTABOT! Esta guía cubre todo lo que necesitas: configurar tu entorno de desarrollo, entender la arquitectura, decidir qué construir y conseguir que tu PR sea aceptado.
 
 ---
 
@@ -45,7 +45,7 @@ Las habilidades incluidas (en `skills/`) se envían con cada instalación de Her
 
 Si tu habilidad es oficial y útil pero no universalmente necesaria (ej., una integración de servicio de pago, una dependencia pesada), ponla en **`optional-skills/`** — se envía con el repositorio pero no está activada por defecto. Los usuarios pueden descubrirla a través de `hermes skills browse` (etiquetada como "oficial") e instalarla con `hermes skills install` (sin advertencia de terceros, confianza integrada).
 
-Si tu habilidad es especializada, contribuida por la comunidad o de nicho, es mejor para un **Skills Hub** — súbela a un registro de habilidades y compártela en el [Discord de Nous Research](https://discord.gg/NousResearch). Los usuarios pueden instalarla con `hermes skills install`.
+Si tu habilidad es especializada, contribuida por la comunidad o de nicho, es mejor para un **Skills Hub** — súbela a un registro de habilidades y compártela en el [Discord de CastaSo](https://discord.gg/NousResearch). Los usuarios pueden instalarla con `hermes skills install`.
 
 ---
 
@@ -179,7 +179,7 @@ hermes-agent/
 ├── skills/                   # Habilidades incluidas (copiadas a ~/.hermes/skills/ en la instalación)
 ├── optional-skills/          # Habilidades opcionales oficiales (descubribles vía hub, no activadas por defecto)
 ├── tests/                    # Suite de tests
-├── website/                  # Sitio de documentación (hermes-agent.nousresearch.com)
+├── website/                  # Sitio de documentación (castaso.github.io/CASTABOT)
 │
 ├── cli-config.yaml.example   # Configuración de ejemplo (copiada a ~/.hermes/config.yaml)
 └── AGENTS.md                 # Guía de desarrollo para asistentes de codificación IA
@@ -566,7 +566,7 @@ test(tools): añadir tests unitarios para file_operations
 
 ## Reportar Issues
 
-- Usa [GitHub Issues](https://github.com/NousResearch/hermes-agent/issues)
+- Usa [GitHub Issues](https://github.com/castaso/CASTABOT/issues)
 - Incluye: SO, versión de Python, versión de Hermes (`hermes --version`), traza de error completa
 - Incluye pasos para reproducir
 - Verifica los issues existentes antes de crear duplicados

@@ -1,4 +1,4 @@
-"""Hermes Agent Uninstaller."""
+"""CASTABOT Uninstaller."""
 
 import os
 import shutil
@@ -129,8 +129,8 @@ def remove_path_from_shell_configs():
             skip_next = False
             
             for line in content.split('\n'):
-                # Skip the "# Hermes Agent" comment and following line
-                if '# Hermes Agent' in line or '# hermes-agent' in line:
+                # Skip the "# CASTABOT" comment and following line
+                if '# CASTABOT' in line or '# hermes-agent' in line:
                     skip_next = True
                     continue
                 if skip_next and ('hermes' in line.lower() and 'PATH' in line):
@@ -786,7 +786,7 @@ def run_uninstall(args):
         return
 
     print()
-    _print_box("│            ☤ Hermes Agent Uninstaller                  │", Colors.MAGENTA)
+    _print_box("│            ☤ CASTABOT Uninstaller                  │", Colors.MAGENTA)
     print()
 
     # Show what will be affected
@@ -1138,7 +1138,7 @@ def _perform_uninstall(
     for line, col in _RELOAD_HINT[windows]:
         print(color(line, col) if col else line)
     print()
-    print("Thank you for using Hermes Agent! ☤")
+    print("Thank you for using CASTABOT! ☤")
     print()
 
 

@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
 title: "持久化记忆"
-description: "Hermes Agent 如何跨会话记忆——MEMORY.md、USER.md 与会话搜索"
+description: "CASTABOT 如何跨会话记忆——MEMORY.md、USER.md 与会话搜索"
 ---
 
 # 持久化记忆
 
-Hermes Agent 拥有有界、经过整理的记忆，可跨会话持久保存。这使它能够记住你的偏好、项目、环境以及已学到的内容。
+CASTABOT 拥有有界、经过整理的记忆，可跨会话持久保存。这使它能够记住你的偏好、项目、环境以及已学到的内容。
 
 ## 工作原理
 
@@ -206,7 +206,7 @@ hermes sessions list    # 浏览过去的会话
 
 分支创建时，推理设置、系统 prompt、完整会话快照和工具定义保持与主会话逐字节一致，以复用 prompt 缓存前缀。只改变审查的推理强度会破坏这种一致性。没有用于同模型审查的独立推理强度开关。
 
-若要减少审查工作而不改变主会话的推理强度，可以调整 `memory.nudge_interval` / `skills.creation_nudge_interval`，通过 `auxiliary.background_review.enabled: false` 禁用自动审查，或将审查路由到其他模型。其他模型使用会话摘要，不共享主会话的预热缓存前缀；其任务推理强度的独立问题见 [#94825](https://github.com/NousResearch/hermes-agent/issues/94825)。频率和路由控制并不会分离同模型审查的推理强度。
+若要减少审查工作而不改变主会话的推理强度，可以调整 `memory.nudge_interval` / `skills.creation_nudge_interval`，通过 `auxiliary.background_review.enabled: false` 禁用自动审查，或将审查路由到其他模型。其他模型使用会话摘要，不共享主会话的预热缓存前缀；其任务推理强度的独立问题见 [#94825](https://github.com/castaso/CASTABOT/issues/94825)。频率和路由控制并不会分离同模型审查的推理强度。
 
 ## 配置
 
@@ -221,7 +221,7 @@ memory:
 
 ## 外部记忆提供商
 
-对于超出 MEMORY.md 和 USER.md 范围的更深层持久化记忆，Hermes 内置了 8 个外部记忆提供商插件——包括 Honcho、OpenViking、Mem0、Hindsight、Holographic、RetainDB、ByteRover 和 Supermemory。
+对于超出 MEMORY.md 和 USER.md 范围的更深层持久化记忆，CASTABOT 内置了 8 个外部记忆提供商插件——包括 Honcho、OpenViking、Mem0、Hindsight、Holographic、RetainDB、ByteRover 和 Supermemory。
 
 外部提供商与内置记忆**并行**运行（而非替代），并增加了知识图谱、语义搜索、自动事实提取和跨会话用户建模等能力。
 

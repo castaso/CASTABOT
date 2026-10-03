@@ -7,18 +7,18 @@ This page is the contract. It exists for two audiences:
 - **Operators** picking which lanes to wire into a board (which profiles to create, which assignees to use).
 - **Plugin / integration authors** wanting to add a new lane shape (a CLI worker that wraps Codex / Claude Code / OpenCode, a containerised review worker, a non-Hermes service that pulls tasks via the API).
 
-If you're writing the worker code itself — the agent that runs *inside* a lane — the kanban lifecycle and reference details are injected into the worker's system prompt automatically (the `KANBAN_GUIDANCE` block in [`agent/prompt_builder.py`](https://github.com/NousResearch/hermes-agent/blob/main/agent/prompt_builder.py)).
+If you're writing the worker code itself — the agent that runs *inside* a lane — the kanban lifecycle and reference details are injected into the worker's system prompt automatically (the `KANBAN_GUIDANCE` block in [`agent/prompt_builder.py`](https://github.com/castaso/CASTABOT/blob/main/agent/prompt_builder.py)).
 
 ## The hierarchy
 
 ```text
-Hermes Kanban  =  canonical task lifecycle + audit trail
+CASTABOT Kanban  =  canonical task lifecycle + audit trail
 Worker lane    =  implementation executor for one assigned card
 Reviewer       =  human or human-proxy that gates "done"
 GitHub PR      =  upstreamable artifact (optional, for code lanes)
 ```
 
-Hermes Kanban owns lifecycle truth — `ready` → `running` → `review` / `blocked` / `done` / `archived`. Worker lanes execute work but never own that truth; everything they do flows back through the kanban kernel via the `kanban_*` tools (or, for non-Hermes external workers, via the API). Reviewers gate the transition from "code change written" to "task done."
+CASTABOT Kanban owns lifecycle truth — `ready` → `running` → `review` / `blocked` / `done` / `archived`. Worker lanes execute work but never own that truth; everything they do flows back through the kanban kernel via the `kanban_*` tools (or, for non-Hermes external workers, via the API). Reviewers gate the transition from "code change written" to "task done."
 
 ## What a lane provides
 
@@ -26,11 +26,11 @@ To be a kanban worker lane, an integration must provide three things:
 
 ### 1. An assignee string
 
-The dispatcher matches `task.assignee` against either a Hermes profile name (the default lane shape) or a registered non-spawnable identifier (the plugin lane shape — see [Adding an external CLI worker lane](#adding-an-external-cli-worker-lane) below). Tasks whose assignee doesn't resolve are left on `ready` with a `skipped_nonspawnable` event so a board operator can fix them; they are not silently dropped or executed by an arbitrary fallback.
+The dispatcher matches `task.assignee` against either a CASTABOT profile name (the default lane shape) or a registered non-spawnable identifier (the plugin lane shape — see [Adding an external CLI worker lane](#adding-an-external-cli-worker-lane) below). Tasks whose assignee doesn't resolve are left on `ready` with a `skipped_nonspawnable` event so a board operator can fix them; they are not silently dropped or executed by an arbitrary fallback.
 
 ### 2. A spawn mechanism
 
-For Hermes profile lanes, the dispatcher's `_default_spawn` runs `hermes -p <assignee> chat -q <prompt>` (or the equivalent module form when the `hermes` shim isn't on `$PATH`) inside the task's pinned workspace, with these env vars set:
+For CASTABOT profile lanes, the dispatcher's `_default_spawn` runs `hermes -p <assignee> chat -q <prompt>` (or the equivalent module form when the `hermes` shim isn't on `$PATH`) inside the task's pinned workspace, with these env vars set:
 
 | Variable | Carries |
 |---|---|
@@ -49,7 +49,7 @@ For non-Hermes lanes (registered via a plugin), the plugin supplies its own `spa
 ### Descendant process scope
 
 A task assignment belongs to the dispatcher worker, not to every program it starts.
-Hermes subprocess helpers carry a non-owner fence into shells, execution kernels,
+CASTABOT subprocess helpers carry a non-owner fence into shells, execution kernels,
 cron deliveries, hooks, language servers, and ordinary stdio MCP servers. Later
 children remain fenced even when a script removes the inherited task ID: CLI and
 tool mutations are rejected, rather than treating that script as an orchestrator.
@@ -106,7 +106,7 @@ The dashboard renders run history with summaries, metadata blocks, and exit-stat
 
 ## Existing lane shapes
 
-### Hermes profile lane (default)
+### CASTABOT profile lane (default)
 
 The shape every kanban worker takes today: the assignee is a profile name, the dispatcher spawns `hermes -p <profile>`, the worker gets the `KANBAN_GUIDANCE` system-prompt block injected automatically, and uses the `kanban_*` tools to terminate the run. No setup beyond defining the profile.
 
@@ -114,7 +114,7 @@ When you create profiles for your fleet, choose names that match the *role* you 
 
 ### Orchestrator profile lane
 
-A specialisation of the profile lane: an orchestrator is a Hermes profile whose toolset includes `kanban` but excludes `terminal` / `file` / `code` / `web` for implementation. Its job is decomposing a high-level goal into child tasks via `kanban_create` + `kanban_link` and stepping back. The orchestrator skill encodes the anti-temptation rules.
+A specialisation of the profile lane: an orchestrator is a CASTABOT profile whose toolset includes `kanban` but excludes `terminal` / `file` / `code` / `web` for implementation. Its job is decomposing a high-level goal into child tasks via `kanban_create` + `kanban_link` and stepping back. The orchestrator skill encodes the anti-temptation rules.
 
 ## Adding an external CLI worker lane
 
@@ -122,7 +122,7 @@ Wiring a non-Hermes CLI tool (Codex CLI, Claude Code CLI, OpenCode CLI, a local 
 
 If you're considering adding a CLI lane, open an issue describing the specific CLI and the workflow you're trying to enable. The contract above is the constraints any such lane must satisfy; the implementation shape (one plugin per CLI vs a generic CLI-runner plugin parameterised by config) is open.
 
-The historical issue for this is [#19931](https://github.com/NousResearch/hermes-agent/issues/19931) and the closed-not-merged Codex-specific PR [#19924](https://github.com/NousResearch/hermes-agent/pull/19924) — those describe the original architecture proposal but didn't land a runner.
+The historical issue for this is [#19931](https://github.com/castaso/CASTABOT/issues/19931) and the closed-not-merged Codex-specific PR [#19924](https://github.com/castaso/CASTABOT/pull/19924) — those describe the original architecture proposal but didn't land a runner.
 
 ## Failure modes the dispatcher handles
 
@@ -140,4 +140,4 @@ So lane authors don't have to reimplement these:
 
 - [Kanban overview](./kanban) — the user-facing intro.
 - [Kanban tutorial](./kanban-tutorial) — walkthrough with the dashboard open.
-- [`KANBAN_GUIDANCE`](https://github.com/NousResearch/hermes-agent/blob/main/agent/prompt_builder.py) — the worker + orchestrator lifecycle injected into every kanban worker's system prompt.
+- [`KANBAN_GUIDANCE`](https://github.com/castaso/CASTABOT/blob/main/agent/prompt_builder.py) — the worker + orchestrator lifecycle injected into every kanban worker's system prompt.

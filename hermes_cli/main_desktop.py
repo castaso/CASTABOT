@@ -1073,7 +1073,7 @@ def _swap_in_new_macos_bundle(tmp: Path, target: Path, old: Path) -> None:
 
 
 def _running_macos_app_bundles() -> set[Path]:
-    """``.app`` bundles of every live Hermes Desktop process. A running bundle is never swapped
+    """``.app`` bundles of every live CASTABOT Desktop process. A running bundle is never swapped
     under: Electron loads ``app.asar`` chunks and helper apps lazily, so renaming its bundle away
     and deleting the old tree crashes the live app (the detached updater waits for it to exit)."""
     import psutil  # noqa: PLC0415
@@ -1235,7 +1235,7 @@ def _install_rebuilt_macos_bundles(
             continue
         if app.resolve() in running:
             problems.append(
-                f"{app} is running and was not refreshed; quit Hermes Desktop and run "
+                f"{app} is running and was not refreshed; quit CASTABOT Desktop and run "
                 "`hermes update` again (or update from inside the app)")
             continue
         if codesign:
@@ -1338,7 +1338,7 @@ def _desktop_linux_sandbox_fixup(packaged_executable: Path) -> bool:
 
     sandbox, st = _sandbox_helper_lstat(packaged_executable)
     if not sandbox.exists():
-        print(f"✗ Hermes Desktop is missing Electron's Linux sandbox helper: {sandbox}")
+        print(f"✗ CASTABOT Desktop is missing Electron's Linux sandbox helper: {sandbox}")
         return False
     # Reject symlinks — chown/chmod must not follow an attacker-controlled link.
     if st is None:
@@ -1357,7 +1357,7 @@ def _desktop_linux_sandbox_fixup(packaged_executable: Path) -> bool:
 
     sudo = shutil.which("sudo")
     if not sudo:
-        print("✗ Hermes Desktop requires sudo to configure Electron's Linux sandbox helper.")
+        print("✗ CASTABOT Desktop requires sudo to configure Electron's Linux sandbox helper.")
         return False
 
     print("→ Configuring Electron Linux sandbox helper (sudo required)...")
@@ -1479,7 +1479,7 @@ def _desktop_launch_options() -> tuple[list[str], str, str, str, bool]:
 
 
 def _register_linux_desktop_entry(defer: bool = False):
-    """Install the XDG desktop entry for Hermes Desktop (Linux only, best-effort).
+    """Install the XDG desktop entry for CASTABOT Desktop (Linux only, best-effort).
 
     ``Exec`` and ``Icon`` are absolute so the entry works outside a login shell.
     ``hermes uninstall --gui`` removes it.
@@ -1575,7 +1575,7 @@ def build_prepared_desktop(desktop_dir: Path, *, source_mode: bool, npm: str, en
         # stamp stays stale, so `hermes desktop` run outside the app rebuilds it
         # (_desktop_build_needed), and the in-app update completes with desktop=True.
         print(f"  ⚠ Skipped rebuilding the desktop app: this update is running inside it (pid {ancestor}),")
-        print("    and Windows locks a running app's files. Quit Hermes Desktop and run `hermes desktop`")
+        print("    and Windows locks a running app's files. Quit CASTABOT Desktop and run `hermes desktop`")
         print("    from a terminal, or use Update now in Settings → About, to rebuild and reopen it.")
         return None
     build_label = "source build" if source_mode else "packaged app"
@@ -1760,7 +1760,7 @@ def _launch_installed_macos_desktop_app() -> bool:
     from hermes_cli.bundled_app import launch_detached
 
     pid = launch_detached([str(executable)], cwd=executable.parent)
-    print(f"→ Launched the installed Hermes Desktop app: {executable} (pid {pid})")
+    print(f"→ Launched the installed CASTABOT Desktop app: {executable} (pid {pid})")
     return True
 
 
@@ -1895,7 +1895,7 @@ def cmd_gui(args: argparse.Namespace):
         return
 
     if source_mode:
-        print("→ Launching Hermes Desktop from source build...")
+        print("→ Launching CASTABOT Desktop from source build...")
         # Launch only the prepared runtime. npm exec can provision a missing
         # Electron package, including when --skip-build was requested.
         electron = _electron_dir(PROJECT_ROOT)
@@ -1925,7 +1925,7 @@ def cmd_gui(args: argparse.Namespace):
         launch_command.append("--close-preview")
     launch_command.extend(_explicit_profile_args())
     if not source_mode:
-        desktop_launch_notice(f"→ Launching packaged Hermes Desktop: {' '.join(launch_command)}")
+        desktop_launch_notice(f"→ Launching packaged CASTABOT Desktop: {' '.join(launch_command)}")
     # The launch target is ready; the fixups above finished mutating the
     # packaged tree. Electron is the long-lived handoff, so release the build
     # lock now — an open Desktop window must never block a future rebuild.
@@ -1975,7 +1975,7 @@ def cmd_gui(args: argparse.Namespace):
             )
         if deferred_entry is not None:
             deferred_entry.finish()
-        desktop_launch_notice("✓ Hermes Desktop launched in a detached window; you can close this shell.")
+        desktop_launch_notice("✓ CASTABOT Desktop launched in a detached window; you can close this shell.")
         sys.exit(0)
     with desktop_console_output(source_mode=source_mode) as streams:
         try:
@@ -1987,7 +1987,7 @@ def cmd_gui(args: argparse.Namespace):
             # closing the Desktop, not a launcher crash. Exit cleanly instead
             # of dumping a KeyboardInterrupt traceback from subprocess.run
             # (#59848).
-            print("\n✓ Hermes Desktop closed.")
+            print("\n✓ CASTABOT Desktop closed.")
             sys.exit(0)
     if deferred_entry is not None:
         deferred_entry.finish()
@@ -2048,7 +2048,7 @@ def _launch_bundled_desktop(
         sys.exit(1)
 
     if layout.launcher is None:
-        print(f"✗ Found no Hermes Desktop launcher in {layout.app_root}.")
+        print(f"✗ Found no CASTABOT Desktop launcher in {layout.app_root}.")
         print("  The install is damaged — reinstall Hermes from the website.")
         sys.exit(1)
 
@@ -2063,7 +2063,7 @@ def _launch_bundled_desktop(
     launch_command.extend(electron_flags)
     launch_command.extend(_explicit_profile_args())
     pid = launch_detached(launch_command, env=env, cwd=layout.app_root)
-    print(f"→ Launched Hermes Desktop: {' '.join(launch_command)} (pid {pid})")
+    print(f"→ Launched CASTABOT Desktop: {' '.join(launch_command)} (pid {pid})")
     sys.exit(0)
 
 

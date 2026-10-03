@@ -2,7 +2,7 @@
 name: watchers
 description: Poll RSS, JSON APIs, and GitHub with watermark dedup.
 version: 1.0.0
-author: Hermes Agent
+author: CASTABOT
 license: MIT
 platforms: [linux, macos]
 metadata:
@@ -66,7 +66,7 @@ Watch a GitHub repo (set `GITHUB_TOKEN` in `${HERMES_HOME:-~/.hermes}/.env` to a
 
 ```bash
 python $HERMES_HOME/skills/devops/watchers/scripts/watch_github.py \
-  --name hermes-issues --repo NousResearch/hermes-agent --scope issues
+  --name hermes-issues --repo castaso/CASTABOT --scope issues
 ```
 
 Poll an arbitrary JSON API:

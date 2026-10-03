@@ -12,11 +12,11 @@ It exists so that skills created via the [self-improvement loop](./skills.md#age
 
 By default the curator manages only agent-created skills. With `curator.prune_builtins: true` it can also archive **unused bundled built-in skills** (shipped with the repo) after `archive_after_days` of non-use; this is opt-in because shipped skills silently disappearing from `skills_list` is easy to mistake for a broken install. Hub-installed skills (from [agentskills.io](https://agentskills.io)) are always off-limits. The curator also **never auto-deletes** — the worst outcome is archival into `~/.hermes/skills/.archive/`, which is recoverable.
 
-Tracks [issue #7816](https://github.com/NousResearch/hermes-agent/issues/7816).
+Tracks [issue #7816](https://github.com/castaso/CASTABOT/issues/7816).
 
 ## How it runs
 
-The curator is triggered by an inactivity check, not a cron job. On CLI session start, during gateway housekeeping, and on the Desktop/`hermes serve` maintenance timer, Hermes checks whether:
+The curator is triggered by an inactivity check, not a cron job. On CLI session start, during gateway housekeeping, and on the Desktop/`hermes serve` maintenance timer, CASTABOT checks whether:
 
 1. Enough time has passed since the last curator run (`interval_hours`, default **7 days**), and
 2. The agent has been idle long enough (`min_idle_hours`, default **2 hours**).
@@ -124,7 +124,7 @@ hermes curator purge [--days N] [--dry-run]  # delete archived skills older than
 
 ## Backups and rollback
 
-Before a consolidation pass (`consolidate: true`, the only pass that rewrites skill content in place), Hermes takes a tar.gz snapshot of `~/.hermes/skills/` at `~/.hermes/skills/.curator_backups/<utc-iso>/skills.tar.gz`. The snapshot covers the live skill tree only: `.archive/`, the audit ledger, `.hub/`, and the backups themselves are never rolled in, and a rollback never rewinds them (an older copy would lose archived skills or ledger entries). If a pass archives or consolidates something you didn't want touched, you can undo the whole run with one command:
+Before a consolidation pass (`consolidate: true`, the only pass that rewrites skill content in place), CASTABOT takes a tar.gz snapshot of `~/.hermes/skills/` at `~/.hermes/skills/.curator_backups/<utc-iso>/skills.tar.gz`. The snapshot covers the live skill tree only: `.archive/`, the audit ledger, `.hub/`, and the backups themselves are never rolled in, and a rollback never rewinds them (an older copy would lose archived skills or ledger entries). If a pass archives or consolidates something you didn't want touched, you can undo the whole run with one command:
 
 ```bash
 hermes curator rollback        # restore newest snapshot (with confirmation)
@@ -132,7 +132,7 @@ hermes curator rollback -y     # skip the prompt
 hermes curator rollback --list # see all snapshots with reason + size
 ```
 
-The rollback itself is reversible: before replacing the skills tree, Hermes takes another snapshot tagged `pre-rollback to <target-id>`, so a mistaken rollback can be undone by rolling forward to that one with `--id`.
+The rollback itself is reversible: before replacing the skills tree, CASTABOT takes another snapshot tagged `pre-rollback to <target-id>`, so a mistaken rollback can be undone by rolling forward to that one with `--id`.
 
 You can also take manual snapshots at any time with `hermes curator backup --reason "before-refactor"`. The `--reason` string lands in the snapshot's `manifest.json` and is shown in `--list`.
 
@@ -221,7 +221,7 @@ curator opt-in. They are considered user-directed and the curator intentionally
 leaves them alone.
 
 :::warning Your hand-written skills are NOT curated
-If you manually created a `SKILL.md` or pointed Hermes at an external skill
+If you manually created a `SKILL.md` or pointed CASTABOT at an external skill
 directory, that skill will have a `.usage.json` entry with `created_by: null`
 (or the field absent). The curator will not touch it. The same applies to
 skills the foreground agent created at your request (`created_by: learn`).
@@ -294,7 +294,7 @@ says nothing about who authored the file.
 :::note Provenance is declared, never inferred
 Adoption is deliberately manual. Telemetry cannot establish authorship: a skill
 with thousands of patches proves the agent **maintains** it, not that the agent
-**wrote** it — Hermes edits user-authored skills on your behalf constantly. An
+**wrote** it — CASTABOT edits user-authored skills on your behalf constantly. An
 automatic "looks agent-made, adopt it" heuristic would eventually archive
 something you hand-wrote. `adopt` refuses bundled, hub-installed, external, and
 protected built-in skills, which have an owner other than you.
@@ -413,4 +413,4 @@ The curator also refuses to run if `min_idle_hours` hasn't elapsed, so on an act
 - [Skills System](./skills.md) — how skills work in general and the self-improvement loop that creates them
 - [Memory](./memory.md) — a parallel background review that maintains long-term memory
 - [Bundled Skills Catalog](../../reference/skills-catalog.md)
-- [Issue #7816](https://github.com/NousResearch/hermes-agent/issues/7816) — original proposal and design discussion
+- [Issue #7816](https://github.com/castaso/CASTABOT/issues/7816) — original proposal and design discussion

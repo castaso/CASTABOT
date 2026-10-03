@@ -2103,7 +2103,7 @@ def _enforce_minimum_context(agent):
         raise ValueError(
             f"Model {agent.model} has a context window of {_ctx:,} tokens, "
             f"which is below the minimum {MINIMUM_CONTEXT_LENGTH:,} required "
-            f"by Hermes Agent.  {remedy}"
+            f"by CASTABOT.  {remedy}"
         )
 
 
@@ -2117,7 +2117,7 @@ def _warn_nonagentic_hermes_model(agent):
         _hermes_warn = _check_hermes_model_warning(agent.model or "")
         if _hermes_warn:
             _user_msg = (
-                "⚠ Nous Research Hermes 3 & 4 models are NOT agentic — they "
+                "⚠ CastaSo Hermes 3 & 4 models are NOT agentic — they "
                 "lack reliable tool-calling for agent workflows (delegation, "
                 "cron, proactive tools). Consider an agentic model instead "
                 "(Claude, GPT, Gemini, Qwen-Coder, etc.)."

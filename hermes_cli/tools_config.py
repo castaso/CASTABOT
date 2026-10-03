@@ -1,4 +1,4 @@
-"""Unified tool configuration for Hermes Agent."""
+"""Unified tool configuration for CASTABOT."""
 
 import json as _json
 import logging

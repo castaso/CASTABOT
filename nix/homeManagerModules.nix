@@ -189,7 +189,7 @@
       # from it, and never the reverse.
       options.programs.hermes-agent = {
         enable = lib.mkEnableOption ''
-          the Hermes Agent command line application.
+          the CASTABOT command line application.
 
           This adds `hermes` to home.packages, and exports HERMES_HOME with
           home.sessionVariables. An interactive shell then uses the same
@@ -213,7 +213,7 @@
 
         desktop = {
           enable = lib.mkEnableOption ''
-            the Hermes Desktop application (Electron).
+            the CASTABOT Desktop application (Electron).
 
             This adds `hermes-desktop` to home.packages, with an XDG
             launcher entry on Linux. The launcher starts the same Hermes
@@ -395,7 +395,7 @@
             # ── Linux: systemd user services ───────────────────────────────
             (lib.mkIf (isLinux && cfg.gateway.enable) {
               systemd.user.services.hermes-agent = mkUnit {
-                description = "Hermes Agent Gateway";
+                description = "CASTABOT Gateway";
                 argv = common.gatewayArgv cfg;
               };
             })

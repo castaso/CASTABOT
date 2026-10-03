@@ -1,4 +1,4 @@
-"""Hermes Desktop (Chat GUI) uninstaller: removes only GUI state — built Electron artifacts, the packaged
+"""CASTABOT Desktop (Chat GUI) uninstaller: removes only GUI state — built Electron artifacts, the packaged
 app, and the desktop's own ``userData`` — never agent source, venv, config, sessions or .env."""
 
 import os

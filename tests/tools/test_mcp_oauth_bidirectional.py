@@ -85,7 +85,7 @@ async def test_hermes_provider_forwards_401_triggers_refresh(tmp_path, monkeypat
 
     metadata = OAuthClientMetadata(
         redirect_uris=[AnyUrl("http://127.0.0.1:12345/callback")],
-        client_name="Hermes Agent",
+        client_name="CASTABOT",
     )
     provider = _HERMES_PROVIDER_CLS(
         server_name="srv",
@@ -173,7 +173,7 @@ async def test_long_lived_resource_request_does_not_block_concurrent_post(
         server_url="https://example.com/mcp",
         client_metadata=OAuthClientMetadata(
             redirect_uris=[AnyUrl("http://127.0.0.1:12345/callback")],
-            client_name="Hermes Agent",
+            client_name="CASTABOT",
         ),
         storage=storage,
         redirect_handler=_noop_redirect,

@@ -292,10 +292,10 @@ def emit_llms_index() -> str:
             absorbed.setdefault(section_for(slug), []).append(slug)
 
     lines: list[str] = []
-    lines.append("# Hermes Agent")
+    lines.append("# CASTABOT")
     lines.append("")
     lines.append(
-        "> The self-improving AI agent built by Nous Research. A terminal-native "
+        "> The self-improving AI agent built by CastaSo. A terminal-native "
         "autonomous coding and task agent with persistent memory, agent-created skills, "
         "and a messaging gateway that lives on 21+ messaging platforms — 19 native to "
         "the gateway plus IRC and Microsoft Teams via plugins (Telegram, Discord, Slack, "
@@ -337,9 +337,9 @@ def emit_llms_full() -> str:
     """Concatenate every doc under website/docs/ into a single markdown file."""
     seen: set[Path] = set()
     chunks: list[str] = [
-        "# Hermes Agent — Full Documentation\n",
+        "# CASTABOT — Full Documentation\n",
         (
-            "This file is the entire Hermes Agent documentation concatenated for LLM "
+            "This file is the entire CASTABOT documentation concatenated for LLM "
             "context ingestion. Section order reflects docs-site navigation: Getting "
             "Started, Using Hermes, Features, Messaging, Integrations, Guides, "
             "Developer Guide, Reference, then everything else.\n"

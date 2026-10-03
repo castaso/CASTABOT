@@ -1,4 +1,4 @@
-# Hermes Agent CLI Configuration
+# CASTABOT CLI Configuration
 # Copy settings from this example into ~/.hermes/config.yaml, or use
 # `hermes config set <section.key> <value>` to update the active profile.
 # This file configures CLI behavior; only documented secret environment
@@ -1681,7 +1681,7 @@ stt:
   #   local_command/xai/
   #   elevenlabs             -> unsupported; DEBUG log, then continue
   #   plugin providers       -> `prompt` in `**extra`; plugin owns limits
-  # prompt: "Hermes, Teknium, Nous Research, kanban"
+  # prompt: "Hermes, Teknium, CastaSo, kanban"
   local:
     model: "base"              # tiny | base | small | medium | large-v3 | turbo
     # language: ""             # auto-detect; set to "en", "es", "fr", etc. to force

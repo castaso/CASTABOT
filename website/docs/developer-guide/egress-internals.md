@@ -1,7 +1,7 @@
 ---
 sidebar_position: 14
 title: "Egress proxy internals"
-description: "How the iron-proxy egress firewall integrates with Hermes — module layout, lifecycle, security invariants, and extension points"
+description: "How the iron-proxy egress firewall integrates with CASTABOT — module layout, lifecycle, security invariants, and extension points"
 ---
 
 # Egress proxy internals
@@ -183,7 +183,7 @@ Regression: `test_default_bind_is_loopback_not_zero_zero` (asserts no INADDR_ANY
 
 ### Metrics port collision
 
-`metrics.listen` defaults to `:9090` in iron-proxy v0.39 — the SAME port as Hermes's default `tunnel_port: 9090`.  `build_proxy_config` MUST explicitly pin `metrics.listen: 127.0.0.1:0` so the metrics binding gets an ephemeral loopback port that can never collide with the proxy listener regardless of operator-chosen `tunnel_port`.
+`metrics.listen` defaults to `:9090` in iron-proxy v0.39 — the SAME port as CASTABOT'ss default `tunnel_port: 9090`.  `build_proxy_config` MUST explicitly pin `metrics.listen: 127.0.0.1:0` so the metrics binding gets an ephemeral loopback port that can never collide with the proxy listener regardless of operator-chosen `tunnel_port`.
 
 Regression: `test_metrics_listener_pinned_to_loopback_ephemeral`.
 
@@ -314,8 +314,8 @@ The CLI uses argparse, so `--help` is a good first probe for "did my new flag re
 
 ## See also
 
-- User-facing setup + troubleshooting: [Egress proxy](https://hermes-agent.nousresearch.com/docs/user-guide/egress/iron-proxy)
-- Docker backend internals: [Docker](https://hermes-agent.nousresearch.com/docs/user-guide/docker)
-- Bitwarden Secrets Manager integration: [`hermes secrets bitwarden`](https://hermes-agent.nousresearch.com/docs/user-guide/secrets/bitwarden)
-- CLI command reference: [`hermes egress`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-egress)
-- Sandbox-injected environment variables: [Egress proxy (sandbox-injected)](https://hermes-agent.nousresearch.com/docs/reference/environment-variables#egress-proxy-sandbox-injected)
+- User-facing setup + troubleshooting: [Egress proxy](https://castaso.github.io/CASTABOT/docs/user-guide/egress/iron-proxy)
+- Docker backend internals: [Docker](https://castaso.github.io/CASTABOT/docs/user-guide/docker)
+- Bitwarden Secrets Manager integration: [`hermes secrets bitwarden`](https://castaso.github.io/CASTABOT/docs/user-guide/secrets/bitwarden)
+- CLI command reference: [`hermes egress`](https://castaso.github.io/CASTABOT/docs/reference/cli-commands#hermes-egress)
+- Sandbox-injected environment variables: [Egress proxy (sandbox-injected)](https://castaso.github.io/CASTABOT/docs/reference/environment-variables#egress-proxy-sandbox-injected)

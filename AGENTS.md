@@ -1,4 +1,4 @@
-# Hermes Agent - Development Guide
+# CASTABOT - Development Guide
 
 Instructions for AI coding assistants and developers working on the hermes-agent codebase.
 This root file holds only what applies everywhere. Each area has its own `AGENTS.md` (aim for
@@ -98,7 +98,7 @@ grow: expansive at the edges, conservative at the waist.
   SaaS connectors, analytics dashboards, and other "someone else's product" plugins do NOT
   land under `plugins/` — every one becomes our burden against a fast-moving core for a
   backend we don't own. Ship as a **standalone plugin repo** (`~/.hermes/plugins/` or pip
-  entry point), promoted in the Nous Research Discord `#plugins-skills-and-skins`. This is a
+  entry point), promoted in the CastaSo Discord `#plugins-skills-and-skins`. This is a
   coupling decision, not a quality bar; such PRs are closed with a pointer to publish.
 
 ### Before you call it a bug — verify the premise (and when NOT to close)
@@ -138,7 +138,7 @@ scope authority; these are the rules that matter at submission time:
 - **Undisclosed vulnerabilities go private, never public.** If a finding is in scope under
   `SECURITY.md` §3.1 (isolation escape, unauthorized external-surface access, credential
   exfiltration, trust-model documentation violation), report it via
-  [GitHub Security Advisories](https://github.com/NousResearch/hermes-agent/security/advisories/new)
+  [GitHub Security Advisories](https://github.com/castaso/CASTABOT/security/advisories/new)
   or security@nousresearch.com. Do not open a public issue or PR for it, and keep
   reproduction or exploit details out of commit messages, PR bodies, and comments.
 - **Out-of-scope hardening is ordinary public work.** §3.2 items — approval-gate, redaction,

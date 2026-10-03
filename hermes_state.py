@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SQLite state store for Hermes Agent: session metadata, message history, model
+"""SQLite state store for CASTABOT: session metadata, message history, model
 config, FTS5 search. WAL mode (concurrent readers + one writer); compression
 splits sessions via parent_session_id chains; sessions are source-tagged
 ('cli', 'telegram', ...). Batch-runner / RL trajectories live elsewhere.

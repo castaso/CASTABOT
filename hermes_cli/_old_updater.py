@@ -150,7 +150,7 @@ def stop_for_relaunch(*, incomplete: bool = False) -> NoReturn:
         # A newly retired completion hook has no complete captured worklist.
         # It must not start another update or invent a successful receipt.
         print(
-            "You're updating from an older version of Hermes Agent. "
+            "You're updating from an older version of CASTABOT. "
             "To complete this update, run `hermes update` again.",
             file=sys.stderr,
         )

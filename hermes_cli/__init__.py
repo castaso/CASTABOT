@@ -1,4 +1,4 @@
-"""Hermes CLI - Unified command-line interface for Hermes Agent."""
+"""Hermes CLI - Unified command-line interface for CASTABOT."""
 
 import sys
 
