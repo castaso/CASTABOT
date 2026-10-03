@@ -12,7 +12,7 @@ self-improving AI agent created by **Nous Research**.
 | Upstream license | MIT (retained verbatim in `LICENSE`) |
 | This distribution | <https://github.com/castaso/CASTABOT> |
 | Fork owner | CastaSo |
-| Upstream commit at time of rebranding | `{{UPSTREAM_SHA}}` (branch `main`) |
+| Upstream commit at time of rebranding | `{{UPSTREAM_SHORT_SHA}}` (full: `{{UPSTREAM_SHA}}`, branch `main`) |
 
 ## Modifications
 

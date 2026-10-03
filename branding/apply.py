@@ -130,13 +130,42 @@ class RuleSet:
         return not (self.exclude_re is not None and self.exclude_re.match(posix))
 
 
+def template_vars(root: Path) -> dict[str, str]:
+    """Substitutions available inside templates.
+
+    The NOTICE records which upstream commit the overlay was generated from, so a
+    reader can diff the branded tree against its source. A literal placeholder left
+    unresolved is worse than no value at all -- it just looks like a template bug.
+    """
+
+    def git(*args: str) -> str:
+        proc = subprocess.run(["git", "-C", str(root), *args], capture_output=True)
+        return proc.stdout.decode("utf-8", "replace").strip() if proc.returncode == 0 else ""
+
+    sha = git("rev-parse", "upstream/main")
+    return {
+        "UPSTREAM_SHA": sha,
+        "UPSTREAM_SHORT_SHA": sha[:12],
+        "UPSTREAM_URL": "https://github.com/NousResearch/hermes-agent",
+        "FORK_URL": "https://github.com/castaso/CASTABOT",
+        "BRANCH": git("rev-parse", "--abbrev-ref", "HEAD"),
+    }
+
+
+def render(body: str, variables: dict[str, str]) -> str:
+    for name, value in variables.items():
+        body = body.replace("{{" + name + "}}", value)
+    return body
+
+
 def template_drift(root: Path, templates: list[dict]) -> list[str]:
     """Which template-managed files are not in their branded state.
 
-    `copy` targets must equal the template verbatim. `append` targets must end
-    with the template body and must still start with the upstream text, so the
+    `copy` targets must equal the rendered template verbatim. `append` targets must
+    end with the rendered body while still starting with the upstream text, so the
     MIT grant is never edited -- only extended.
     """
+    variables = template_vars(root)
     drifted: list[str] = []
     for spec in templates:
         source = root / spec["from"]
@@ -144,7 +173,7 @@ def template_drift(root: Path, templates: list[dict]) -> list[str]:
         if not source.is_file():
             drifted.append(f"{spec['to']} (template {spec['from']} is missing)")
             continue
-        body = source.read_text(encoding="utf-8")
+        body = render(source.read_text(encoding="utf-8"), variables)
         if spec.get("mode") == "append":
             current = target.read_text(encoding="utf-8") if target.is_file() else ""
             if not current.endswith(body):
@@ -156,11 +185,12 @@ def template_drift(root: Path, templates: list[dict]) -> list[str]:
 
 
 def install_templates(root: Path, templates: list[dict]) -> int:
+    variables = template_vars(root)
     written = 0
     for spec in templates:
         source = root / spec["from"]
         target = root / spec["to"]
-        body = source.read_text(encoding="utf-8")
+        body = render(source.read_text(encoding="utf-8"), variables)
         if spec.get("mode") == "append":
             current = target.read_text(encoding="utf-8") if target.is_file() else ""
             if not current.endswith(body):
