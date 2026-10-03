@@ -347,7 +347,7 @@ describe('BootFailureOverlay', () => {
     $desktopBoot.set({
       ...$desktopBoot.get(),
       error:
-        'This app bundles its own Hermes runtime, but the runtime files are missing or damaged. Reinstall Hermes Desktop to restore it.'
+        'This app bundles its own Hermes runtime, but the runtime files are missing or damaged. Reinstall CASTABOT Desktop to restore it.'
     })
 
     try {

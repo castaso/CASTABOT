@@ -25,7 +25,7 @@ Spaced-repetition flashcards: create, review, quiz, export.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that CASTABOT loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Memento Flashcards — Spaced-Repetition Flashcard Skill
@@ -219,7 +219,7 @@ python3 ~/.hermes/skills/productivity/memento-flashcards/scripts/youtube_quiz.py
 This returns `{"title": "...", "transcript": "..."}` or an error.
 
 If the script reports `missing_dependency`, use `terminal` with a PM-prepared
-Hermes checkout to prepare the declared `youtube` extra, then reactivate:
+CASTABOT checkout to prepare the declared `youtube` extra, then reactivate:
 
 ```bash
 python -c "import pm; pm.sync_venv(['youtube'], explicit=True)"
@@ -228,11 +228,11 @@ python -c "import youtube_transcript_api; print(youtube_transcript_api.__file__)
 ```
 
 Follow the isolated development-home setup in
-[Package Management](https://hermes-agent.nousresearch.com/docs/reference/package-management#developer-workflow)
+[Package Management](https://castaso.github.io/CASTABOT/docs/reference/package-management#developer-workflow)
 before preparation. Retry `youtube_quiz.py` with that Python and the actual
 skill directory returned by `skill_view`. For a remote or sandbox terminal,
 prepare an independent helper environment on that host. Never pip-install into
-Hermes's selected environment.
+CASTABOT'ss selected environment.
 
 **Step 3:** Generate 5 quiz questions from the transcript. Use these rules:
 

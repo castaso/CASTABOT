@@ -587,7 +587,7 @@ class GatewaySlashCommandsMixin(
         return EphemeralReply(t("gateway.restart.restarting"))
 
     async def _handle_version_command(self, event: MessageEvent) -> str:
-        """Handle /version — show the running Hermes Agent version."""
+        """Handle /version — show the running CASTABOT version."""
         return _execute("version").text
 
     def _catalog_options(self, event: MessageEvent) -> dict:

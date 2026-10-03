@@ -2,12 +2,12 @@
 sidebar_position: 13
 sidebar_label: "Plugin Catalog"
 title: "Plugin Catalog"
-description: "Give Hermes new powers with reviewed plugins you can install in one click"
+description: "Give CASTABOT new powers with reviewed plugins you can install in one click"
 ---
 
 # Plugin Catalog
 
-The plugin catalog is a curated, human-reviewed directory of Hermes plugins you
+The plugin catalog is a curated, human-reviewed directory of CASTABOT plugins you
 can install by name with a single command:
 
 ```bash
@@ -39,7 +39,7 @@ same reviewed commit this page describes.
 ## What's in an entry
 
 Each catalog entry is a small YAML file in the
-[`plugin-catalog/`](https://github.com/NousResearch/hermes-agent/tree/main/plugin-catalog)
+[`plugin-catalog/`](https://github.com/castaso/CASTABOT/tree/main/plugin-catalog)
 directory of the hermes-agent repository, declaring:
 
 | Field | Meaning |
@@ -52,7 +52,7 @@ directory of the hermes-agent repository, declaring:
 | `category` | Browse shelf: `desktop` (default), `memory`, `platform`, `web`, `tools`, `voice`, `automation`, `models` or `general` |
 | `maintainer` | Who owns the plugin |
 | `capabilities` | Declared tools, hooks, middleware, and required env vars |
-| `requires_hermes` | Minimum Hermes version, e.g. `>=0.19` (optional) |
+| `requires_hermes` | Minimum CASTABOT version, e.g. `>=0.19` (optional) |
 | `platforms` | OS restrictions, empty = all (optional) |
 | `title` | Human name shown on cards, e.g. `NVIDIA App` (optional; defaults to `name`) |
 | `onboarding` | `true` offers the plugin on the desktop onboarding card, beside the hosted connectors, on the platforms it lists. Curated: official entries only (optional, default `false`) |
@@ -96,11 +96,11 @@ The catalog is designed so you know exactly what you're installing:
   including one built from `new RegExp(...).source`, still fails. Treat the
   lint as a review aid, not a
   guarantee; give Desktop halves the same scrutiny you'd give a Python half.
-- **No runtime overrides of Hermes.** Listed plugins extend Hermes through
+- **No runtime overrides of CASTABOT.** Listed plugins extend CASTABOT through
   its public surfaces (hooks, middleware, provider profiles, Desktop SDK slots)
   and never replace core functions, methods or Desktop UI in place: two plugins
   patching the same seam would break each other, and a core release could break
-  both. Admission's `no core override` check refuses Python that rebinds Hermes
+  both. Admission's `no core override` check refuses Python that rebinds CASTABOT
   modules, classes or their tables at runtime, and the `desktop surface` lint
   refuses `desktop/plugin.js` code that queries the app's own markup to restyle,
   hide, click or rewrite core UI.
@@ -153,7 +153,7 @@ hermes plugins enable td
 
 Portable packages can also carry a stdio MCP server. The `snyk` entry pins the
 Snyk CLI (`npx -y snyk@<version> mcp`) and bundles the `snyk-security-scan`
-skill, so one install gives Hermes code, dependency, container and IaC scanning
+skill, so one install gives CASTABOT code, dependency, container and IaC scanning
 plus the workflow for using it; the catalog name and manifest name match:
 
 ```bash
@@ -209,10 +209,10 @@ unreviewed name index. Install such plugins by `owner/repo` or Git URL instead
 ### Live refresh
 
 The docs build publishes the catalog as one JSON document
-(`https://hermes-agent.nousresearch.com/docs/api/plugin-catalog.json`).
+(`https://castaso.github.io/CASTABOT/docs/api/plugin-catalog.json`).
 `search`/`install`/`update` fetch it at most every six hours and cache it under
 `~/.hermes/cache/`, so new entries and removals reach installed clients without
-updating Hermes. Offline, the cached copy is used for up to 24 hours, then the
+updating CASTABOT. Offline, the cached copy is used for up to 24 hours, then the
 copy shipped with your checkout takes over (a failed fetch is remembered for a
 minute, so `plugins list` and the dashboard's Plugins page pay at most one
 connection timeout, not one per installed plugin). When the cached document and
@@ -242,19 +242,19 @@ The complete guidelines live in
 what to check before you submit, how the PR and review work, every admission
 rule, and how pin updates, delisting and removal work. That page mirrors the
 canonical rules in the
-[plugin-catalog README](https://github.com/NousResearch/hermes-agent/tree/main/plugin-catalog).
+[plugin-catalog README](https://github.com/castaso/CASTABOT/tree/main/plugin-catalog).
 
 In short, a listed plugin is submitted by its owner (or added in a reviewed
 maintainer sweep), lives in a public repository, pins an exact commit, passes
 `hermes plugins validate` in catalog CI, never updates itself, and extends
-Hermes only through public hooks and the Desktop SDK, never by patching core
+CASTABOT only through public hooks and the Desktop SDK, never by patching core
 code or Desktop UI at runtime.
 
 ## See also
 
 - [Plugins](plugins.md) — the plugin system itself: manifest format, enabling,
   configuration
-- [Built-in Plugins](built-in-plugins.md) — plugins that ship with Hermes
-- [Build a Hermes Plugin](../../developer-guide/plugins/index.md) — write your own
+- [Built-in Plugins](built-in-plugins.md) — plugins that ship with CASTABOT
+- [Build a CASTABOT Plugin](../../developer-guide/plugins/index.md) — write your own
 - [Plugin Catalog page](/plugins) — the browsable catalog
 - [Submitting to the plugin catalog](../../developer-guide/plugins/catalog-submission.md) — admission rules and the submission guide

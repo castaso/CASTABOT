@@ -1,12 +1,12 @@
 ---
 sidebar_position: 2
 title: "Installation"
-description: "Install Hermes Agent with desktop bundles, source installers, Docker, Nix, or the Termux APT package"
+description: "Install CASTABOT with desktop bundles, source installers, Docker, Nix, or the Termux APT package"
 ---
 
 # Installation
 
-Get Hermes Agent up and running in under two minutes!
+Get CASTABOT up and running in under two minutes!
 
 :::tip Platform Support
 For the full platform support matrix (which OSes, distribution methods, and
@@ -17,12 +17,12 @@ platform-gated features are supported), see **[Platform Support](./platform-supp
 ### Desktop packages on macOS or Windows
 
 Download the package for your platform from the
-[Hermes website](https://hermes-agent.nousresearch.com/).
+[CASTABOT website](https://castaso.github.io/CASTABOT/).
 
 - **Windows:** open the `.appinstaller` download with Windows App Installer.
   It installs the signed MSIX bundle and records its update source.
   Microsoft Store packages have separate Store ownership.
-- **macOS:** open the DMG, then copy `Hermes.app` to Applications. The ZIP
+- **macOS:** open the DMG, then copy `CASTABOT.app` to Applications. The ZIP
   artifact carries the signed app used by the automatic updater.
 
 Bundled packages contain the agent, Python, supported dependencies, and prebuilt
@@ -31,14 +31,14 @@ optional integrations can still require network access.
 
 A `Hermes-Setup` bootstrap installer is different: it downloads a source
 installation and builds the desktop app. Light is a remote-only build variant,
-not a bundled local runtime. See [Hermes Desktop](../user-guide/desktop.md).
+not a bundled local runtime. See [CASTABOT Desktop](../user-guide/desktop.md).
 
 :::note
 The macOS installer is **Apple Silicon only**. macOS on x86 (Intel) processors is [not a supported platform](./platform-support.md#unsupported).
 :::
 
-### Without Hermes Desktop:
-For a command-line only install without Hermes Desktop, run:
+### Without CASTABOT Desktop:
+For a command-line only install without CASTABOT Desktop, run:
 
 #### Linux / macOS / WSL2
 ```bash
@@ -52,7 +52,7 @@ Run in powershell:
 iex (irm https://hermes-agent.nousresearch.com/install.ps1) 
 ```
 
-If you want to install & run Hermes Desktop after a command-line only install, simply run
+If you want to install & run CASTABOT Desktop after a command-line only install, simply run
 ```bash
 hermes desktop
 ```
@@ -78,7 +78,7 @@ Other optional tools use their feature-specific installation paths.
 
 To leave the browser tools out, pass `--skip-browser` on POSIX or `-SkipBrowser`
 on Windows; for the computer-use driver, `--skip-computer-use` /
-`-SkipComputerUse`. Hermes remembers these choices: later installs and
+`-SkipComputerUse`. CASTABOT remembers these choices: later installs and
 `hermes update` do not add them back. Run `hermes pm install agent-browser` or
 `hermes pm install cua-driver` to install them and undo the choice.
 
@@ -88,7 +88,7 @@ also invoke setup and gateway configuration. `--non-interactive` on POSIX, or
 `--include-desktop` / `-IncludeDesktop` stage builds the desktop from source.
 
 On a terminal the scripts show one status line per step and write the output
-of git, uv and the builds to `logs/install.log` under the Hermes data
+of git, uv and the builds to `logs/install.log` under the CASTABOT data
 directory; a failed step prints its last lines and the log path. CI (`CI` or
 `GITHUB_ACTIONS` set), redirected output, `--verbose` / `-Verbose` or
 `HERMES_INSTALL_VERBOSE=1` stream everything instead.
@@ -99,7 +99,7 @@ directory; a failed step prints its last lines and the log path. CI (`CI` or
 |---|---|---|---|
 | POSIX source script | `~/.hermes/hermes-agent/` | `~/.local/bin/hermes` wrapper | `~/.hermes/` |
 | Windows source script | `%LOCALAPPDATA%\hermes\hermes-agent\` | `%LOCALAPPDATA%\hermes\bin\` | `%LOCALAPPDATA%\hermes\` |
-| Desktop bundle | Inside the installed app package | Packaged launchers; Windows execution aliases | Platform default Hermes data directory |
+| Desktop bundle | Inside the installed app package | Packaged launchers; Windows execution aliases | Platform default CASTABOT data directory |
 | Docker | `/opt/hermes/` | Image entrypoint and `hermes` shim | Mounted `/opt/data/` |
 | Termux APT | `$PREFIX/lib/hermes-agent/` | Symlinks in `$PREFIX/bin/` | `~/.hermes/` |
 
@@ -142,8 +142,8 @@ hermes setup --portal
 That logs you in, sets Nous as your provider, and turns on the Tool Gateway in one command.
 :::
 
-:::tip Already running Hermes on another machine?
-You don't need to rebuild your setup from scratch. Restore a full backup with `hermes import` (see [Exporting Hermes to another machine](../reference/faq.md#exporting-hermes-to-another-machine)), or bring over a single agent with `hermes profile import` (see [Moving a single profile to another machine](../reference/faq.md#moving-a-single-profile-to-another-machine)). Note that a profile export excludes credentials by design, so an export alone is not a full backup — [`hermes backup` vs `hermes profile export`](../reference/faq.md#hermes-backup-vs-hermes-profile-export) explains which to use.
+:::tip Already running CASTABOT on another machine?
+You don't need to rebuild your setup from scratch. Restore a full backup with `hermes import` (see [Exporting CASTABOT to another machine](../reference/faq.md#exporting-hermes-to-another-machine)), or bring over a single agent with `hermes profile import` (see [Moving a single profile to another machine](../reference/faq.md#moving-a-single-profile-to-another-machine)). Note that a profile export excludes credentials by design, so an export alone is not a full backup — [`hermes backup` vs `hermes profile export`](../reference/faq.md#hermes-backup-vs-hermes-profile-export) explains which to use.
 :::
 
 ---
@@ -228,13 +228,13 @@ For more diagnostics, run `hermes doctor` — it will tell you exactly what's mi
 
 ### Symlinked home directories and external storage
 
-Hermes supports a symlinked `HERMES_HOME` and symlinked home subdirectories,
+CASTABOT supports a symlinked `HERMES_HOME` and symlinked home subdirectories,
 including `hooks`, `skills`, `sessions`, and `logs`. During home initialization,
 existing directory links are preserved, and permissions on linked directories
 (and descendants such as `logs/curator`) are left to their owner.
 
 If a link target is missing, inaccessible, or not a directory, initialization
-stops with a storage error naming the path and link target. Hermes does **not**
+stops with a storage error naming the path and link target. CASTABOT does **not**
 replace the link or create its missing target: doing so could write data onto
 the local disk while an external or NAS volume is unmounted. Check the reported
 link, restore the mount or correct its target, and verify access permissions

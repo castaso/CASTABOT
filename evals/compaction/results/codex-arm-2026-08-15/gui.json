@@ -26,7 +26,7 @@
  },
  "results": [
   {
-   "q": "What is the PR number for the authored fix addressing mid-turn message ordering bugs in Hermes Desktop?",
+   "q": "What is the PR number for the authored fix addressing mid-turn message ordering bugs in CASTABOT Desktop?",
    "gold": "#86617",
    "answer": "PR **#86617**.",
    "score": 2,

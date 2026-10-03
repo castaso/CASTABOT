@@ -35,8 +35,8 @@
     "active": true,
     "category": "DeveloperTool",
     "shortDescription": "Hermes",
-    "longDescription": "Installs Hermes Agent on your machine. Drives scripts/install.ps1 (Windows) and scripts/install.sh (macOS/Linux).",
-    "publisher": "Nous Research",
+    "longDescription": "Installs CASTABOT on your machine. Drives scripts/install.ps1 (Windows) and scripts/install.sh (macOS/Linux).",
+    "publisher": "CastaSo",
     "copyright": "Copyright © 2026 Nous Research",
     "targets": [
       "app",

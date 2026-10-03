@@ -26,7 +26,7 @@ Fast BPE/WordPiece tokenization and custom vocab training.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that CASTABOT loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # HuggingFace Tokenizers - Fast Tokenization for NLP
@@ -521,10 +521,10 @@ Browse all: https://huggingface.co/models?library=tokenizers
 
 ## References
 
-- **[Training Guide](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/mlops/huggingface-tokenizers/references/training.md)** - Train custom tokenizers, configure trainers, handle large datasets
-- **[Algorithms Deep Dive](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/mlops/huggingface-tokenizers/references/algorithms.md)** - BPE, WordPiece, Unigram explained in detail
-- **[Pipeline Components](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/mlops/huggingface-tokenizers/references/pipeline.md)** - Normalizers, pre-tokenizers, post-processors, decoders
-- **[Transformers Integration](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/mlops/huggingface-tokenizers/references/integration.md)** - AutoTokenizer, PreTrainedTokenizerFast, special tokens
+- **[Training Guide](https://github.com/castaso/CASTABOT/blob/main/optional-skills/mlops/huggingface-tokenizers/references/training.md)** - Train custom tokenizers, configure trainers, handle large datasets
+- **[Algorithms Deep Dive](https://github.com/castaso/CASTABOT/blob/main/optional-skills/mlops/huggingface-tokenizers/references/algorithms.md)** - BPE, WordPiece, Unigram explained in detail
+- **[Pipeline Components](https://github.com/castaso/CASTABOT/blob/main/optional-skills/mlops/huggingface-tokenizers/references/pipeline.md)** - Normalizers, pre-tokenizers, post-processors, decoders
+- **[Transformers Integration](https://github.com/castaso/CASTABOT/blob/main/optional-skills/mlops/huggingface-tokenizers/references/integration.md)** - AutoTokenizer, PreTrainedTokenizerFast, special tokens
 
 ## Resources
 

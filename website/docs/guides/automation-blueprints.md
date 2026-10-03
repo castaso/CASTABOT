@@ -6,7 +6,7 @@ description: "Ready-to-use automation blueprints — scheduled tasks, GitHub eve
 
 # Automation Blueprints
 
-Copy-paste blueprints for common automation patterns. Each blueprint uses Hermes's built-in [cron scheduler](../user-guide/features/cron.md) for time-based triggers and [webhook platform](../user-guide/messaging/webhooks.md) for event-driven triggers.
+Copy-paste blueprints for common automation patterns. Each blueprint uses CASTABOT'ss built-in [cron scheduler](../user-guide/features/cron.md) for time-based triggers and [webhook platform](../user-guide/messaging/webhooks.md) for event-driven triggers.
 
 Every blueprint works with **any model** — not locked to a single provider.
 
@@ -34,9 +34,9 @@ Label, prioritize, and summarize new issues every night. Delivers a digest to yo
 
 ```bash
 hermes cron create "0 2 * * *" \
-  "You are a project manager triaging the NousResearch/hermes-agent GitHub repo.
+  "You are a project manager triaging the castaso/CASTABOT GitHub repo.
 
-1. Run: gh issue list --repo NousResearch/hermes-agent --state open --json number,title,labels,author,createdAt --limit 30
+1. Run: gh issue list --repo castaso/CASTABOT --state open --json number,title,labels,author,createdAt --limit 30
 2. Identify issues opened in the last 24 hours
 3. For each new issue:
    - Suggest a priority label (P0-critical, P1-high, P2-medium, P3-low)
@@ -116,9 +116,9 @@ Weekly scan of merged PRs to find API changes that need documentation updates.
 
 ```bash
 hermes cron create "0 9 * * 1" \
-  "Scan the NousResearch/hermes-agent repo for documentation drift.
+  "Scan the castaso/CASTABOT repo for documentation drift.
 
-1. Run: gh pr list --repo NousResearch/hermes-agent --state merged --json number,title,files,mergedAt --limit 30
+1. Run: gh pr list --repo castaso/CASTABOT --state merged --json number,title,files,mergedAt --limit 30
 2. Filter to PRs merged in the last 7 days
 3. For each merged PR, check if it modified:
    - Tool schemas (tools/*.py) — may need docs/reference/tools-reference.md update
@@ -142,8 +142,8 @@ Daily scan for known vulnerabilities in project dependencies.
 hermes cron create "0 6 * * *" \
   "Run a dependency security audit on the hermes-agent project.
 
-1. Locate the hermes-agent checkout and its pyproject.toml and uv.lock. Do not activate or mutate Hermes's dependency environment.
-2. Scan uv.lock with an independently installed scanner that supports that lock format (check its --help). Preserve the complete findings and errors. If no scanner is available, report the blocker; do not install one into Hermes.
+1. Locate the hermes-agent checkout and its pyproject.toml and uv.lock. Do not activate or mutate CASTABOT'ss dependency environment.
+2. Scan uv.lock with an independently installed scanner that supports that lock format (check its --help). Preserve the complete findings and errors. If no scanner is available, report the blocker; do not install one into CASTABOT.
 3. Run: npm audit --json in website/ if it exists. Preserve stderr and distinguish findings from a failed scan.
 4. Check for any CVEs with CVSS score >= 7.0
 
@@ -336,7 +336,7 @@ Daily arXiv scan that saves summaries to your note-taking system.
 
 ```bash
 hermes cron create "0 8 * * *" \
-  "Search arXiv for the 3 most interesting papers on 'language model reasoning' OR 'tool-use agents' from the past day. For each paper, create an Obsidian note with the title, authors, abstract summary, key contribution, and potential relevance to Hermes Agent development." \
+  "Search arXiv for the 3 most interesting papers on 'language model reasoning' OR 'tool-use agents' from the past day. For each paper, create an Obsidian note with the title, authors, abstract summary, key contribution, and potential relevance to CASTABOT development." \
   --skill arxiv --skill obsidian \
   --name "Paper digest" \
   --deliver local

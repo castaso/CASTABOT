@@ -17,7 +17,7 @@ Create, read, edit, template, and review Word .docx files.
 | Source | Bundled (installed by default) |
 | Path | `skills/productivity/docx` |
 | Version | `1.1.0` |
-| Author | Nous Research |
+| Author | CastaSo |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `word`, `docx`, `documents`, `office`, `templates`, `revisions`, `comments` |
@@ -26,7 +26,7 @@ Create, read, edit, template, and review Word .docx files.
 ## Reference: full SKILL.md
 
 :::info
-The following is the complete skill definition that Hermes loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
+The following is the complete skill definition that CASTABOT loads when this skill is triggered. This is what the agent sees as instructions when the skill is active.
 :::
 
 # Docx Skill

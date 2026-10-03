@@ -2341,7 +2341,7 @@ def cmd_version(args):
 
 
 def cmd_uninstall(args):
-    """Uninstall Hermes Agent (or just the Chat GUI with --gui).
+    """Uninstall CASTABOT (or just the Chat GUI with --gui).
 
     ``--yes`` paths run from the desktop app's non-interactive cleanup scripts,
     so the TTY gate applies only when we actually need to prompt.
@@ -2420,7 +2420,7 @@ def _update_preflight_handled(args) -> bool:
     if handle_metadata_args(args, PROJECT_ROOT):
         sys.exit(0)
     if is_managed():
-        managed_error("update Hermes Agent")
+        managed_error("update CASTABOT")
         return True
 
     # --plan is read-only and deployment-kind aware, so it runs BEFORE the
@@ -2489,7 +2489,7 @@ from hermes_cli.update_receipt import update_receipt_scope
 
 @update_receipt_scope()
 def cmd_update(args):
-    """Update Hermes Agent: hangup protection + update lock around ``_cmd_update_impl``."""
+    """Update CASTABOT: hangup protection + update lock around ``_cmd_update_impl``."""
     # Marks this frame as the CURRENT updater for
     # _old_updater.in_historical_update(); historical on-disk updaters do not
     # declare this local, so only they hand off through retired shims.

@@ -1,6 +1,6 @@
 # Webhook Subscriptions
 
-Create dynamic webhook subscriptions so external services (GitHub, GitLab, Stripe, CI/CD, IoT sensors, monitoring tools) can trigger Hermes agent runs by POSTing events to a URL.
+Create dynamic webhook subscriptions so external services (GitHub, GitLab, Stripe, CI/CD, IoT sensors, monitoring tools) can trigger CASTABOT agent runs by POSTing events to a URL.
 
 ## Setup (Required First)
 
@@ -83,7 +83,7 @@ hermes webhook subscribe todoist-hermes \
   --deliver telegram --deliver-chat-id "12345"
 ```
 
-Full filter syntax: https://hermes-agent.nousresearch.com/docs/user-guide/messaging/webhooks#payload-filters
+Full filter syntax: https://castaso.github.io/CASTABOT/docs/user-guide/messaging/webhooks#payload-filters
 
 ### List subscriptions
 ```bash

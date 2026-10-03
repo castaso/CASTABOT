@@ -919,7 +919,7 @@ def _build_compact_banner() -> str:
     if (getattr(_skin, "name", "default") if _skin else "default") == "default":
         tiny_line = "☤ NOUS HERMES"
     else:
-        tiny_line = _skin.get_branding("agent_name", "Hermes Agent") if _skin else "Hermes Agent"
+        tiny_line = _skin.get_branding("agent_name", "CASTABOT") if _skin else "CASTABOT"
     line1 = t("cli.render.banner_tagline", name=tiny_line)
 
     if os.environ.get("HERMES_FAST_STARTUP_BANNER") == "1":
@@ -932,7 +932,7 @@ def _build_compact_banner() -> str:
 
     w = min(shutil.get_terminal_size().columns - 2, 88)
     if w < 30:
-        return f"\n[{title_color}]{tiny_line}[/] [dim {dim_color}]- Nous Research[/]\n"
+        return f"\n[{title_color}]{tiny_line}[/] [dim {dim_color}]- CastaSo[/]\n"
 
     inner = w - 2  # inside the box border
     bar = "═" * w

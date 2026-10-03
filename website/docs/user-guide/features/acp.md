@@ -1,17 +1,17 @@
 ---
 sidebar_position: 11
 title: "ACP Host Integration"
-description: "Use Hermes Agent inside ACP-compatible editors and collaboration platforms"
+description: "Use CASTABOT inside ACP-compatible editors and collaboration platforms"
 ---
 
 # ACP Host Integration
 
 Python dependency commands on this page use a
 [PM-prepared source checkout](../../reference/package-management.md#developer-workflow).
-After a dependency change, reactivate the checkout and restart Hermes.
+After a dependency change, reactivate the checkout and restart CASTABOT.
 
-Hermes Agent can run as an ACP server, letting ACP-compatible hosts talk to
-Hermes over stdio. Editors can render:
+CASTABOT can run as an ACP server, letting ACP-compatible hosts talk to
+CASTABOT over stdio. Editors can render:
 
 - chat messages
 - tool activity
@@ -21,13 +21,13 @@ Hermes over stdio. Editors can render:
 - streamed thinking / response chunks
 
 Other hosts can use the same protocol to route collaboration events into
-Hermes. ACP is a good fit when you want Hermes to keep its existing identity,
+CASTABOT. ACP is a good fit when you want CASTABOT to keep its existing identity,
 provider setup, memory, skills, and tools while another application owns the
 conversation transport.
 
-## What Hermes exposes in ACP mode
+## What CASTABOT exposes in ACP mode
 
-Hermes runs with a curated `hermes-acp` toolset designed for editor workflows. It includes:
+CASTABOT runs with a curated `hermes-acp` toolset designed for editor workflows. It includes:
 
 - file tools: `read_file`, `write_file`, `patch`, `search_files`
 - terminal tools: `terminal`, `process`
@@ -61,7 +61,7 @@ client asks for them per session, and they are always added.
 
 ## Installation
 
-Install Hermes normally, then add the ACP extra from the install checkout:
+Install CASTABOT normally, then add the ACP extra from the install checkout:
 
 ```bash
 cd ~/.hermes/hermes-agent && python -c "import pm; pm.sync_venv(['acp'], explicit=True)"
@@ -75,7 +75,7 @@ This installs the `agent-client-protocol` dependency and enables:
 
 ## Launching the ACP server
 
-Any of the following starts Hermes in ACP mode:
+Any of the following starts CASTABOT in ACP mode:
 
 ```bash
 hermes acp
@@ -89,7 +89,7 @@ hermes-acp
 python -m acp_adapter
 ```
 
-Hermes logs to stderr so stdout remains reserved for ACP JSON-RPC traffic.
+CASTABOT logs to stderr so stdout remains reserved for ACP JSON-RPC traffic.
 
 For non-interactive checks:
 
@@ -128,15 +128,15 @@ for people and agents. Its `buzz-acp` harness connects Buzz channels to any ACP
 agent over stdio:
 
 ```text
-Buzz relay <-- WebSocket --> buzz-acp <-- ACP over stdio --> Hermes Agent
+Buzz relay <-- WebSocket --> buzz-acp <-- ACP over stdio --> CASTABOT
 ```
 
-This is a transport integration, not a second Hermes installation. The
-subprocess launched by `buzz-acp` uses the same Hermes configuration,
+This is a transport integration, not a second CASTABOT installation. The
+subprocess launched by `buzz-acp` uses the same CASTABOT configuration,
 credentials, memory, skills, and state as `hermes` on that host.
 
 (This is distinct from [Buzz Desktop's managed runtime](#buzz-desktop), which
-spawns Hermes locally as a preset harness. The relay bridge is for joining Buzz
+spawns CASTABOT locally as a preset harness. The relay bridge is for joining Buzz
 *channels* as an agent identity, typically on a server.)
 
 Prerequisites:
@@ -145,7 +145,7 @@ Prerequisites:
 - Build `buzz-acp` and the `buzz` CLI from the
   [Buzz repository](https://github.com/block/buzz)
   (`cargo build --release -p buzz-acp`).
-- Mint a dedicated Nostr keypair for Hermes (`buzz-admin generate-key`) and
+- Mint a dedicated Nostr keypair for CASTABOT (`buzz-admin generate-key`) and
   register it as a relay member (`buzz-admin add-member`). Every agent needs
   its own identity — do not reuse a human keypair.
 - Add that identity to the intended Buzz channels.
@@ -166,16 +166,16 @@ buzz-acp
 Do not commit or paste the private key or API token.
 
 For a persistent server deployment, run `buzz-acp` under a service manager as
-the same operating-system user that owns the intended Hermes home. Setup,
+the same operating-system user that owns the intended CASTABOT home. Setup,
 key generation, channel discovery, and per-agent options are documented in the
 [buzz-acp README](https://github.com/block/buzz/tree/main/crates/buzz-acp).
 
-The bridge discovers every Buzz channel where the Hermes identity is a member
+The bridge discovers every Buzz channel where the CASTABOT identity is a member
 and automatically subscribes when it is added to another channel. Buzz channel
-membership therefore remains the access boundary; Hermes does not need a
+membership therefore remains the access boundary; CASTABOT does not need a
 separate channel list in its own configuration.
 
-To expose Hermes ACP activity in the owner's Buzz Desktop, add:
+To expose CASTABOT ACP activity in the owner's Buzz Desktop, add:
 
 ```bash
 export BUZZ_ACP_RELAY_OBSERVER="true"
@@ -193,7 +193,7 @@ is present to show approval dialogs — see
 as privileged automation: use a dedicated operating-system account, restrict
 which Buzz users can prompt the agent (`buzz-acp` supports an owner-only
 respond gate via `BUZZ_ACP_AGENT_OWNER`), and grant membership only in channels
-where Hermes is expected to work.
+where CASTABOT is expected to work.
 
 ### VS Code
 
@@ -202,15 +202,15 @@ Install the [ACP Client](https://marketplace.visualstudio.com/items?itemName=for
 To connect:
 
 1. Open the ACP Client panel from the Activity Bar.
-2. Select **Hermes Agent** from the built-in agent list.
+2. Select **CASTABOT** from the built-in agent list.
 3. Connect and start chatting.
 
-If you want to define Hermes manually, add it through VS Code settings under `acp.agents`:
+If you want to define CASTABOT manually, add it through VS Code settings under `acp.agents`:
 
 ```json
 {
   "acp.agents": {
-    "Hermes Agent": {
+    "CASTABOT": {
       "command": "hermes",
       "args": ["acp"]
     }
@@ -220,7 +220,7 @@ If you want to define Hermes manually, add it through VS Code settings under `ac
 
 ### Zed
 
-Configure Hermes as a custom agent server in Zed settings:
+Configure CASTABOT as a custom agent server in Zed settings:
 
 1. Open the Agent Panel.
 2. Add a custom agent server with the following configuration:
@@ -237,11 +237,11 @@ Configure Hermes as a custom agent server in Zed settings:
 }
 ```
 
-3. Start a new Hermes external-agent thread.
+3. Start a new CASTABOT external-agent thread.
 
 Prerequisites:
 
-- Configure Hermes provider credentials first with `hermes model`, or set them in `~/.hermes/.env` / `~/.hermes/config.yaml`.
+- Configure CASTABOT provider credentials first with `hermes model`, or set them in `~/.hermes/.env` / `~/.hermes/config.yaml`.
 
 ### JetBrains
 
@@ -249,9 +249,9 @@ Use an ACP-compatible plugin and point it at `hermes acp` or `hermes-acp`.
 
 ### Buzz Desktop
 
-[Buzz](https://github.com/block/buzz) ships Hermes Agent as a preset runtime.
-With Hermes installed the normal way, Buzz discovers it automatically —
-open **Settings → Runtimes** and Hermes appears under your runtimes.
+[Buzz](https://github.com/block/buzz) ships CASTABOT as a preset runtime.
+With CASTABOT installed the normal way, Buzz discovers it automatically —
+open **Settings → Runtimes** and CASTABOT appears under your runtimes.
 
 If discovery fails (older installs), make sure the ACP launcher resolves on a
 login-shell PATH:
@@ -267,11 +267,11 @@ older installs. As a manual fallback, configure Buzz's agent command as
 
 #### Model picker
 
-Buzz Desktop (v0.5.1+) renders Hermes' full model menu in the agent's runtime
-settings. The list comes from Hermes itself over ACP: it shows every model
-from providers you have authenticated in Hermes (the same inventory behind
+Buzz Desktop (v0.5.1+) renders CASTABOT's full model menu in the agent's runtime
+settings. The list comes from CASTABOT itself over ACP: it shows every model
+from providers you have authenticated in CASTABOT (the same inventory behind
 `hermes model` and the `/model` command), so a model missing from the menu
-means its provider has no credentials configured on the Hermes side.
+means its provider has no credentials configured on the CASTABOT side.
 
 Entry IDs take the form `provider:model` (e.g. `openrouter:z-ai/glm-5.1`), or
 `custom:<name>:<model>` for custom OpenAI-compatible endpoints defined in
@@ -281,18 +281,18 @@ change your Hermes-wide default — use `hermes model` for that.
 #### Keep Buzz agents owner-only
 
 Buzz creates every agent with **Who can talk to this agent** set to `Owner only`.
-Leave it there when the runtime is Hermes.
+Leave it there when the runtime is CASTABOT.
 
 Two behaviors combine on this path. The `hermes-acp` toolset includes `terminal`
-and `execute_code`, and Buzz's ACP bridge answers Hermes' permission requests
-itself with `allow_once` rather than surfacing them. A Hermes agent in Buzz
+and `execute_code`, and Buzz's ACP bridge answers CASTABOT's permission requests
+itself with `allow_once` rather than surfacing them. A CASTABOT agent in Buzz
 therefore runs shell commands on the host without prompting. I asked one to run
 `rm -rf` against a scratch directory and it deleted it, no prompt anywhere.
 
 Selecting `Anyone` hands that same shell access to every author who can reach
 the channel. Buzz does not warn when you pick it.
 
-`approvals.mode: manual` does not help: Hermes raises the permission request,
+`approvals.mode: manual` does not help: CASTABOT raises the permission request,
 but Buzz auto-approves it and the command still runs. To take the shell away,
 narrow the toolset instead: set `platform_toolsets.acp` to a list without
 `terminal` and `code_execution`, or add them to `agent.disabled_toolsets`.
@@ -305,26 +305,26 @@ command from everyone else.
 
 ## Configuration and credentials
 
-ACP mode uses the same Hermes configuration as the CLI:
+ACP mode uses the same CASTABOT configuration as the CLI:
 
 - `~/.hermes/.env`
 - `~/.hermes/config.yaml`
 - `~/.hermes/skills/`
 - `~/.hermes/state.db`
 
-Provider resolution uses Hermes' normal runtime resolver, so ACP inherits the currently configured provider and credentials. Hermes also advertises a terminal auth method (`--setup`) for first-run ACP clients; this opens Hermes' interactive model/provider setup.
+Provider resolution uses CASTABOT's normal runtime resolver, so ACP inherits the currently configured provider and credentials. CASTABOT also advertises a terminal auth method (`--setup`) for first-run ACP clients; this opens CASTABOT's interactive model/provider setup.
 
 ## Host integration
 
 These variables are set by an **ACP host process** (an editor or another agent
-harness) on the Hermes subprocess it spawns. They are not user configuration —
+harness) on the CASTABOT subprocess it spawns. They are not user configuration —
 do not set them by hand in `.env` or `config.yaml`.
 
 | Variable | Value | Effect |
 |----------|-------|--------|
 | `HERMES_ACP_SKIP_CONFIGURED_MCP` | `1` | Skip starting the **globally configured** MCP servers from `config.yaml` before the ACP JSON-RPC loop begins. |
 
-Hermes normally starts every MCP server configured in `config.yaml` before it
+CASTABOT normally starts every MCP server configured in `config.yaml` before it
 enters the ACP JSON-RPC loop. A host that owns MCP itself — passing the
 session's servers explicitly through `session/new` — does not need that global
 startup, and an unrelated slow or interactive MCP server would otherwise delay
@@ -348,7 +348,7 @@ Each session stores:
 - current conversation history
 - cancel event
 
-Conversations are persisted to Hermes' session database and can be listed, loaded,
+Conversations are persisted to CASTABOT's session database and can be listed, loaded,
 resumed, or forked after the ACP server restarts. Opening a new session without a
 prompt keeps it in memory only: model-discovery probes do not create empty history
 rows. A nonempty fork is persisted immediately, and existing session metadata can
@@ -361,7 +361,7 @@ confirmed unwanted sessions with `hermes sessions delete <id>`.
 
 ## Working directory behavior
 
-ACP sessions bind the editor's cwd to the Hermes task ID so file and terminal tools run relative to the editor workspace, not the server process cwd.
+ACP sessions bind the editor's cwd to the CASTABOT task ID so file and terminal tools run relative to the editor workspace, not the server process cwd.
 
 ## Approvals
 
@@ -388,12 +388,12 @@ ACP exposes a third tier between *allow once* and *allow always*: **Allow for se
 |---|---|---|---|
 | `allow_once` | Allow once | This one tool call | No |
 | `allow_session` | Allow for session | All matching calls in this ACP session | No — cleared when the session ends |
-| `allow_always` | Allow always | All future sessions | Yes (written to the Hermes permanent allowlist) |
+| `allow_always` | Allow always | All future sessions | Yes (written to the CASTABOT permanent allowlist) |
 | `deny` | Deny | This one tool call | No |
 
 `allow_session` is the right default for an editor workflow where you trust an agent for the duration of a task but don't want to grant a long-lived allowlist entry. The safety trade-off is straightforward: the broader the scope, the less the editor will interrupt you, and the more damage a misbehaving agent (or prompt injection) can do before you notice. Start with `allow_once` for unfamiliar commands; promote to `allow_session` once you've seen the agent run the same pattern correctly a few times; reserve `allow_always` for truly idempotent commands you trust forever (e.g. `git status`).
 
-The ACP bridge maps these options onto Hermes' internal approval semantics — `allow_always` writes a permanent allowlist entry the same way the CLI does, while `allow_session` only affects the in-process approval cache for the current ACP session.
+The ACP bridge maps these options onto CASTABOT's internal approval semantics — `allow_always` writes a permanent allowlist entry the same way the CLI does, while `allow_session` only affects the in-process approval cache for the current ACP session.
 
 ## Troubleshooting
 
@@ -402,7 +402,7 @@ The ACP bridge maps these options onto Hermes' internal approval semantics — `
 Check:
 
 - For manual/local development, verify the host command points to `hermes acp`.
-- Hermes is installed and on your PATH.
+- CASTABOT is installed and on your PATH.
 - The ACP extra is installed (`cd ~/.hermes/hermes-agent && python -c "import pm; pm.sync_venv(['acp'], explicit=True)"`).
 
 ### ACP starts but immediately errors
@@ -418,7 +418,7 @@ hermes status
 
 ### Missing credentials
 
-ACP mode uses Hermes' existing provider setup. Configure credentials with:
+ACP mode uses CASTABOT's existing provider setup. Configure credentials with:
 
 ```bash
 hermes model

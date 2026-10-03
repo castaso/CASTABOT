@@ -119,7 +119,7 @@ test('nonstable runtime pins userData before the app name can change', async ():
 
 test.each([
   [undefined, 'Hermes', 'hermes', 'latest', 'canary'],
-  ['bundled', 'Hermes Agent', 'hermes', 'latest', 'canary'],
+  ['bundled', 'CASTABOT', 'hermes', 'latest', 'canary'],
   ['light', 'Hermes Light', 'hermes-light', 'light', 'light-canary']
 ] as const)(
   '%s separates stable, canary and independent commits',
@@ -292,7 +292,7 @@ test('store carries the Partner Center MSIX identity and no other variant does',
   assert.deepEqual(store.storeMsix, {
     identityName: 'NousResearchInc.HermesAgent',
     publisher: 'CN=EE6D86E4-606F-4E38-B940-AD7248C9D519',
-    publisherDisplayName: 'Nous Research Inc.'
+    publisherDisplayName: 'CastaSo Inc.'
   })
 
   for (const v of [undefined, 'bundled', 'light'] as const) {

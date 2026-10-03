@@ -1,0 +1,66 @@
+# NOTICE
+
+## CASTABOT
+
+CASTABOT is an independently branded distribution of **Hermes Agent**, a
+self-improving AI agent created by **Nous Research**.
+
+| | |
+|---|---|
+| Upstream project | <https://github.com/NousResearch/hermes-agent> |
+| Upstream copyright | Copyright (c) 2025 Nous Research |
+| Upstream license | MIT (retained verbatim in `LICENSE`) |
+| This distribution | <https://github.com/castaso/CASTABOT> |
+| Fork owner | CastaSo |
+| Upstream commit at time of rebranding | `bd0affe5e5f7` (full: `bd0affe5e5f723579df8902852f5d0c47795f355`, branch `main`) |
+
+## Modifications
+
+The changes between the upstream project and this distribution are limited to
+branding and attribution. Specifically:
+
+1. **Product naming.** User-visible strings — the CLI and TUI banners, the web
+   dashboard, the desktop application, the documentation site, Markdown
+   documentation, and translation catalogs — render the product as **CASTABOT**
+   instead of *Hermes Agent*. This is applied mechanically by
+   [`branding/brand-map.json`](./brand-map.json), which is the authoritative
+   list of every substitution performed.
+2. **Organization naming.** Prose references to *Nous Research* as the
+   author/vendor render as *CastaSo*.
+3. **Documentation.** `README.md` is rewritten for CASTABOT. Translated
+   READMEs and `CONTRIBUTING`/`SECURITY` documents are left as upstream ships
+   them.
+4. **License and attribution.** The MIT grant and the original copyright notice
+   are unmodified. `LICENSE` carries an appended rebrand notice; this file
+   records upstream provenance.
+
+## What was deliberately NOT changed
+
+Renaming the following would change the product's interface with its users and
+its data on disk, rather than its branding. They are preserved so that a
+CASTABOT install stays compatible with an upstream Hermes Agent install, and so
+that the fork can absorb upstream changes without conflicts:
+
+| Preserved | Reason |
+|---|---|
+| The `hermes` command and `hermes_cli/` package | Renaming the executable breaks every script, alias and muscle memory |
+| `HERMES_*` environment variables | Renaming them silently ignores users' existing configuration |
+| The `~/.hermes` configuration directory and `HERMES_HOME` | Renaming it orphans existing profiles, sessions and credentials |
+| Python module names (`hermes_state.py`, `hermes_cli/…`) | Import-graph rewrite with no user-visible benefit |
+| `package.json` / `pyproject.toml` `name` fields | Renaming desynchronises `package-lock.json` and `uv.lock`, breaking `npm ci` and `uv sync` |
+| Desktop packaging identity (`apps/desktop/product-identity.cjs`, `electron-builder.config.cjs`) | `appId`, MSIX identity and publisher/signing identity are release-engineering state; rebranding them requires our own signed builds |
+| Upstream inference endpoints and provider headers | `inference-api.nousresearch.com`, `welcome-api.nousresearch.com` and the `HTTP-Referer` value are live third-party service contracts, not branding |
+| `.github/` workflows and `SECURITY.md` | Workflows key on the upstream repository name and its secrets; `SECURITY.md` documents how to reach the upstream maintainers for vulnerabilities |
+| Raster brand assets (PNG / ICO / ICNS) | Replaced only after new vector masters exist; see `branding/EXEMPT.md` |
+
+## Security reports
+
+**Report vulnerabilities upstream, not here.** CASTABOT publishes no security
+process and operates no bug bounty. `SECURITY.md` is upstream's document,
+unmodified, and its reporting channel (`security@nousresearch.com` and the
+upstream GitHub Security Advisories page) is the correct destination.
+
+## Third-party components
+
+This distribution contains third-party components under their own licenses.
+Those notices are retained in-tree, unmodified, alongside the code they cover.

@@ -5,7 +5,7 @@ version: "0.2.0"
 requires_hermes: ">=0.21.4"
 title: WhatsApp Agent Platform
 description: >-
-  Community platform plugin (not affiliated with Meta or Nous Research) connecting a WhatsApp Agent to
+  Community platform plugin (not affiliated with Meta or CastaSo) connecting a WhatsApp Agent to
   Hermes through Meta's WhatsApp Agent Platform API (/agent/v1): long-poll inbound (no public URL),
   text and media. Disclosure — sends the API key and message content, files included, only to Meta:
   api.whatsapp.com, plus lookaside.fbsbx.com for downloads (per WhatsApp's Third-Party Agents Terms,

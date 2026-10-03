@@ -1,8 +1,8 @@
 # Shared bundle builds
 
-Hermes separates dependency preparation, product builds, and distribution
+CASTABOT separates dependency preparation, product builds, and distribution
 packaging. The compiler and agent-assembly interfaces live in
-[`scripts/build/README.md`](https://github.com/NousResearch/hermes-agent/blob/main/scripts/build/README.md). These are current
+[`scripts/build/README.md`](https://github.com/castaso/CASTABOT/blob/main/scripts/build/README.md). These are current
 interfaces, not proof that every distribution passed native acceptance.
 
 ## Providers, products, and distributions
@@ -267,9 +267,9 @@ consume the assembler's command map and retain their PATH and extra-Python
 collision policies.
 
 **Nix wheel policy:** `nix/python.nix:128–135` sets `HERMES_NIX_BUILD=1` only
-for the Hermes derivation. `setup.py:34–72` rejects general Hermes wheel/sdist
+for the CASTABOT derivation. `setup.py:34–72` rejects general CASTABOT wheel/sdist
 builds. The shared assembler uses the installed Nix code without another copy.
-Other providers use source-layout code and metadata, not a public Hermes wheel.
+Other providers use source-layout code and metadata, not a public CASTABOT wheel.
 
 Termux retains bionic wheel compilation, offline installation, native library
 paths, and its fixed prefix. Its installed root contains `app`, `tools`,
@@ -289,7 +289,7 @@ format on a fresh native runner, then runs the same composer/provider/reply
 check as install-e2e. Windows universal assembly stages bytes before the smoke;
 its canary feed is published separately only after both native smoke matrices
 pass. macOS feed publication and stable candidate acceptance are likewise gated.
-See [install and chat acceptance](https://github.com/NousResearch/hermes-agent/blob/main/tests/install/README.md#post-build-artifact-smoke)
+See [install and chat acceptance](https://github.com/castaso/CASTABOT/blob/main/tests/install/README.md#post-build-artifact-smoke)
 for covered formats, checkpoint evidence and the Store/Linux/no-upload limits.
 
 `scripts.releases.handoff fetch --public-base URL` downloads a staged artifact

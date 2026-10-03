@@ -83,7 +83,7 @@ _STEWARD_UPDATE_FALLBACK = (
 # differently.
 _STEWARD_DELETE_DATA_PREAMBLE = "To delete your Hermes data (chats, configuration, etc),\n"
 _STEWARD_DELETE_DATA_CLI = "run:\n$ hermes uninstall --data\n"
-_STEWARD_DELETE_DATA_DESKTOP = "Open Hermes Desktop, go to Settings -> About, and delete your data from there.\n"
+_STEWARD_DELETE_DATA_DESKTOP = "Open CASTABOT Desktop, go to Settings -> About, and delete your data from there.\n"
 
 _STEWARD_UNINSTALL_MESSAGES = {
     STEWARD_DOCKER: (

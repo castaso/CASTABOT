@@ -73,7 +73,7 @@ def build_relay_command_manifest() -> List[Dict[str, Any]]:
         _cmd("reload-mcp", "Reload MCP servers from config"),
         _cmd("reload-skills", "Re-scan skills for new or removed entries"),
         _cmd("voice", "Toggle voice reply mode"),
-        _cmd("update", "Update Hermes Agent to the latest version"),
+        _cmd("update", "Update CASTABOT to the latest version"),
         _cmd("restart", "Gracefully restart the Hermes gateway"),
         _cmd("approve", "Approve a pending dangerous command",
              _opt("scope", "Approval scope", choices=["once", "session", "always", "all"])),

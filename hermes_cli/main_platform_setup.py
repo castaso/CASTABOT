@@ -214,12 +214,12 @@ def cmd_whatsapp(args):
         _say("  Next steps:", "    1. Start the gateway:  hermes gateway",
              "    2. Send a message to the bot's WhatsApp number",
              "    3. The agent will reply automatically", "",
-             "  Tip: Agent responses are prefixed with '☤ Hermes Agent'")
+             "  Tip: Agent responses are prefixed with '☤ CASTABOT'")
     else:
         _say("  Next steps:", "    1. Start the gateway:  hermes gateway",
              "    2. Open WhatsApp → Message Yourself",
              "    3. Type a message — the agent will reply", "",
-             "  Tip: Agent responses are prefixed with '☤ Hermes Agent'",
+             "  Tip: Agent responses are prefixed with '☤ CASTABOT'",
              "  so you can tell them apart from your own messages.")
     _say("", "  Or install as a service: hermes gateway install")
 

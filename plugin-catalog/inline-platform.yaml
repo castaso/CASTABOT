@@ -3,7 +3,7 @@ repo: https://github.com/inline-chat/inline
 sha: 2d3b360da0430684eabab2d946eca0e725c08aa5
 subdir: plugins/hermes-agent/plugin/inline
 description: >-
-  Use Hermes Agent from Inline work-chat DMs, chats, and reply threads.
+  Use CASTABOT from Inline work-chat DMs, chats, and reply threads.
   Disclosure — the setup wizard can, on explicit opt-in, download
   https://inline.chat/cli/install.sh and pipe it to sh without a checksum,
   then run the vendor inline CLI login; on connect the adapter publishes

@@ -1,12 +1,12 @@
 ---
 sidebar_position: 4
 title: "贡献指南"
-description: "如何为 Hermes Agent 做贡献 — 开发环境配置、代码风格、PR 流程"
+description: "如何为 CASTABOT 做贡献 — 开发环境配置、代码风格、PR 流程"
 ---
 
 # 贡献指南
 
-感谢您为 Hermes Agent 做贡献！本指南涵盖开发环境配置、代码库结构说明以及 PR 合并流程。
+感谢您为 CASTABOT 做贡献！本指南涵盖开发环境配置、代码库结构说明以及 PR 合并流程。
 
 ## 贡献优先级
 
@@ -22,8 +22,8 @@ description: "如何为 Hermes Agent 做贡献 — 开发环境配置、代码�
 
 ## 常见贡献路径
 
-- 构建自定义/本地工具而不修改 Hermes 核心？从 [构建 Hermes 插件](../developer-guide/plugins/index.md) 开始
-- 为 Hermes 本身构建新的内置核心工具？从 [添加工具](./adding-tools.md) 开始
+- 构建自定义/本地工具而不修改 CASTABOT 核心？从 [构建 CASTABOT 插件](../developer-guide/plugins/index.md) 开始
+- 为 CASTABOT 本身构建新的内置核心工具？从 [添加工具](./adding-tools.md) 开始
 - 构建新的 skill？从 [创建 Skill](./creating-skills.md) 开始
 - 构建新的推理提供商？从 [添加提供商](./adding-providers.md) 开始
 
@@ -73,7 +73,7 @@ python -m pm.build_env --source . --out .venv --group dev --group test
 
 此命令使用提交的锁文件，创建新环境并检查依赖一致性。输出路径必须不存在。
 如需重新生成，请先停止使用该环境的进程，再明确删除该可丢弃的环境。
-PM 不会自动删除已有目录。不要通过原始 pip 或 uv 命令修改 Hermes 环境。
+PM 不会自动删除已有目录。不要通过原始 pip 或 uv 命令修改 CASTABOT 环境。
 
 测试 runner 自动发现仓库的 `.venv`。它会清除 `PYTHONPATH`，因此 pytest 必须安装在解释器自身的环境中。
 也可将 `--out` 指向仓库外的新路径，再将 `HERMES_PYTHON` 设为该环境的解释器。
@@ -91,7 +91,7 @@ npm run build:fast --prefix website
 ```
 
 图标从 `assets/nous-girl-*.svg` 和 `assets/backgrounds/` 生成。
-`node scripts/generate-icons.mjs` 使用 Hermes 运行时 Python（`HERMES_PYTHON`，否则为 PATH 上的 `python`）渲染图标：Pillow 和 resvg-py 是核心依赖。不要提交生成的 PNG/ICO/ICNS 文件。
+`node scripts/generate-icons.mjs` 使用 CASTABOT 运行时 Python（`HERMES_PYTHON`，否则为 PATH 上的 `python`）渲染图标：Pillow 和 resvg-py 是核心依赖。不要提交生成的 PNG/ICO/ICNS 文件。
 
 ### 运行测试
 
@@ -108,11 +108,11 @@ scripts/run_tests.sh
 - **注释**：仅在解释非显而易见的意图、权衡取舍或 API 特殊行为时添加
 - **错误处理**：捕获具体异常。对于意外错误，使用 `logger.warning()`/`logger.error()` 并设置 `exc_info=True`
 - **跨平台**：不得假设 Unix 环境（见下文）
-- **Profile 安全路径**：不得硬编码 `~/.hermes` — 代码路径使用 `hermes_constants` 中的 `get_hermes_home()`，面向用户的消息使用 `display_hermes_home()`。完整规则参见 [AGENTS.md](https://github.com/NousResearch/hermes-agent/blob/main/AGENTS.md#profiles-multi-instance-support)。
+- **Profile 安全路径**：不得硬编码 `~/.hermes` — 代码路径使用 `hermes_constants` 中的 `get_hermes_home()`，面向用户的消息使用 `display_hermes_home()`。完整规则参见 [AGENTS.md](https://github.com/castaso/CASTABOT/blob/main/AGENTS.md#profiles-multi-instance-support)。
 
 ## 跨平台兼容性
 
-Hermes 支持 Linux、macOS、WSL2 和原生 Windows。Windows shell 由 PM 解析 Git Bash。Dashboard 聊天通过 pywinpty/ConPTY 支持原生 Windows，并非仅限 WSL2。平台和依赖限制见[平台支持](../getting-started/platform-support.md)。
+CASTABOT 支持 Linux、macOS、WSL2 和原生 Windows。Windows shell 由 PM 解析 Git Bash。Dashboard 聊天通过 pywinpty/ConPTY 支持原生 Windows，并非仅限 WSL2。平台和依赖限制见[平台支持](../getting-started/platform-support.md)。
 
 贡献代码时，请遵守以下规则：
 
@@ -150,7 +150,7 @@ if platform.system() != "Windows":
 
 ## 安全注意事项
 
-Hermes 拥有终端访问权限，安全至关重要。
+CASTABOT 拥有终端访问权限，安全至关重要。
 
 ### 现有保护措施
 
@@ -227,8 +227,8 @@ fix(security): prevent shell injection in sudo password piping
 
 ## 报告问题
 
-- 使用 [GitHub Issues](https://github.com/NousResearch/hermes-agent/issues)
-- 请包含：操作系统、Python 版本、Hermes 版本（`hermes --version`）、完整错误堆栈
+- 使用 [GitHub Issues](https://github.com/castaso/CASTABOT/issues)
+- 请包含：操作系统、Python 版本、CASTABOT 版本（`hermes --version`）、完整错误堆栈
 - 包含复现步骤
 - 创建前请检查是否已有重复 issue
 - 安全漏洞请私下报告
@@ -241,4 +241,4 @@ fix(security): prevent shell injection in sudo password piping
 
 ## 许可证
 
-提交贡献即表示您同意您的贡献将以 [MIT 许可证](https://github.com/NousResearch/hermes-agent/blob/main/LICENSE) 授权。
+提交贡献即表示您同意您的贡献将以 [MIT 许可证](https://github.com/castaso/CASTABOT/blob/main/LICENSE) 授权。

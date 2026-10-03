@@ -207,7 +207,7 @@ def test_canary_publisher_consumes_staged_bytes_and_writes_pointer_last(tmp_path
     with zipfile.ZipFile(bundle, 'w') as archive:
         archive.writestr('AppxMetadata/AppxBundleManifest.xml',
                          '<Bundle><Identity Name="NousResearch.HermesBundledCanary" '
-                         'Publisher="CN=Nous Research Inc., O=Nous Research Inc., L=Austin, S=Texas, C=US" '
+                         'Publisher="CN=CastaSo Inc., O=CastaSo Inc., L=Austin, S=Texas, C=US" '
                          f'Version="{version}"/></Bundle>')
     tested_bytes = bundle.read_bytes()
     jobs = _workflow()['jobs']

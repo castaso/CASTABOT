@@ -20,7 +20,7 @@ from gateway.status import looks_like_gateway_command_line
 from hermes_cli import _launchers, venv_sync
 from hermes_cli.update_cmd_windows import _hermes_holder_subcommand
 
-ROOT = Path("/opt/Hermes Agent/hermes-agent")
+ROOT = Path("/opt/CASTABOT/hermes-agent")
 PY = "/opt/venv/bin/python3"
 _SCRIPT = _launchers._launcher_script("hermes", ROOT, None)
 _JOINS = {"space-joined": " ".join, "windows": subprocess.list2cmdline}

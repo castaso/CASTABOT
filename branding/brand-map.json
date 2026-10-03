@@ -1,0 +1,257 @@
+{
+  "_comment": [
+    "CASTABOT branding map. Ordered rule_sets -- earlier sets run first, so put",
+    "the longest / most specific tokens before the generic ones.",
+    "",
+    "SCOPE: visible branding only. Identifiers, module names, env vars, the",
+    "`hermes` command and the ~/.hermes config dir are deliberately untouched --",
+    "renaming them is a rewrite of the product, not a rebrand, and it is the",
+    "single biggest source of upstream merge pain.",
+    "",
+    "NEVER add a blanket lowercase `hermes` rule. Lowercase `hermes` is the CLI",
+    "command, the config dir and the npm scope; it must keep working.",
+    "",
+    "NEVER rewrite `nousresearch.com` globally. It is not only branding:",
+    "`inference-api.nousresearch.com`, `welcome-api.nousresearch.com`,",
+    "`portal.nousresearch.com` and the TOOL_GATEWAY_DOMAIN are live third-party",
+    "service endpoints, and `https://hermes-agent.nousresearch.com` is the",
+    "HTTP-Referer header sent to inference providers. A global rewrite turns",
+    "them into github.com/castaso and silently breaks the product. URL branding",
+    "lives in the docs-only `doc_urls` rule set for exactly that reason."
+  ],
+
+  "protect": [
+    "https://hermes-agent.nousresearch.com/install.sh",
+    "https://hermes-agent.nousresearch.com/install.ps1",
+    "https://discord.gg/NousResearch",
+    "https://portal.nousresearch.com",
+    "portal.nousresearch.com",
+    "inference-api.nousresearch.com",
+    "welcome-api.nousresearch.com",
+    "security@nousresearch.com",
+    "NousResearch.Hermes",
+    "NousResearch/api",
+    "NousResearch/atropos",
+    "NousResearch/autoreason",
+    "NousResearch/dataset-name",
+    "NousResearch/gateway",
+    "org: \"Nous Research\"",
+    "org: 'Nous Research'",
+    "displayName: 'Nous Research'",
+    "providerLabel: 'Nous Research'",
+    "displayName: \"Nous Research\"",
+    "providerLabel: \"Nous Research\"",
+    {
+      "comment": "Every copyright line naming Nous, including vendored third-party Apache headers. Rewriting a copyright notice is the one edit that can turn a lawful rebrand into a license violation.",
+      "pattern": "Copyright[^\\n]{0,60}?Nous Research"
+    }
+  ],
+
+  "templates": [
+    {
+      "comment": "Replaces upstream's README wholesale rather than token-swapping it: the upstream README is Nous's marketing copy, and a rebrand should not ship it under a new name.",
+      "from": "branding/templates/README.castabot.md",
+      "to": "README.md"
+    },
+    {
+      "from": "branding/templates/NOTICE",
+      "to": "NOTICE"
+    },
+    {
+      "comment": "Append-only. The MIT grant and the original 'Copyright (c) 2025 Nous Research' line above it are never edited -- MIT requires the notice to survive, and an edit would void the licence.",
+      "from": "branding/templates/LICENSE.append.md",
+      "to": "LICENSE",
+      "mode": "append"
+    }
+  ],
+
+  "rule_sets": [
+    {
+      "name": "doc_urls",
+      "comment": "URL rewriting is DOCS-ONLY. In a markdown file a URL is a link a reader clicks; in code it is a runtime endpoint or a provider header contract. Same literal, completely different blast radius.",
+      "include": [
+        "**/*.md",
+        "**/*.mdx",
+        "website/docs/**",
+        "website/*.md",
+        "website/docusaurus.config.ts",
+        "website/sidebars.ts",
+        "docs/**",
+        "*.md"
+      ],
+      "exclude": [
+        "SECURITY.md",
+        "SECURITY.es.md",
+        "LICENSE",
+        "contributors/**",
+        ".github/**",
+        "branding/**",
+        "tools/**"
+      ],
+      "rules": [
+        {
+          "comment": "The installer URLs are protected above: Nous still owns that host, so a fork cannot serve install.sh from GitHub Pages.",
+          "find": "hermes-agent.nousresearch.com",
+          "replace": "castaso.github.io/CASTABOT"
+        },
+        {
+          "find": "NousResearch/hermes-agent",
+          "replace": "castaso/CASTABOT"
+        },
+        {
+          "find": "NousResearch/Hermes-Agent",
+          "replace": "castaso/CASTABOT"
+        },
+        {
+          "comment": "Docs-scoped only, so this cannot touch an API base URL. Links to the org in prose now point at the fork owner.",
+          "find": "https://nousresearch.com",
+          "replace": "https://github.com/castaso"
+        }
+      ]
+    },
+    {
+      "name": "org_name",
+      "comment": "SECURITY* is excluded on purpose: those documents route vulnerability reports, and the brand rule must not repoint them at a fork that runs no security process. CASTABOT README.md and NOTICE.md say so instead.",
+      "include": ["**"],
+      "exclude": [
+        "SECURITY.md",
+        "SECURITY.es.md",
+        "LICENSE",
+        ".github/**",
+        "contributors/**",
+        "uv.lock",
+        "flake.lock",
+        "**/package-lock.json",
+        "**/*-lock.json",
+        "pyproject.toml",
+        ".mailmap",
+        "apps/desktop/product-identity.cjs",
+        "apps/desktop/electron-builder.config.cjs",
+        "native/**",
+        "branding/**",
+        "tools/**"
+      ],
+      "rules": [
+        {
+          "comment": "Spelled-out org name. Bare `NousResearch` is NOT rewritten -- it is the Hugging Face org for the Hermes-3/Hermes-4 model repos, the Windows installer staging prefix, and GitHub team handles like @NousResearch/hermes-agent-core.",
+          "find": "Nous Research",
+          "replace": "CastaSo"
+        },
+        {
+          "comment": "Percent-encoded form, e.g. the shields.io badge label `Built%20by-Nous%20Research`. Without this the README badge keeps rendering the old brand next to the new alt text.",
+          "find": "Nous%20Research",
+          "replace": "CastaSo"
+        }
+      ]
+    },
+    {
+      "name": "product_name",
+      "comment": "Multi-word proper nouns. Safe in prose and in code string literals alike -- these are never identifiers, and both sides of a test assertion move together.",
+      "include": ["**"],
+      "exclude": [
+        "SECURITY.md",
+        "SECURITY.es.md",
+        "LICENSE",
+        ".github/**",
+        "contributors/**",
+        "uv.lock",
+        "flake.lock",
+        "**/package-lock.json",
+        "**/*-lock.json",
+        "pyproject.toml",
+        ".mailmap",
+        "apps/desktop/product-identity.cjs",
+        "apps/desktop/electron-builder.config.cjs",
+        "native/**",
+        "branding/**",
+        "tools/**"
+      ],
+      "rules": [
+        {
+          "find": "Hermes Agent",
+          "replace": "CASTABOT"
+        },
+        {
+          "find": "Hermes Desktop",
+          "replace": "CASTABOT Desktop"
+        }
+      ]
+    },
+    {
+      "name": "prose_product_name",
+      "comment": "Standalone `Hermes` in markdown only. The digit guard keeps Hermes-3 / Hermes 4 model names intact; the word-boundary guards keep hyphenated identifiers and env vars out.",
+      "include": ["**/*.md", "**/*.mdx"],
+      "exclude": [
+        "SECURITY.md",
+        "SECURITY.es.md",
+        ".github/**",
+        "contributors/**",
+        "native/**",
+        "branding/**",
+        "tools/**"
+      ],
+      "rules": [
+        {
+          "comment": "Possessive first -- otherwise the generic rule below yields `CASTABOT'`.",
+          "find": "Hermes'",
+          "replace": "CASTABOT's"
+        },
+        {
+          "pattern": "(?<![\\w-])Hermes(?![\\w-])(?!\\s*\\d)",
+          "replace": "CASTABOT",
+          "probe": "Hermes"
+        }
+      ]
+    },
+    {
+      "name": "brand_code_strings",
+      "comment": "Standalone `Hermes` in the runtime files whose text a user actually sees. Curated rather than extension-wide: a blanket sweep over .py would hit identifiers and dict keys.",
+      "include": [
+        "hermes_cli/banner.py",
+        "hermes_cli/onboarding.py",
+        "ui-tui/src/theme.ts",
+        "ui-tui/src/components/branding.tsx",
+        "ui-tui/src/i18n/**",
+        "web/src/i18n/**",
+        "apps/desktop/src/i18n/**",
+        "locales/**",
+        "web/index.html",
+        "apps/desktop/electron/app-icon.ts",
+        "apps/desktop/electron/favicon.ts",
+        "apps/desktop/src/lib/brand-icon.ts",
+        "apps/bootstrap-installer/src/routes/progress.tsx",
+        "apps/bootstrap-installer/src/components/brand-mark.tsx"
+      ],
+      "exclude": [
+        "locales/_keys.*"
+      ],
+      "rules": [
+        {
+          "pattern": "(?<![\\w-])Hermes(?![\\w-])(?!\\s*\\d)",
+          "replace": "CASTABOT",
+          "probe": "Hermes"
+        }
+      ]
+    },
+    {
+      "name": "site_config",
+      "comment": "Docusaurus identity fields the generic rules do not reach: single-quoted, and `NousResearch`/`hermes-agent` as bare config values rather than inside a URL.",
+      "include": ["website/docusaurus.config.ts"],
+      "exclude": [],
+      "rules": [
+        {
+          "find": "organizationName: 'NousResearch'",
+          "replace": "organizationName: 'castaso'"
+        },
+        {
+          "find": "projectName: 'hermes-agent'",
+          "replace": "projectName: 'CASTABOT'"
+        },
+        {
+          "find": "indexName: 'hermes docs'",
+          "replace": "indexName: 'CASTABOT docs'"
+        }
+      ]
+    }
+  ]
+}

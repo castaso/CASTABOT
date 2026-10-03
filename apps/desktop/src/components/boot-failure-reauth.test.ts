@@ -164,7 +164,7 @@ describe('deriveProviderShape', () => {
     ])
 
     expect(shape.isPassword).toBe(false)
-    expect(shape.providerLabel).toBe('Username & Password / Nous Research')
+    expect(shape.providerLabel).toBe('Username & Password / CastaSo')
   })
 
   it('falls back to name when displayName is empty', () => {

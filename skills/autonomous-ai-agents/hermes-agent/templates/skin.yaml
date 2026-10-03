@@ -42,7 +42,7 @@ colors:
 
 # Optional flavor — safe to delete.
 branding:
-  agent_name: Hermes Agent
+  agent_name: CASTABOT
   prompt_symbol: "❯"
   help_header: "(^_^)? Commands"
 

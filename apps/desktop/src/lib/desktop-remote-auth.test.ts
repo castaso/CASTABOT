@@ -35,7 +35,7 @@ describe('deriveRemoteAuthProviderShape', () => {
       ])
     ).toEqual({
       isPassword: false,
-      providerLabel: 'Username & Password / Nous Research'
+      providerLabel: 'Username & Password / CastaSo'
     })
   })
 

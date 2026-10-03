@@ -378,9 +378,9 @@ export async function waitFor<T>(
 
 /** Copy of the first-run chooser / bootstrap installer overlay (the screens a healthy install must never show). */
 export const FIRST_RUN_SCREENS = [
-  'Set up Hermes Desktop',
+  'Set up CASTABOT Desktop',
   'Hermes needs a one-time install',
-  'Setting up Hermes Agent',
+  'Setting up CASTABOT',
   'Install Hermes locally',
   'Use Hermes on this computer'
 ]

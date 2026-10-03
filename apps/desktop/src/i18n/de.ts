@@ -5,7 +5,7 @@ import { introDe } from './intro-de'
 
 export const deOverrides = {
   sharedMetrics: {
-    consentTitle: 'Hermes verbessern helfen?',
+    consentTitle: 'CASTABOT verbessern helfen?',
     consentBody:
       'Geteilte Metriken enthalten nur begrenzte Zähler. Niemals Prompts, Dateien, Pfade oder Fehlertexte. Die Erfassung bleibt lokal. Das Senden an Nous ist eine separate Zustimmung.',
     whatIsCollected: 'Was erfasst wird',
@@ -17,7 +17,7 @@ export const deOverrides = {
     collectedReliability:
       'Update-Ergebnisse und -Dauer, Abstürze, Start- und Antwortzeiten, Zustand der Messaging-Plattformen',
     collectedUsage:
-      'Wie Hermes genutzt wird: Genauigkeit und Effizienz des Agenten (Treffer bei Bearbeitungen, Schleifen, Erholung nach Fehlern, Tokens und Tool-Aufrufe pro Aufgabe, Cache-Brüche), aktive Zeit pro Oberfläche und Desktop-Modus, welche App-Bereiche, Aktionen und Einstellungen genutzt, schnell geschlossen oder abgeschaltet werden, sowie Ergebnisse der Anbietereinrichtung',
+      'Wie CASTABOT genutzt wird: Genauigkeit und Effizienz des Agenten (Treffer bei Bearbeitungen, Schleifen, Erholung nach Fehlern, Tokens und Tool-Aufrufe pro Aufgabe, Cache-Brüche), aktive Zeit pro Oberfläche und Desktop-Modus, welche App-Bereiche, Aktionen und Einstellungen genutzt, schnell geschlossen oder abgeschaltet werden, sowie Ergebnisse der Anbietereinrichtung',
     collectedMachine:
       'Grobe Gerätedaten: RAM-Bereich, GPU-Typ, Alter und Kanal der Hermes-Version, Anzahl ausstehender Updates, ob ein lokaler Modellserver genutzt wird',
     installId:
@@ -65,7 +65,7 @@ export const deOverrides = {
     ownerMissing: 'Öffnen Sie diese Konversation erneut, um ihre Verbindungen zu verwalten.',
     search: 'App finden',
     empty: 'Keine passende App',
-    disclaimer: 'Das Verbinden ist freiwillig. Geben Sie nur den Apps Zugriff, die Hermes verwenden soll.',
+    disclaimer: 'Das Verbinden ist freiwillig. Geben Sie nur den Apps Zugriff, die CASTABOT verwenden soll.',
     execution: 'Verbindungs-Tools',
     setup: server => `${server} einrichten`,
     openInBrowser: 'Im Browser öffnen',
@@ -147,7 +147,7 @@ export const deOverrides = {
       loading: 'Katalog und Server auf diesem Computer werden gelesen',
       emptyTitle: 'Noch keine Apps. Fügen Sie einen Server auf diesem Computer hinzu, um loszulegen.',
       noMatchTitle: 'Keine passenden Apps',
-      noMatchBody: 'Keine Treffer. Verweisen Sie Hermes auf Ihren eigenen MCP-Server, um ihn hinzuzufügen.',
+      noMatchBody: 'Keine Treffer. Verweisen Sie CASTABOT auf Ihren eigenen MCP-Server, um ihn hinzuzufügen.',
       clearSearch: 'Suche löschen',
       hostedFailedTitle: 'Die gehosteten Apps sind nicht erreichbar.',
       hostedFailedBody:
@@ -163,7 +163,7 @@ export const deOverrides = {
       writeFailed: 'Diese Änderung wurde nicht gespeichert.',
       refreshFailed: 'Die Tool-Liste wurde nicht aktualisiert.',
       disconnectNoAccount:
-        'Hermes hat hier kein Konto zum Trennen. Aktualisieren Sie die Seite und versuchen Sie es erneut.',
+        'CASTABOT hat hier kein Konto zum Trennen. Aktualisieren Sie die Seite und versuchen Sie es erneut.',
       disconnectRefused:
         'Nous kann diese Anmeldung gerade nicht entfernen. Schalten Sie die App stattdessen mit dem Schalter aus oder versuchen Sie es später erneut.'
     },
@@ -203,23 +203,23 @@ export const deOverrides = {
     dialog: {
       disconnect: 'Trennen',
       disconnectTitle: (name: string) => `${name} trennen?`,
-      disconnectBody: 'Hermes handelt nicht mehr über dieses Konto. Sie können sich jederzeit wieder verbinden.',
+      disconnectBody: 'CASTABOT handelt nicht mehr über dieses Konto. Sie können sich jederzeit wieder verbinden.',
       menuRefreshTools: 'Tools aktualisieren',
       moreActions: 'Weitere Aktionen',
       removeServerTitle: (name: string) => `${name} entfernen?`,
       removeServerBody: 'Der Eintrag wird aus mcp.json auf diesem Computer entfernt. Sonst wird nichts gelöscht.',
-      appSwitch: (name: string) => `Hermes darf ${name} verwenden`,
+      appSwitch: (name: string) => `CASTABOT darf ${name} verwenden`,
       waysTitle: (name: string) => `Wo ${name} läuft`,
       wayNotConnected: (name: string) => `Noch nicht verbunden. Melden Sie sich im Browser bei ${name} an.`,
       wayHosted: 'Verwaltet',
-      bothOn: (name: string) => `Beide sind an, daher sieht Hermes jedes ${name}-Tool doppelt.`,
+      bothOn: (name: string) => `Beide sind an, daher sieht CASTABOT jedes ${name}-Tool doppelt.`,
       turnOffLocal: 'Lokalen Server ausschalten',
       providedByPlugin: (plugin: string) => `Bereitgestellt vom Plugin ${plugin}`,
       openPlugins: 'Tab „Plugins“ öffnen',
       nousLine: 'Nous-Apps folgen Ihrem Konto, nicht dem Profil.',
       rulesReadOnly: 'Die Regeln können gerade nicht geändert werden.',
       rulesAppOff: (name: string) => `Schalten Sie ${name} ein, um die Tools zu ändern.`,
-      rulesSignIn: 'Melden Sie sich an, um festzulegen, was Hermes hier darf.',
+      rulesSignIn: 'Melden Sie sich an, um festzulegen, was CASTABOT hier darf.',
       orgNote: (count: number) => `Ihre Organisation hat ${count} Tool${count === 1 ? '' : 's'} deaktiviert.`,
       orgLink: 'Konnektor-Verwaltung öffnen',
       connectEnded: 'Die Anmeldung wurde nicht abgeschlossen.',
@@ -232,8 +232,8 @@ export const deOverrides = {
     tools: {
       title: 'Tools',
       notInstalledBody: 'Installieren Sie ihn auf diesem Gerät, um seine Tools zu sehen.',
-      summaryTitle: (name: string) => `Was Hermes mit ${name} tun darf`,
-      summaryPreviewTitle: (name: string) => `Was Hermes mit ${name} tun könnte, sobald Sie verbunden sind`,
+      summaryTitle: (name: string) => `Was CASTABOT mit ${name} tun darf`,
+      summaryPreviewTitle: (name: string) => `Was CASTABOT mit ${name} tun könnte, sobald Sie verbunden sind`,
       summaryCount: (count: number) => `${count} Tool${count === 1 ? '' : 's'}`,
       summaryAllTools: 'Alle Tools',
       summaryOther: 'Sonstige',
@@ -267,7 +267,7 @@ export const deOverrides = {
       retry: 'Erneut versuchen',
       goneTitle: (name: string) => `${name} ist nicht mehr im Katalog.`,
       goneBody:
-        'Hermes kann ihn nicht mehr aufrufen. Die Zeile bleibt, bis Sie sie entfernen, damit nichts verschwindet.',
+        'CASTABOT kann ihn nicht mehr aufrufen. Die Zeile bleibt, bis Sie sie entfernen, damit nichts verschwindet.',
       remove: 'Entfernen',
       offTitle: (name: string) => `${name} ist aus.`,
       offBody: 'Schalten Sie ihn mit dem Schalter oben ein, um seine Tools zu laden.',
@@ -340,7 +340,7 @@ export const deOverrides = {
   },
   sessionImport: {
     title: 'Von einer anderen App fortfahren',
-    subtitle: 'Holen Sie eine Konversation in Hermes und machen Sie dort weiter, wo Sie aufgehört haben.',
+    subtitle: 'Holen Sie eine Konversation in CASTABOT und machen Sie dort weiter, wo Sie aufgehört haben.',
     action: 'Session importieren',
     readingFrom: 'Lesen von',
     connectedComputer: 'dem verbundenen Computer',
@@ -359,19 +359,19 @@ export const deOverrides = {
     more: 'Weitere Sessions laden',
     messages: 'Nachrichten',
     choose: 'Eine Konversation, die sich lohnt',
-    chooseHelp: 'Wählen Sie eine Session, um ihren Verlauf zu lesen, bevor Sie sie in Hermes übernehmen.',
+    chooseHelp: 'Wählen Sie eine Session, um ihren Verlauf zu lesen, bevor Sie sie in CASTABOT übernehmen.',
     previewLoading: 'Vorschau wird geöffnet',
     previewError: 'Vorschau nicht verfügbar',
     previewHelp:
       'Die Quelle wurde möglicherweise verschoben oder geändert. Aktualisieren Sie die Liste und versuchen Sie es erneut.',
     previewLimit: 'Vorschau für bessere Lesbarkeit gekürzt. Die vollständige Konversation wird importiert.',
     you: 'Sie',
-    snapshot: 'Diese Konversation ist bereits in Hermes. Öffnen Sie Ihre vorhandene Kopie, um weiterzumachen.',
+    snapshot: 'Diese Konversation ist bereits in CASTABOT. Öffnen Sie Ihre vorhandene Kopie, um weiterzumachen.',
     copyNotice:
       'Kopiert den Konversationstext. Quelldateien bleiben unverändert. Tool-Ausgaben und Überlegungen werden nicht übernommen.',
     importing: 'Importieren…',
-    open: 'In Hermes öffnen',
-    continue: 'In Hermes fortfahren',
+    open: 'In CASTABOT öffnen',
+    continue: 'In CASTABOT fortfahren',
     importError: 'Diese Konversation konnte nicht importiert werden.'
   },
   common: {
@@ -438,7 +438,7 @@ export const deOverrides = {
       'Dieser Pfad befindet sich nicht auf diesem Computer, sondern auf dem Backend-Rechner. Verwenden Sie „Im Dateibaum anzeigen“.'
   },
   boot: {
-    ready: 'Hermes Desktop ist bereit',
+    ready: 'CASTABOT Desktop ist bereit',
     desktopBootFailedWithMessage: message => `Desktop-Start fehlgeschlagen: ${message}`,
     steps: {
       connectingGateway: 'Live-Desktop-Gateway wird verbunden',
@@ -446,13 +446,13 @@ export const deOverrides = {
       loadingSessions: 'Letzte Sessions werden geladen',
       retryingRemoteBackend: 'Wird mit dem Remote-Hermes-Backend neu verbunden…',
       startingDesktopConnection: 'Desktop-Verbindung wird gestartet',
-      startingHermesDesktop: 'Hermes Desktop wird gestartet…'
+      startingHermesDesktop: 'CASTABOT Desktop wird gestartet…'
     },
     errors: {
       backgroundExited: 'Der Hermes-Hintergrundprozess wurde beendet.',
       backgroundExitedDuringStartup: 'Der Hermes-Hintergrundprozess wurde während des Starts beendet.',
       backendStopped: 'Backend gestoppt',
-      restartHermes: 'Hermes neu starten',
+      restartHermes: 'CASTABOT neu starten',
       openLogs: 'Logs öffnen',
       desktopBootFailed: 'Desktop-Start fehlgeschlagen',
       gatewayConnectionLost: 'Verbindung zum Gateway verloren',
@@ -467,16 +467,16 @@ export const deOverrides = {
       ipcBridgeUnavailable: 'Der Desktop-IPC-Bridge ist nicht verfügbar.'
     },
     causes: {
-      exitedEarly: 'Der Hintergrunddienst von Hermes hat direkt nach dem Start aufgehört.',
-      timedOut: 'Der Hintergrunddienst von Hermes hat nicht rechtzeitig geantwortet.',
-      permission: 'Hermes konnte nicht in seinen Datenordner schreiben (Berechtigungsproblem).',
-      diskFull: 'Die Festplatte ist voll, deshalb konnte Hermes nicht starten.',
-      portInUse: 'Ein anderes Programm verwendet den Netzwerkport, den Hermes braucht.',
+      exitedEarly: 'Der Hintergrunddienst von CASTABOT hat direkt nach dem Start aufgehört.',
+      timedOut: 'Der Hintergrunddienst von CASTABOT hat nicht rechtzeitig geantwortet.',
+      permission: 'CASTABOT konnte nicht in seinen Datenordner schreiben (Berechtigungsproblem).',
+      diskFull: 'Die Festplatte ist voll, deshalb konnte CASTABOT nicht starten.',
+      portInUse: 'Ein anderes Programm verwendet den Netzwerkport, den CASTABOT braucht.',
       installMissing:
         'Ein Teil der Hermes-Installation fehlt. Wählen Sie „Installation reparieren“, um sie wiederherzustellen.'
     },
     failure: {
-      title: 'Hermes konnte nicht gestartet werden',
+      title: 'CASTABOT konnte nicht gestartet werden',
       description:
         'Das Hintergrund-Gateway ist nicht gestartet. Probieren Sie einen der Wiederherstellungsschritte unten. Keiner davon löscht Ihre Chats oder Einstellungen.',
       details: 'Details',
@@ -533,7 +533,7 @@ export const deOverrides = {
       'Diese Hermes-App ist älter als das verbundene Backend und funktioniert möglicherweise nicht richtig. Aktualisieren Sie die App, um beide abzugleichen.',
     updateDesktopApp: 'App aktualisieren',
     installMethodUnsupportedTitle: 'Nicht unterstützte Installationsmethode',
-    updateHermes: 'Hermes aktualisieren',
+    updateHermes: 'CASTABOT aktualisieren',
     updateReadyTitle: 'Update bereit',
     updateReadyMessage: count => `${count} neue Änderung${count === 1 ? '' : 'en'} verfügbar.`,
     updateReadyMessageUnknown: 'Ein neues Update ist verfügbar.',
@@ -555,10 +555,10 @@ export const deOverrides = {
       elevenLabsRejectedKey: 'ElevenLabs hat den API-Key abgelehnt (401).',
       diskFull: 'Festplatte voll – geben Sie Speicherplatz frei und versuchen Sie es dann erneut.',
       storageFailure:
-        'Hermes konnte nicht in seinen Datenordner speichern. Öffnen Sie die Wartung, um das Problem zu prüfen und zu beheben.',
+        'CASTABOT konnte nicht in seinen Datenordner speichern. Öffnen Sie die Wartung, um das Problem zu prüfen und zu beheben.',
       gatewayAuthFailed: 'Gateway-Authentifizierung fehlgeschlagen – überprüfen Sie Ihren API_SERVER_KEY.',
       methodNotAllowed:
-        'Das Desktop-Backend hat diese Anfrage abgelehnt (405 Method Not Allowed). Starten Sie Hermes Desktop neu.',
+        'Das Desktop-Backend hat diese Anfrage abgelehnt (405 Method Not Allowed). Starten Sie CASTABOT Desktop neu.',
       microphonePermission: 'Die Mikrofonberechtigung wurde verweigert.',
       openaiRejectedApiKey:
         'OpenAI hat Ihren API-Key abgelehnt. Aktualisieren Sie ihn unter Einstellungen → Schlüssel und versuchen Sie es erneut.',
@@ -566,10 +566,10 @@ export const deOverrides = {
       codeSkewRestartRequired:
         'Dieses Backend läuft nach einem Update mit altem Code. Starten Sie es neu, um den neuen Code zu laden.',
       rpcOutOfSync: 'App und Backend laufen in unterschiedlichen Versionen. Aktualisieren Sie beide.',
-      restartHermesFailed: 'Hermes konnte nicht neu gestartet werden'
+      restartHermesFailed: 'CASTABOT konnte nicht neu gestartet werden'
     },
     actions: {
-      restartHermes: 'Hermes neu starten',
+      restartHermes: 'CASTABOT neu starten',
       openKeys: 'Schlüssel öffnen',
       openGateways: 'Gateways öffnen',
       openMaintenance: 'Wartung öffnen'
@@ -597,7 +597,7 @@ export const deOverrides = {
       liveEndedConnectionLost: 'Die Live-Sprach-Session hat die Verbindung verloren.',
       liveEndedClosed: 'Die Live-Sprach-Session wurde vom Dienst geschlossen.',
       liveError: 'Live-Sprache',
-      liveDelegationFailed: 'Anfrage konnte nicht an Hermes übergeben werden',
+      liveDelegationFailed: 'Anfrage konnte nicht an CASTABOT übergeben werden',
       liveUnavailable: reason =>
         `GPT-Live-Sprachchat ist nicht verfügbar: ${reason}. Stattdessen wird Sprache-zu-Text verwendet.`
     },
@@ -608,8 +608,8 @@ export const deOverrides = {
       rejectAction: 'Ablehnen',
       inputTitle: 'Eingabe erforderlich',
       inputTitleNamed: session => `Eingabe erforderlich — ${session}`,
-      inputBody: 'Hermes wartet auf Ihre Antwort.',
-      turnDoneTitle: 'Hermes fertig',
+      inputBody: 'CASTABOT wartet auf Ihre Antwort.',
+      turnDoneTitle: 'CASTABOT fertig',
       turnDoneBody: '',
       turnErrorTitle: 'Turn fehlgeschlagen',
       backgroundDoneTitle: 'Hintergrundaufgabe abgeschlossen',
@@ -961,7 +961,7 @@ export const deOverrides = {
         desktopSuccess: name => `Desktop-Plugin ${name} installiert`,
         agentFailed: 'Installation des Agent-Plugins fehlgeschlagen',
         installUncertain:
-          'Hermes wartet nicht mehr auf das Installationsergebnis, aber das Plugin wird möglicherweise noch installiert. Schließe dieses Fenster und aktualisiere die Pluginliste, bevor du die Installation erneut startest.',
+          'CASTABOT wartet nicht mehr auf das Installationsergebnis, aber das Plugin wird möglicherweise noch installiert. Schließe dieses Fenster und aktualisiere die Pluginliste, bevor du die Installation erneut startest.',
         desktopFailed: 'Installation des Desktop-Plugins fehlgeschlagen',
         missingEnv: (name, vars) =>
           `${name} ist installiert, benötigt aber einen Schlüssel, um zu funktionieren: ${vars}. Fügen Sie ihn jetzt hinzu, sonst schlagen die Tools des Plugins fehl.`
@@ -1022,7 +1022,7 @@ export const deOverrides = {
       otpField: 'Authentifizierungsschlüssel',
       otpPlaceholder: 'Base32-Geheimnis oder otpauth://-Link',
       otpHint:
-        'Der „Einrichtungsschlüssel", den die Seite beim Aktivieren von 2FA anzeigt. Ist er gespeichert, erzeugt Hermes die Codes selbst.',
+        'Der „Einrichtungsschlüssel", den die Seite beim Aktivieren von 2FA anzeigt. Ist er gespeichert, erzeugt CASTABOT die Codes selbst.',
       twoFactorBadge: '2FA automatisch',
       deleteTitle: 'Diesen Eintrag löschen?',
       deleteDescription: label => `„${label}" wird entfernt. Das kann nicht rückgängig gemacht werden.`,
@@ -1033,12 +1033,12 @@ export const deOverrides = {
           'Installierte Passwortmanager werden automatisch erkannt. Der Agent bittet Sie, einen zu entsperren, wenn er zum ersten Mal einen Login daraus braucht (einmal pro Session); nur ein Session-Token bleibt im Speicher, und der Agent sieht weder Ihr Master-Passwort noch einen Login.',
         toggleFailed: 'Passwortmanager konnte nicht geändert werden',
         notInstalled: name =>
-          `Nicht erkannt. Installieren Sie das ${name}-Kommandozeilenwerkzeug und melden Sie sich dort an; Hermes erkennt es automatisch.`,
-        disabledDesc: 'Erkannt, aber für Hermes ausgeschaltet.',
+          `Nicht erkannt. Installieren Sie das ${name}-Kommandozeilenwerkzeug und melden Sie sich dort an; CASTABOT erkennt es automatisch.`,
+        disabledDesc: 'Erkannt, aber für CASTABOT ausgeschaltet.',
         lockedDesc:
           'Erkannt. Der Agent bittet Sie, ihn zu entsperren, wenn er einen Login braucht – oder entsperren Sie ihn jetzt.',
         unlockedDesc:
-          'Für diese Session entsperrt. Sperrt automatisch nach 30 Minuten Inaktivität oder wenn Hermes geschlossen wird.',
+          'Für diese Session entsperrt. Sperrt automatisch nach 30 Minuten Inaktivität oder wenn CASTABOT geschlossen wird.',
         statusLocked: 'Gesperrt',
         statusNotDetected: 'Nicht erkannt',
         statusOff: 'Aus',
@@ -1058,7 +1058,7 @@ export const deOverrides = {
       intro: 'OS-Benachrichtigungen (keine In-App-Toasts). Pro Gerät.',
       enableAll: 'Benachrichtigungen aktivieren',
       enableAllDesc: 'Aus schaltet jede Benachrichtigung unten stumm.',
-      focusedHint: 'Abschluss-Alerts feuern nur, während Hermes im Hintergrund ist.',
+      focusedHint: 'Abschluss-Alerts feuern nur, während CASTABOT im Hintergrund ist.',
       kinds: {
         approval: {
           label: 'Genehmigung nötig',
@@ -1066,11 +1066,11 @@ export const deOverrides = {
         },
         input: {
           label: 'Eingabe nötig',
-          description: 'Hermes hat eine Frage gestellt oder braucht ein Passwort oder Geheimnis.'
+          description: 'CASTABOT hat eine Frage gestellt oder braucht ein Passwort oder Geheimnis.'
         },
         turnDone: {
           label: 'Antwort bereit',
-          description: 'Ein Turn wurde beendet, während Hermes im Hintergrund war.'
+          description: 'Ein Turn wurde beendet, während CASTABOT im Hintergrund war.'
         },
         turnError: {
           label: 'Turn fehlgeschlagen',
@@ -1086,11 +1086,11 @@ export const deOverrides = {
         },
         plugin: {
           label: 'Plugin-Benachrichtigungen',
-          description: 'Ein Desktop-Plugin hat eine Benachrichtigung gesendet, während Hermes im Hintergrund war.'
+          description: 'Ein Desktop-Plugin hat eine Benachrichtigung gesendet, während CASTABOT im Hintergrund war.'
         }
       },
       test: 'Testbenachrichtigung senden',
-      testTitle: 'Hermes',
+      testTitle: 'CASTABOT',
       testBody: 'Benachrichtigungen funktionieren.',
       testSent:
         'Test gesendet. Wenn nichts erscheint, überprüfen Sie die Benachrichtigungsberechtigungen Ihres Betriebssystems und Fokus/Nicht stören.',
@@ -1111,7 +1111,7 @@ export const deOverrides = {
       advanced: 'Erweitert'
     },
     searchPlaceholder: {
-      about: 'Über Hermes Desktop',
+      about: 'Über CASTABOT Desktop',
       config: 'Einstellungen durchsuchen…',
       gateway: 'Gateway-Verbindung…',
       keys: 'API-Schlüssel durchsuchen…',
@@ -1139,7 +1139,7 @@ export const deOverrides = {
       title: 'Darstellung',
       intro: 'Nur für Desktop. Modus ist die Helligkeit; Theme ist Farbpalette und Chat-Design.',
       colorMode: 'Farbmodus',
-      colorModeDesc: 'Wählen Sie einen festen Modus oder lassen Sie Hermes Ihrer Systemeinstellung folgen.',
+      colorModeDesc: 'Wählen Sie einen festen Modus oder lassen Sie CASTABOT Ihrer Systemeinstellung folgen.',
       toolViewTitle: 'Tool-Aufruf-Anzeige',
       toolViewDesc: 'Produkt versteckt rohe Tool-Payloads; Technisch zeigt vollständige Ein-/Ausgabe.',
       hideCodeDiffsTitle: 'Code-Diffs ausblenden',
@@ -1217,14 +1217,14 @@ export const deOverrides = {
       modelPricingDesc: 'Eingabe-, Ausgabe- und Cache-Lesepreise pro Million Tokens in der Modellauswahl anzeigen.',
       reactionsTitle: 'Nachrichten-Reaktionen',
       reactionsDesc:
-        'Emoji-Tapbacks im iMessage-Stil – reagieren Sie auf Nachrichten, und Hermes kann auf Ihre reagieren.',
+        'Emoji-Tapbacks im iMessage-Stil – reagieren Sie auf Nachrichten, und CASTABOT kann auf Ihre reagieren.',
       tipsTitle: 'In-App-Tipps',
       tipsDesc:
-        'Eine kleine Blase, die auf einen Teil der App zeigt und gelegentlich im Leerlauf sowie von Hermes erscheint, wenn es hilft. Beim Schließen wird sie für immer ausgeblendet.',
+        'Eine kleine Blase, die auf einen Teil der App zeigt und gelegentlich im Leerlauf sowie von CASTABOT erscheint, wenn es hilft. Beim Schließen wird sie für immer ausgeblendet.',
       tipsReset: (count: number) => `${count} geschlossene ${count === 1 ? 'Blase' : 'Blasen'} zurückholen`,
       toursTitle: 'Geführte Touren',
       toursDesc:
-        'Lassen Sie sich von Hermes durch die App führen – der Bildschirm wird abgedunkelt und jeder Schritt hervorgehoben.',
+        'Lassen Sie sich von CASTABOT durch die App führen – der Bildschirm wird abgedunkelt und jeder Schritt hervorgehoben.',
       composerPopoutTitle: 'Schwebender Composer',
       composerPopoutDesc:
         'Erlaubt, den Composer aus seiner Ablage herauszuziehen. Wenn aus, bleibt er unten angedockt.',
@@ -1265,9 +1265,9 @@ export const deOverrides = {
       pet: {
         title: 'Haustier',
         intro:
-          'Adoptieren Sie ein animiertes Petdex-Maskottchen, das über der App schwebt und darauf reagiert, was Hermes gerade tut – es rennt, während Tools laufen, feiert bei Erfolg und schmollt bei Fehlern.',
+          'Adoptieren Sie ein animiertes Petdex-Maskottchen, das über der App schwebt und darauf reagiert, was CASTABOT gerade tut – es rennt, während Tools laufen, feiert bei Erfolg und schmollt bei Fehlern.',
         restartHint:
-          'Haustiere erfordern einen kurzen Neustart – die laufende App wurde gestartet, bevor diese Funktion hinzugefügt wurde. Schließen Sie Hermes, öffnen Sie es erneut und kehren Sie dann hierher zurück.',
+          'Haustiere erfordern einen kurzen Neustart – die laufende App wurde gestartet, bevor diese Funktion hinzugefügt wurde. Schließen Sie CASTABOT, öffnen Sie es erneut und kehren Sie dann hierher zurück.',
         scaleTitle: 'Größe',
         scaleDesc: 'Ändert die Größe des schwebenden Maskottchens. Wirkt überall sofort.',
         roamTitle: 'Herumstreifen',
@@ -1495,11 +1495,11 @@ export const deOverrides = {
       timezone: 'IANA-Zeitzonenkennung. Leer verwendet die Systemzeitzone.',
       browser: {
         useRealProfile:
-          'Lokales Browsen nutzt Ihre echten Anmeldungen. Hermes kopiert das Profil Ihres Standardbrowsers (Cookies, Anmeldungen, Einstellungen) in einen verwalteten Schnappschuss und steuert ihn mit seinem gebündelten Chromium – Ihr Live-Profil wird nie direkt geöffnet, und die Kopie wird bei jedem Lauf daraus aktualisiert. Erlaubt dem Agenten außerdem, auf Anfrage eine lokale Session mit echtem Profil zu öffnen, selbst wenn ein Cloud-Browser-Backend konfiguriert ist. Nur Chromium-Browser (Chrome, Edge, Brave, Brave Origin, Chromium) werden unterstützt; ein Nicht-Chromium-Standard schlägt mit einer klaren Meldung fehl. Standardmäßig aus.'
+          'Lokales Browsen nutzt Ihre echten Anmeldungen. CASTABOT kopiert das Profil Ihres Standardbrowsers (Cookies, Anmeldungen, Einstellungen) in einen verwalteten Schnappschuss und steuert ihn mit seinem gebündelten Chromium – Ihr Live-Profil wird nie direkt geöffnet, und die Kopie wird bei jedem Lauf daraus aktualisiert. Erlaubt dem Agenten außerdem, auf Anfrage eine lokale Session mit echtem Profil zu öffnen, selbst wenn ein Cloud-Browser-Backend konfiguriert ist. Nur Chromium-Browser (Chrome, Edge, Brave, Brave Origin, Chromium) werden unterstützt; ein Nicht-Chromium-Standard schlägt mit einer klaren Meldung fehl. Standardmäßig aus.'
       },
       agent: {
         imageInputMode: 'Steuert, wie Bildanhänge an das Modell gesendet werden.',
-        maxTurns: 'Obergrenze für Tool-Aufruf-Runden, bevor Hermes einen Lauf stoppt.'
+        maxTurns: 'Obergrenze für Tool-Aufruf-Runden, bevor CASTABOT einen Lauf stoppt.'
       },
       terminal: {
         cwd: 'Standard-Projektordner für Tool- und Terminal-Arbeit.',
@@ -1513,9 +1513,9 @@ export const deOverrides = {
       codeExecution: {
         mode: 'Wie streng die Code-Ausführung auf das aktuelle Projekt begrenzt ist.'
       },
-      fileReadMaxChars: 'Maximale Zeichenzahl, die Hermes aus einer Dateianfrage lesen kann.',
+      fileReadMaxChars: 'Maximale Zeichenzahl, die CASTABOT aus einer Dateianfrage lesen kann.',
       approvals: {
-        mode: 'Wie Hermes Befehle behandelt, die eine explizite Genehmigung benötigen.',
+        mode: 'Wie CASTABOT Befehle behandelt, die eine explizite Genehmigung benötigen.',
         timeout: 'Wie lange Genehmigungsaufforderungen warten, bevor sie ablaufen.'
       },
       security: {
@@ -1544,11 +1544,11 @@ export const deOverrides = {
       voice: {
         autoTts: 'Assistentenantworten automatisch vorlesen.',
         voiceChatMode:
-          'chained: Sprache zu Text → Hermes → Text zu Sprache mit den Anbietern unten. gpt-live: Ein Vollduplex-Sprachmodell von OpenAI (gpt-live-1) hört zu und spricht und übergibt jede echte Anfrage an Hermes – das von Ihnen gewählte Modell antwortet mit allen Tools. Erfordert einen OpenAI-API-Schlüssel; die Sprachschicht kostet 0,05 $ pro Minute.',
+          'chained: Sprache zu Text → CASTABOT → Text zu Sprache mit den Anbietern unten. gpt-live: Ein Vollduplex-Sprachmodell von OpenAI (gpt-live-1) hört zu und spricht und übergibt jede echte Anfrage an CASTABOT – das von Ihnen gewählte Modell antwortet mit allen Tools. Erfordert einen OpenAI-API-Schlüssel; die Sprachschicht kostet 0,05 $ pro Minute.',
         gptLive: {
           voice: 'Stimme für den GPT-Live-Modus. Eigene Stimm-IDs werden akzeptiert.',
           instructions:
-            'Zusätzliche Sätze für die Live-Sprachpersona (Ton, Tempo, Sprache). Hermes behält seinen eigenen System-Prompt.'
+            'Zusätzliche Sätze für die Live-Sprachpersona (Ton, Tempo, Sprache). CASTABOT behält seinen eigenen System-Prompt.'
         }
       },
       tts: {
@@ -1575,13 +1575,13 @@ export const deOverrides = {
       },
       updates: {
         nonInteractiveLocalChanges:
-          'Wenn Hermes sich aus der App selbst aktualisiert (ohne Terminal-Aufforderung), lokale Quellcode-Änderungen behalten (stash) oder verwerfen (discard). Terminal-Updates fragen immer nach.'
+          'Wenn CASTABOT sich aus der App selbst aktualisiert (ohne Terminal-Aufforderung), lokale Quellcode-Änderungen behalten (stash) oder verwerfen (discard). Terminal-Updates fragen immer nach.'
       }
     }),
     uninstallSection: {
       dangerZone: 'Gefahrenzone',
       checkingInstalled: 'Installierte Komponenten werden geprüft…',
-      uninstallHermes: 'Hermes deinstallieren',
+      uninstallHermes: 'CASTABOT deinstallieren',
       chooseHowMuch:
         'Wählen Sie, wie viel entfernt werden soll. Die App wird zum Abschluss geschlossen; Sie können das Installationsprogramm jederzeit erneut öffnen, um zurückzukehren.',
       confirmUninstall: 'Deinstallation bestätigen',
@@ -1671,7 +1671,7 @@ export const deOverrides = {
     config: {
       minimizeToTrayTitle: 'In den Infobereich minimieren',
       minimizeToTrayDesc:
-        'Beim Minimieren von Fenstern oder Schließen des Hauptfensters werden diese im Infobereich (Menüleiste unter macOS) ausgeblendet und Hermes läuft weiter. Beenden Sie über „Hermes beenden“ im Infobereich-Menü oder mit Cmd+Q. Standardmäßig aus; gilt nur für dieses Gerät.',
+        'Beim Minimieren von Fenstern oder Schließen des Hauptfensters werden diese im Infobereich (Menüleiste unter macOS) ausgeblendet und CASTABOT läuft weiter. Beenden Sie über „CASTABOT beenden“ im Infobereich-Menü oder mit Cmd+Q. Standardmäßig aus; gilt nur für dieses Gerät.',
       minimizeToTrayUnavailable:
         'Der Infobereich ist nicht verfügbar. Fenster werden normal minimiert und geschlossen. Schalten Sie die Option aus und wieder ein, um es erneut zu versuchen.',
       none: 'Keine',
@@ -1709,11 +1709,11 @@ export const deOverrides = {
       description:
         'Tippen Sie kurz auf ⌘ + Option (Mac) bzw. Strg + Alt (Windows/Linux), um das HUD aus jeder App nach vorn zu holen. Standardmäßig aus; gilt nur für dieses Gerät.',
       permission:
-        'Erlauben Sie Hermes unter Systemeinstellungen → Datenschutz & Sicherheit → Eingabeüberwachung und versuchen Sie es erneut. Diese Geste zeichnet keine Tastenanschläge auf und nimmt Ihren Bildschirm nicht auf.',
+        'Erlauben Sie CASTABOT unter Systemeinstellungen → Datenschutz & Sicherheit → Eingabeüberwachung und versuchen Sie es erneut. Diese Geste zeichnet keine Tastenanschläge auf und nimmt Ihren Bildschirm nicht auf.',
       unavailable:
-        'Das Hilfsprogramm für die HUD-Geste konnte nicht starten oder wurde unerwartet beendet. Versuchen Sie es erneut oder starten Sie Hermes neu. Das bestehende HUD-Tastenkürzel funktioniert innerhalb von Hermes weiterhin.',
+        'Das Hilfsprogramm für die HUD-Geste konnte nicht starten oder wurde unerwartet beendet. Versuchen Sie es erneut oder starten Sie CASTABOT neu. Das bestehende HUD-Tastenkürzel funktioniert innerhalb von CASTABOT weiterhin.',
       missingHelper:
-        'In dieser Hermes-Installation fehlt das Hilfsprogramm für die HUD-Geste. Aktualisieren oder installieren Sie Hermes neu und versuchen Sie es erneut.',
+        'In dieser Hermes-Installation fehlt das Hilfsprogramm für die HUD-Geste. Aktualisieren oder installieren Sie CASTABOT neu und versuchen Sie es erneut.',
       unsupportedSession:
         'Diese Desktop-Session unterstützt keine globalen Modifikator-Taps. Linux erfordert X11; Wayland wird nicht unterstützt.'
     },
@@ -1728,9 +1728,9 @@ export const deOverrides = {
       ready:
         'Der Kurzbefehl ist bereit. Screenshots werden an Ihren aktuellen Entwurf angehängt, ohne gesendet zu werden.',
       inputPermission:
-        'Mit der Berechtigung „Eingabeüberwachung“ kann Hermes beide Befehlstasten erkennen, während eine andere App aktiv ist. Erlauben Sie Hermes unter Systemeinstellungen → Datenschutz & Sicherheit → Eingabeüberwachung, kehren Sie dann hierher zurück und versuchen Sie es erneut.',
+        'Mit der Berechtigung „Eingabeüberwachung“ kann CASTABOT beide Befehlstasten erkennen, während eine andere App aktiv ist. Erlauben Sie CASTABOT unter Systemeinstellungen → Datenschutz & Sicherheit → Eingabeüberwachung, kehren Sie dann hierher zurück und versuchen Sie es erneut.',
       screenPermission:
-        'Mit der Berechtigung „Bildschirmaufnahme“ kann Hermes das vorderste App-Fenster aufnehmen, wenn Sie diesen Kurzbefehl verwenden. Erlauben Sie Hermes unter Systemeinstellungen → Datenschutz & Sicherheit → Bildschirmaufnahme, kehren Sie dann hierher zurück und versuchen Sie es erneut. Starten Sie Hermes neu, wenn macOS dazu auffordert.',
+        'Mit der Berechtigung „Bildschirmaufnahme“ kann CASTABOT das vorderste App-Fenster aufnehmen, wenn Sie diesen Kurzbefehl verwenden. Erlauben Sie CASTABOT unter Systemeinstellungen → Datenschutz & Sicherheit → Bildschirmaufnahme, kehren Sie dann hierher zurück und versuchen Sie es erneut. Starten Sie CASTABOT neu, wenn macOS dazu auffordert.',
       openSettings: 'Systemeinstellungen öffnen',
       retry: 'Erneut versuchen',
       unavailable: 'Der Screenshot-Kurzbefehl ist nicht verfügbar. Versuchen Sie es erneut oder schalten Sie ihn aus.',
@@ -1748,7 +1748,7 @@ export const deOverrides = {
     quickEntry: {
       enabledTitle: 'Schnelleingabe',
       enabledDesc:
-        'Öffnen Sie mit einem globalen Tastaturkürzel von überall einen kleinen Eingabebereich und senden Sie einen Prompt, ohne Hermes zu öffnen.',
+        'Öffnen Sie mit einem globalen Tastaturkürzel von überall einen kleinen Eingabebereich und senden Sie einen Prompt, ohne CASTABOT zu öffnen.',
       shortcutTitle: 'Tastaturkürzel der Schnelleingabe',
       shortcutDesc: 'Benötigt mindestens eine Zusatztaste, z. B. CommandOrControl+Shift+Leertaste.',
       active: 'Das Tastaturkürzel ist aktiv.',
@@ -1778,7 +1778,7 @@ export const deOverrides = {
     connections: {
       title: 'Registrierte Gateways',
       intro:
-        'Verwalten Sie dieses Gerät und jedes Hermes Gateway, das es über Remote-, SSH- oder Cloud-Verbindungen erreichen kann.',
+        'Verwalten Sie dieses Gerät und jedes CASTABOT Gateway, das es über Remote-, SSH- oder Cloud-Verbindungen erreichen kann.',
       stagedNote:
         'Wechseln Sie Gateways über Sessions. Profile, Chats, Nachrichten und Cron-Jobs bleiben bei ihrem Gateway; Arbeit auf anderen Gateways läuft weiter.',
       launchModeTitle: 'Beim Start zu Sessions auf dem zuletzt verwendeten Gateway zurückkehren',
@@ -1805,13 +1805,13 @@ export const deOverrides = {
       updateAllRunning: 'Alle Instanzen werden aktualisiert…',
       updateAllDone: 'Updates versendet',
       updateAllFailed: 'Update-Verteilung fehlgeschlagen',
-      updateSkippedCloud: 'Wird von Hermes Cloud verwaltet',
+      updateSkippedCloud: 'Wird von CASTABOT Cloud verwaltet',
       kindLocal: 'Lokal',
       kindRemote: 'Remote-Gateway',
-      kindCloud: 'Hermes Cloud',
+      kindCloud: 'CASTABOT Cloud',
       kindSsh: 'SSH',
       kindLocalDesc: 'Die Hermes-Laufzeitumgebung, die von dieser App verwaltet wird.',
-      kindRemoteDesc: 'Ein Hermes Gateway, das über HTTP(S) erreichbar ist – LAN, Tailscale oder das Internet.',
+      kindRemoteDesc: 'Ein CASTABOT Gateway, das über HTTP(S) erreichbar ist – LAN, Tailscale oder das Internet.',
       kindCloudDesc: 'Eine gehostete Instanz, die über Ihr Hermes-Cloud-Konto gefunden wurde.',
       kindSshDesc: 'Eine Hermes-Installation, die über SSH erreicht wird.',
       labelTitle: 'Name',
@@ -1822,7 +1822,7 @@ export const deOverrides = {
       sshHostTitle: 'SSH-Host',
       headersTitle: 'Zusätzliche Gateway-Header',
       headersDesc:
-        'Wird mit jeder HTTP- und WebSocket-Anfrage an dieses Gateway gesendet – für Zugriffs-Proxys wie Cloudflare Access (CF-Access-Client-Id / CF-Access-Client-Secret). Werte werden verschlüsselt gespeichert. Header, die Hermes verwaltet (Authorization, Cookie, Host…), werden ignoriert.',
+        'Wird mit jeder HTTP- und WebSocket-Anfrage an dieses Gateway gesendet – für Zugriffs-Proxys wie Cloudflare Access (CF-Access-Client-Id / CF-Access-Client-Secret). Werte werden verschlüsselt gespeichert. Header, die CASTABOT verwaltet (Authorization, Cookie, Host…), werden ignoriert.',
       headerValuePlaceholder: 'Wert',
       headerValueSaved: 'Gespeichert – leer lassen, um zu behalten',
       headerAdd: 'Header hinzufügen',
@@ -1833,7 +1833,7 @@ export const deOverrides = {
       sameBackendHint: (label: string) => `Gleiches Backend wie „${label}“`,
       localAddHint: 'Lokal ist nicht verfügbar: Die verwaltete lokale Verbindung existiert bereits (es gibt nur eine).',
       cloudAddHint:
-        'Tipp: Die Anmeldung unter Hermes Cloud oben erkennt Ihre Agents automatisch – verwenden Sie dieses Formular nur, um eine bekannte Instanz-URL manuell zu registrieren.',
+        'Tipp: Die Anmeldung unter CASTABOT Cloud oben erkennt Ihre Agents automatisch – verwenden Sie dieses Formular nur, um eine bekannte Instanz-URL manuell zu registrieren.',
       save: 'Verbindung speichern',
       saving: 'Wird gespeichert…',
       cancel: 'Abbrechen',
@@ -1876,13 +1876,13 @@ export const deOverrides = {
       remoteDesc: 'Verbindet diese Desktop-Shell mit einem entfernten Hermes-Backend.',
       remoteAuthHint:
         'Gehostete Gateways verwenden OAuth oder Benutzername und Passwort; selbst gehostete können ein Session-Token verwenden.',
-      cloudTitle: 'Hermes Cloud',
+      cloudTitle: 'CASTABOT Cloud',
       cloudDesc:
-        'Melden Sie sich einmal bei Hermes Cloud an und wählen Sie aus den Agents in Ihrem Konto – ohne eine URL einzufügen.',
-      cloudSignInTitle: 'Hermes Cloud',
-      cloudSignIn: 'Bei Hermes Cloud anmelden',
-      cloudSignedIn: 'Bei Hermes Cloud angemeldet',
-      cloudNeedsSignIn: 'Melden Sie sich bei Hermes Cloud an, um die Agents in Ihrem Konto zu finden.',
+        'Melden Sie sich einmal bei CASTABOT Cloud an und wählen Sie aus den Agents in Ihrem Konto – ohne eine URL einzufügen.',
+      cloudSignInTitle: 'CASTABOT Cloud',
+      cloudSignIn: 'Bei CASTABOT Cloud anmelden',
+      cloudSignedIn: 'Bei CASTABOT Cloud angemeldet',
+      cloudNeedsSignIn: 'Melden Sie sich bei CASTABOT Cloud an, um die Agents in Ihrem Konto zu finden.',
       cloudSignedInDesc:
         'Sie sind angemeldet. Wählen Sie unten einen Agent; die Session wird automatisch aktualisiert.',
       cloudAgentsTitle: 'Ihre Agents',
@@ -1906,8 +1906,8 @@ export const deOverrides = {
       cloudConnecting: 'Verbindung wird hergestellt…',
       cloudDiscoverFailed: 'Ihre Hermes-Cloud-Agents konnten nicht geladen werden',
       cloudConnectFailed: 'Keine Verbindung zu diesem Agent möglich',
-      cloudSignInFailed: 'Anmeldung bei Hermes Cloud fehlgeschlagen',
-      cloudSignedOutTitle: 'Von Hermes Cloud abgemeldet',
+      cloudSignInFailed: 'Anmeldung bei CASTABOT Cloud fehlgeschlagen',
+      cloudSignedOutTitle: 'Von CASTABOT Cloud abgemeldet',
       cloudSignedOutMessage: 'Die Hermes-Cloud-Session wurde geleert.',
       cloudConnectedTitle: 'Verbunden',
       cloudConnectedPill: 'Verbunden',
@@ -1964,9 +1964,9 @@ export const deOverrides = {
       restartingTitle: 'Gateway-Verbindung wird neu gestartet',
       savedTitle: 'Gateway-Einstellungen gespeichert',
       restartingMessage:
-        'Hermes Desktop stellt mit den gespeicherten Einstellungen die Verbindung wieder her — die Shell bleibt offen.',
+        'CASTABOT Desktop stellt mit den gespeicherten Einstellungen die Verbindung wieder her — die Shell bleibt offen.',
       savedMessage: 'Für den nächsten Neustart gespeichert.',
-      connectedTo: (baseUrl, version) => `Verbunden mit ${baseUrl}${version ? ` · Hermes ${version}` : ''}`,
+      connectedTo: (baseUrl, version) => `Verbunden mit ${baseUrl}${version ? ` · CASTABOT ${version}` : ''}`,
       reachableTitle: 'Remote-Gateway erreichbar',
       signedOutTitle: 'Abgemeldet',
       signedOutMessage: 'Die Remote-Gateway-Session wurde geleert.',
@@ -1978,7 +1978,7 @@ export const deOverrides = {
       saveFailed: 'Gateway-Einstellungen konnten nicht gespeichert werden',
       sshTitle: 'Über SSH verbinden',
       sshDesc:
-        'Hermes wird per SSH auf dem Remote-Gerät gestartet und in diese App getunnelt – Sie müssen nichts selbst starten oder freigeben. Erfordert funktionierenden, schlüsselbasierten SSH-Zugriff auf den Host.',
+        'CASTABOT wird per SSH auf dem Remote-Gerät gestartet und in diese App getunnelt – Sie müssen nichts selbst starten oder freigeben. Erfordert funktionierenden, schlüsselbasierten SSH-Zugriff auf den Host.',
       sshTrustHint: 'Der erste präsentierte Host-Key wird vertraut und gepinnt; spätere Änderungen schlagen fehl.',
       sshHostTitle: 'Host',
       sshHostDesc: 'user@host oder ein Host-Alias aus ~/.ssh/config.',
@@ -1999,19 +1999,19 @@ export const deOverrides = {
       sshTestConnection: 'SSH testen',
       sshConnect: 'Verbinden',
       sshButtonsHint: 'Speichern wird beim nächsten Start angewendet. Verbinden verbindet sofort neu.',
-      sshReachable: (host, platform) => `Erreichbar: ${host} (${platform}) — Hermes gefunden`,
+      sshReachable: (host, platform) => `Erreichbar: ${host} (${platform}) — CASTABOT gefunden`,
       sshIncompleteHost: 'Geben Sie einen SSH-Host ein, bevor Sie sich verbinden.',
       sshErrUnreachable: 'Dieser Host ist über SSH nicht erreichbar. Prüfen Sie Host, Port und Ihr Netzwerk.',
       sshErrAuth:
-        'SSH-Authentifizierung fehlgeschlagen. Laden Sie Ihren Schlüssel in den ssh-agent (ssh-add) oder setzen Sie eine IdentityFile in ~/.ssh/config – Hermes führt ssh nicht interaktiv aus.',
+        'SSH-Authentifizierung fehlgeschlagen. Laden Sie Ihren Schlüssel in den ssh-agent (ssh-add) oder setzen Sie eine IdentityFile in ~/.ssh/config – CASTABOT führt ssh nicht interaktiv aus.',
       sshErrHostKey:
         'Der Host-Key hat sich seit Ihrer letzten Verbindung GEÄNDERT. Prüfen Sie, ob das erwartet ist, führen Sie dann ssh-keygen -R <host> aus und verbinden Sie sich erneut.',
       sshErrNotInstalled:
-        'Hermes ist auf dem Remote-Host nicht installiert. Installieren Sie es dort (curl -fsSL https://hermes-agent.nousresearch.com/install.sh | sh) oder legen Sie den Hermes-Pfad fest.',
+        'CASTABOT ist auf dem Remote-Host nicht installiert. Installieren Sie es dort (curl -fsSL https://hermes-agent.nousresearch.com/install.sh | sh) oder legen Sie den Hermes-Pfad fest.',
       sshErrPlatform:
-        'Nicht unterstützte Remote-Plattform. Der Desktop-SSH-Modus von Hermes unterstützt Linux-, macOS- und Windows-Remote-Hosts.',
+        'Nicht unterstützte Remote-Plattform. Der Desktop-SSH-Modus von CASTABOT unterstützt Linux-, macOS- und Windows-Remote-Hosts.',
       sshErrTimeout: 'SSH-Verbindung ist ausgelaufen. Der Host ist möglicherweise nicht erreichbar oder schläft.',
-      sshErrUpdateRequired: 'Aktualisieren Sie Hermes auf dem Remote-Host, bevor Sie sich mit Desktop-SSH verbinden.',
+      sshErrUpdateRequired: 'Aktualisieren Sie CASTABOT auf dem Remote-Host, bevor Sie sich mit Desktop-SSH verbinden.',
       sshErrUnknown: 'SSH-Verbindung fehlgeschlagen.'
     },
     keys: {
@@ -2058,7 +2058,7 @@ export const deOverrides = {
       noOutput: 'Noch keine Ausgabe.',
       deepLinkTitle: 'MCP-Server hinzufügen?',
       deepLinkDescription:
-        'Ein Link möchte diesen MCP-Server zu Hermes hinzufügen. Prüfen Sie die genaue Konfiguration unten – sie stammt vom Link, nicht von Hermes.',
+        'Ein Link möchte diesen MCP-Server zu CASTABOT hinzufügen. Prüfen Sie die genaue Konfiguration unten – sie stammt vom Link, nicht von CASTABOT.',
       deepLinkStdioWarning:
         'Dieser Server führt mit dem unten angezeigten Befehl einen lokalen Prozess auf Ihrem Rechner aus. Fahren Sie nur fort, wenn Sie seiner Quelle vertrauen.',
       deepLinkConfirm: 'Server hinzufügen',
@@ -2184,7 +2184,7 @@ export const deOverrides = {
       serverRunning: 'Läuft',
       runtimeInstalled: 'llama.cpp-Laufzeit installiert',
       runtimeInstalledDetail: (tag, backend) =>
-        `Build ${tag}, ${backend}-Backend. Hermes startet und verwaltet den Server für Sie.`,
+        `Build ${tag}, ${backend}-Backend. CASTABOT startet und verwaltet den Server für Sie.`,
       installTitle: 'Lokale Laufzeit installieren',
       installDetail:
         'Lädt die llama.cpp-Inferenz-Engine herunter (einige hundert MB). Heruntergeladene Modelle laufen komplett auf diesem Rechner – kein Konto, nichts verlässt Ihren Computer.',
@@ -2236,7 +2236,7 @@ export const deOverrides = {
       updating: 'Engine wird aktualisiert…',
       upToDateTitle: 'Engine aktuell',
       upToDateDetail: (tag, backend) =>
-        `llama.cpp ${tag} (${backend}) wird ausgeführt — der neueste Build, den Hermes mitliefert.`,
+        `llama.cpp ${tag} (${backend}) wird ausgeführt — der neueste Build, den CASTABOT mitliefert.`,
       activeDetail: 'Neue Chats verwenden dieses Modell – es wird geladen, wenn Sie Ihre erste Nachricht senden',
       activeNotLoaded: 'Wird bei Ihrer ersten Nachricht geladen',
       loadedPill: 'Im Speicher',
@@ -2582,7 +2582,7 @@ export const deOverrides = {
       connectAccount: 'Ein Konto verbinden',
       haveApiKey: 'Haben Sie stattdessen einen API-Key?',
       intro:
-        'Melden Sie sich mit einem Abo an – kein API-Key zum Kopieren. Hermes übernimmt die Browser-Anmeldung für Sie, direkt hier in der App.',
+        'Melden Sie sich mit einem Abo an – kein API-Key zum Kopieren. CASTABOT übernimmt die Browser-Anmeldung für Sie, direkt hier in der App.',
       connected: 'Verbunden',
       collapse: 'Einklappen',
       connectAnother: 'Weiteren Provider verbinden',
@@ -2605,7 +2605,7 @@ export const deOverrides = {
       localEndpoint: {
         title: 'Lokaler / eigener Endpoint',
         description:
-          'Verbinden Sie Hermes mit einem beliebigen OpenAI-kompatiblen Endpunkt (Zyphra, vLLM, llama.cpp, Ollama usw.).'
+          'Verbinden Sie CASTABOT mit einem beliebigen OpenAI-kompatiblen Endpunkt (Zyphra, vLLM, llama.cpp, Ollama usw.).'
       },
       loading: 'Provider werden geladen…'
     },
@@ -2734,7 +2734,7 @@ export const deOverrides = {
         needsSetupConfirmAction: 'Trotzdem auswählen',
         unavailableTitle: 'Terminalbefehle sind nicht verfügbar',
         unavailableMessage: backend =>
-          `Hermes kann gerade keine Shell-Befehle ausführen: ${backend} ist nicht bereit. Wechseln Sie zu Lokal oder schließen Sie die Einrichtung von ${backend} ab und versuchen Sie es erneut.`,
+          `CASTABOT kann gerade keine Shell-Befehle ausführen: ${backend} ist nicht bereit. Wechseln Sie zu Lokal oder schließen Sie die Einrichtung von ${backend} ab und versuchen Sie es erneut.`,
         openBackendSettings: 'Terminal-Einstellungen öffnen',
         useLocal: 'Lokal verwenden',
         switchedToLocal: 'Terminalbefehle laufen jetzt lokal. Gilt für neue Sessions.'
@@ -2750,7 +2750,7 @@ export const deOverrides = {
         failedSave: 'Die Echtes-Profil-Einstellung konnte nicht gespeichert werden',
         prompt: {
           title: 'Auf Ihren Websites angemeldet bleiben',
-          body: 'Lassen Sie Hermes mit einem Schnappschuss Ihres Standard-Browserprofils browsen, damit Websites bereits angemeldet öffnen.',
+          body: 'Lassen Sie CASTABOT mit einem Schnappschuss Ihres Standard-Browserprofils browsen, damit Websites bereits angemeldet öffnen.',
           bulletSnapshot: 'Cookies und Anmeldungen werden in einen verwalteten Schnappschuss kopiert.',
           bulletLiveProfile: 'Ihr Live-Browserprofil wird nie direkt geöffnet.',
           bulletLocal: 'Nichts verlässt diesen Computer.',
@@ -2826,7 +2826,7 @@ export const deOverrides = {
       halfDesktopHint: 'diese App, gleich für jedes Profil',
       halfAgent: 'Agent',
       halfAgentIn: profile => `Agent in ${profile}`,
-      defaultProfile: 'Hermes (Standard)',
+      defaultProfile: 'CASTABOT (Standard)',
       kindAgent: 'Agent',
       kindDesktop: 'Desktop',
       kindBoth: 'Agent + Desktop',
@@ -2851,7 +2851,7 @@ export const deOverrides = {
       toolsetToggleFailed: (name: string) =>
         `Die ${name}-Agent-Tools konnten nicht umgeschaltet werden; das Desktop-Panel bleibt unverändert`,
       legacyBackend:
-        'Dieses Backend ist älter als schlüsseladressierte Plugin-Schalter — aktualisieren Sie Hermes, um es hier zu verwalten.',
+        'Dieses Backend ist älter als schlüsseladressierte Plugin-Schalter — aktualisieren Sie CASTABOT, um es hier zu verwalten.',
       portableBadge: 'tragbar',
       serverStates: {
         connected: 'verbunden',
@@ -2986,7 +2986,7 @@ export const deOverrides = {
     loadFailed: 'Speichergraph konnte nicht geladen werden',
     loading: 'Wird geladen…',
     emptyTitle: 'Noch nichts gelernt',
-    emptyDesc: 'Sobald Hermes Skills und Erinnerungen zu Ihrer Arbeit aufbaut, erscheinen sie hier.',
+    emptyDesc: 'Sobald CASTABOT Skills und Erinnerungen zu Ihrer Arbeit aufbaut, erscheinen sie hier.',
     share: 'Map teilen',
     shareHint:
       'Kopieren Sie den Code, um diese Map zu teilen, oder fügen Sie einen ein, um sie zu laden. Er enthält nur das Layout, nicht Ihren Speicher oder Skill-Text.',
@@ -3066,7 +3066,7 @@ export const deOverrides = {
       placeholder: 'Pets suchen…',
       loading: 'Petdex-Galerie wird geladen…',
       error: 'Die Petdex-Galerie konnte nicht erreicht werden.',
-      staleBackend: 'Starten Sie Hermes neu, um Pets zu verwenden – das Backend ist älter als diese Funktion.',
+      staleBackend: 'Starten Sie CASTABOT neu, um Pets zu verwenden – das Backend ist älter als diese Funktion.',
       empty: 'Keine passenden Pets.',
       turnOff: 'Ausschalten',
       turnOn: 'Einschalten',
@@ -3093,8 +3093,8 @@ export const deOverrides = {
       hatchComposing: 'Es wird zusammengesetzt…',
       hatchSaving: 'Fast geschafft…',
       namePlaceholder: 'Geben Sie Ihrem Pet einen Namen',
-      staleBackend: 'Aktualisieren Sie Hermes, um Pets zu generieren.',
-      backgroundHint: 'Sie können dieses Fenster schließen – Hermes benachrichtigt Sie, wenn es fertig ist.',
+      staleBackend: 'Aktualisieren Sie CASTABOT, um Pets zu generieren.',
+      backgroundHint: 'Sie können dieses Fenster schließen – CASTABOT benachrichtigt Sie, wenn es fertig ist.',
       slowProviderHint: 'Das kann mehrere Minuten dauern',
       remix: 'Remixen',
       remixConfirmTitle: 'Dieses Design remixen?',
@@ -3134,7 +3134,7 @@ export const deOverrides = {
       },
       settings: {
         title: 'Einstellungen',
-        detail: 'Hermes Desktop konfigurieren'
+        detail: 'CASTABOT Desktop konfigurieren'
       },
       capabilities: {
         title: 'Fähigkeiten',
@@ -3175,7 +3175,7 @@ export const deOverrides = {
     noSessions: 'Noch keine Sessions.',
     gatewayRunning: 'Messaging-Gateway läuft',
     gatewayStopped: 'Messaging-Gateway gestoppt',
-    hermesActiveSessions: (version, count) => `Hermes ${version} · Aktive Sessions ${count}`,
+    hermesActiveSessions: (version, count) => `CASTABOT ${version} · Aktive Sessions ${count}`,
     restartGateway: 'Gateway neu starten',
     openBrowser: 'Browser umschalten',
     toggleBrowser: 'Browser umschalten',
@@ -3184,7 +3184,7 @@ export const deOverrides = {
     sharedGatewayRestartDescription: bots => `Alle Bots auf diesem Gerät verbinden sich neu: ${bots}`,
     sharedGatewayRestartConfirm: 'Alle neu starten',
     sharedGatewayRestarted: count => `Gemeinsames Gateway neu gestartet (${count} ${count === 1 ? 'Bot' : 'Bots'})`,
-    updateHermes: 'Hermes aktualisieren',
+    updateHermes: 'CASTABOT aktualisieren',
     reloadWindow: 'Fenster neu laden',
     actionRunning: 'läuft',
     actionDone: 'fertig',
@@ -3354,7 +3354,7 @@ export const deOverrides = {
       quickSetup: 'Schnelleinrichtung',
       recommended: 'Empfohlen',
       quickHelp:
-        'Scannen Sie einen QR-Code und bestätigen Sie in Telegram. Hermes legt den Bot an und erkennt Ihre Telegram-Benutzer-ID automatisch.',
+        'Scannen Sie einen QR-Code und bestätigen Sie in Telegram. CASTABOT legt den Bot an und erkennt Ihre Telegram-Benutzer-ID automatisch.',
       createWithQr: 'Mit QR-Code anlegen',
       starting: 'Wird gestartet…',
       replaceWarning:
@@ -3600,14 +3600,14 @@ export const deOverrides = {
       switchTo: (name, gateway) => `Zu ${name} auf ${gateway} wechseln`,
       deleteOn: gateway => ` auf ${gateway}`,
       localDevice:
-        'Dieses Gerät (lokales Backend — installiert Hermes, falls es fehlt, sonst öffnet es eine neue Sitzung)',
+        'Dieses Gerät (lokales Backend — installiert CASTABOT, falls es fehlt, sonst öffnet es eine neue Sitzung)',
       switchDeviceTitle: 'Zu diesem Gerät wechseln?',
       switchDeviceDesc:
         'Das öffnet eine neue Sitzung auf diesem Computer. Das aktuelle Gespräch bleibt auf dem anderen Gateway.',
       switchDeviceConfirm: 'Wechseln',
       installDeviceTitle: 'Zu diesem Gerät wechseln?',
       installDeviceDesc:
-        'Hermes wird lokal installiert und danach eine neue Sitzung auf diesem Computer geöffnet. Ohne Bestätigung startet keine Installation.',
+        'CASTABOT wird lokal installiert und danach eine neue Sitzung auf diesem Computer geöffnet. Ohne Bestätigung startet keine Installation.',
       installDeviceConfirm: 'Lokal installieren',
       connectExistingInstead: 'Stattdessen vorhandenes verbinden'
     },
@@ -3658,7 +3658,7 @@ export const deOverrides = {
     defaultProfile: 'Standardprofil',
     defaultSet: (name: string) => `${name} ist jetzt der Standard`,
     defaultDescription:
-      'Wird beim Öffnen von Hermes und für neue Chats verwendet. Bestehende Sessions bleiben in ihren Profilen.',
+      'Wird beim Öffnen von CASTABOT und für neue Chats verwendet. Bestehende Sessions bleiben in ihren Profilen.',
     failedSetDefault: 'Das Standardprofil konnte nicht festgelegt werden',
     setColor: color => `Farbe ${color} setzen`,
     autoColor: 'Auto',
@@ -3729,7 +3729,7 @@ export const deOverrides = {
     failedRename: 'Profil konnte nicht umbenannt werden'
   },
   modelAssignment: {
-    saveFailed: 'Hermes hat diese Modelländerung nicht gespeichert.',
+    saveFailed: 'CASTABOT hat diese Modelländerung nicht gespeichert.',
     confirmTitle: 'Warnung zur Modellauswahl',
     confirmDetail: 'Bestätigen Sie nur, wenn Sie diesen Kompromiss akzeptieren.',
     confirmAction: 'Bestätigen',
@@ -3797,7 +3797,7 @@ export const deOverrides = {
     everyHourAt: minute => `Jede Stunde um :${minute}`,
     newCron: 'Neuer Cron',
     emptyDescNew:
-      'Planen Sie einen Prompt, der nach einem Cron-Ausdruck ausgeführt wird. Hermes führt ihn aus und liefert die Ergebnisse an das von Ihnen gewählte Ziel.',
+      'Planen Sie einen Prompt, der nach einem Cron-Ausdruck ausgeführt wird. CASTABOT führt ihn aus und liefert die Ergebnisse an das von Ihnen gewählte Ziel.',
     emptyDescSearch: 'Versuchen Sie eine breitere Suchanfrage.',
     emptyTitleNew: 'Noch keine geplanten Jobs',
     emptyTitleSearch: 'Keine Treffer',
@@ -4010,9 +4010,9 @@ export const deOverrides = {
     storageCorrupt: {
       title: 'Die Session-Datenbank ist beschädigt',
       body: (profiles: string) =>
-        `Hermes kann nicht den gesamten Session-Verlauf für ${profiles} lesen. Chats, die in dieser Liste fehlen, wurden nicht gelöscht; die Datei, in der sie gespeichert sind, ist beschädigt.`,
+        `CASTABOT kann nicht den gesamten Session-Verlauf für ${profiles} lesen. Chats, die in dieser Liste fehlen, wurden nicht gelöscht; die Datei, in der sie gespeichert sind, ist beschädigt.`,
       action:
-        'Beenden Sie Hermes für dieses Profil und prüfen Sie die Datei dann, ohne sie zu ändern, oder stellen Sie einen Snapshot wieder her:',
+        'Beenden Sie CASTABOT für dieses Profil und prüfen Sie die Datei dann, ohne sie zu ändern, oder stellen Sie einen Snapshot wieder her:',
       guide: 'Wiederherstellungsanleitung'
     },
     noFilterMatches: 'Keine Sessions passen zu diesen Filtern',
@@ -4059,7 +4059,7 @@ export const deOverrides = {
       staleBackend:
         'Aktualisieren Sie das Hermes-Backend, um Projekte zu erstellen – Ihr Backend ist älter als diese Desktop-App (Einstellungen → Updates → Backend).',
       deleteConfirm:
-        'Das entfernt das gespeicherte Projekt aus Hermes. Dateien, Git-Repos und Worktrees bleiben unberührt.',
+        'Das entfernt das gespeicherte Projekt aus CASTABOT. Dateien, Git-Repos und Worktrees bleiben unberührt.',
       startWork: 'Neuer Worktree',
       newWorktreeTitle: 'Neuer Worktree',
       newWorktreeDesc: 'Benennen Sie den Branch für diesen Worktree.',
@@ -4165,12 +4165,12 @@ export const deOverrides = {
   composer: {
     message: 'Nachricht',
     wakingProfile: profile => `Wecke ${profile}…`,
-    placeholderStarting: 'Hermes wird gestartet…',
-    placeholderReconnecting: 'Verbindung zu Hermes wird wiederhergestellt…',
+    placeholderStarting: 'CASTABOT wird gestartet…',
+    placeholderReconnecting: 'Verbindung zu CASTABOT wird wiederhergestellt…',
     placeholderFollowUp: 'Folge senden',
     newSessionPlaceholders: [
       'Was bauen wir?',
-      'Geben Sie Hermes eine Aufgabe',
+      'Geben Sie CASTABOT eine Aufgabe',
       'Was ist Ihnen wichtig?',
       'Beschreiben Sie, was Sie brauchen',
       'Was sollen wir angehen?',
@@ -4208,7 +4208,7 @@ export const deOverrides = {
     voiceControls: 'Sprache',
     voiceEngine: 'Sprachchat-Engine',
     voiceEngineChained: 'Sprache-zu-Text + Hermes-Stimme',
-    voiceEngineLive: 'GPT-Live (Vollduplex, delegiert an Hermes)',
+    voiceEngineLive: 'GPT-Live (Vollduplex, delegiert an CASTABOT)',
     voiceEngineLiveNeedsKey: 'Benötigt einen OpenAI-API-Schlüssel',
     voiceEngineChangeFailed: 'Sprachchat-Engine konnte nicht geändert werden',
     voiceEngineChainedShort: 'Sprache-zu-Text',
@@ -4259,7 +4259,7 @@ export const deOverrides = {
       '/queue':
         'Einen Prompt für den nächsten Turn einreihen oder eingereihte Prompts auflisten/bearbeiten/entfernen/verschieben/leeren',
       '/steer': 'Nach dem nächsten Tool-Aufruf eine Nachricht einfügen, ohne zu unterbrechen',
-      '/goal': 'Ein dauerhaftes Ziel festlegen, an dem Hermes über mehrere Turns arbeitet, bis es erreicht ist',
+      '/goal': 'Ein dauerhaftes Ziel festlegen, an dem CASTABOT über mehrere Turns arbeitet, bis es erreicht ist',
       '/heartbeat': 'Einen wiederkehrenden Prompt festlegen, der bei Leerlauf in diese Session zurückkehrt',
       '/refine': 'Diese Unterhaltung jetzt prüfen und Erkenntnisse in Gedächtnis/Skills speichern',
       '/review': 'Einen unabhängigen Subagent starten, der die gerade besprochene Arbeit prüft (PR, Code, Doku)',
@@ -4315,7 +4315,7 @@ export const deOverrides = {
       'composer.history': 'Popover / Verlauf durchblättern'
     },
     attachUrlTitle: 'URL anhängen',
-    attachUrlDesc: 'Hermes ruft die Seite ab und fügt sie als Kontext für diesen Turn hinzu.',
+    attachUrlDesc: 'CASTABOT ruft die Seite ab und fügt sie als Kontext für diesen Turn hinzu.',
     urlPlaceholder: 'https://example.com/post',
     urlHintPre: 'Geben Sie die vollständige URL an, z. B. ',
     attach: 'Anhängen',
@@ -4569,7 +4569,7 @@ export const deOverrides = {
       createPr: 'PR erstellen',
       openPr: 'PR öffnen',
       ghMissing: 'Installieren Sie die GitHub CLI (gh) und melden Sie sich an, um PRs zu öffnen',
-      agentShip: 'Hermes bitten, einen PR zu öffnen',
+      agentShip: 'CASTABOT bitten, einen PR zu öffnen',
       agentShipUnavailable: 'Der Chat, der diese Änderungen besitzt, ist nicht auf dem Bildschirm.',
       agentShipPrompt:
         'Überprüfe die aktuellen Änderungen, committe sie mit einer klaren Conventional-Commit-Message, pushe den Branch und öffne einen Pull Request.',
@@ -4585,19 +4585,19 @@ export const deOverrides = {
     discontinuedBody:
       'Dieser Hermes-Build wird nicht mehr unterstützt und funktioniert möglicherweise nicht mehr — deinstallieren Sie ihn. Ihre Daten bleiben auf dem Datenträger.',
     channels: { stable: 'Stabil', canary: 'Canary' },
-    appName: 'Hermes',
+    appName: 'CASTABOT',
     availableBodyRelease: tag => `Version ${tag} ist bereit zur Installation.`,
     releaseAvailable: tag => `Version ${tag} ist verfügbar.`,
     checkingShort: 'Wird geprüft…',
     availableBodyAppInstaller:
-      'Eine neue Hermes-Version ist bereit. Hermes wird geschlossen, Windows schließt das Update ab und Hermes startet automatisch neu.',
+      'Eine neue Hermes-Version ist bereit. CASTABOT wird geschlossen, Windows schließt das Update ab und CASTABOT startet automatisch neu.',
     applyingBodyAppInstaller:
-      'Hermes wird geschlossen und Windows schließt das Update ab. Danach startet Hermes automatisch neu.',
+      'CASTABOT wird geschlossen und Windows schließt das Update ab. Danach startet CASTABOT automatisch neu.',
     applyingCloseAppInstaller:
-      'Dieses Fenster schließt sich, Windows schließt das Update ab und Hermes startet automatisch neu.',
+      'Dieses Fenster schließt sich, Windows schließt das Update ab und CASTABOT startet automatisch neu.',
     checkUnknownTitleAppInstaller: 'Update-Check fehlgeschlagen',
     checkUnknownBodyAppInstaller:
-      'Windows konnte gerade nicht nach Updates suchen. Updates werden auch beim Neustart von Hermes automatisch installiert.',
+      'Windows konnte gerade nicht nach Updates suchen. Updates werden auch beim Neustart von CASTABOT automatisch installiert.',
     versionDetailsTitle: 'Versionsdetails',
     versionDetailsBody:
       'Diese Installation wird außerhalb der App verwaltet. Aktualisieren Sie sie auf dieselbe Weise, wie Sie sie installiert haben.',
@@ -4626,8 +4626,8 @@ export const deOverrides = {
     bundleOutOfSyncAction: 'Installer herunterladen',
     bundleSwapPending: 'Neustart zum Abschließen des Updates',
     bundleSwapPendingDesc:
-      'Die aktualisierte App ist bereits installiert — Hermes muss nur noch neu gestartet werden, um sie zu laden. Chats und Einstellungen bleiben unberührt.',
-    bundleSwapPendingAction: 'Hermes neu starten',
+      'Die aktualisierte App ist bereits installiert — CASTABOT muss nur noch neu gestartet werden, um sie zu laden. Chats und Einstellungen bleiben unberührt.',
+    bundleSwapPendingAction: 'CASTABOT neu starten',
     checkNow: 'Jetzt prüfen',
     seeWhatsNew: 'Neuigkeiten ansehen',
     releaseNotes: 'Versionshinweise',
@@ -4650,9 +4650,9 @@ export const deOverrides = {
       fetch: 'Wird heruntergeladen…',
       pull: 'Fast fertig…',
       pydeps: 'Wird abgeschlossen…',
-      update: 'Aktualisiert Hermes…',
+      update: 'Aktualisiert CASTABOT…',
       rebuild: 'Baut die Desktop-App neu…',
-      restart: 'Startet Hermes neu…',
+      restart: 'Startet CASTABOT neu…',
       done: 'Update abgeschlossen',
       manual: 'Über Ihr Terminal aktualisieren',
       guiSkew: 'Desktop-App aktualisieren',
@@ -4664,7 +4664,7 @@ export const deOverrides = {
     notAvailableTitle: 'Kein Update verfügbar',
     unsupportedMessage: 'Diese Hermes-Version kann sich nicht aus der App heraus aktualisieren.',
     connectionRetry: 'Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.',
-    gitUnusable: 'Hermes konnte Git auf diesem Computer nicht ausführen und daher nicht nach Updates suchen.',
+    gitUnusable: 'CASTABOT konnte Git auf diesem Computer nicht ausführen und daher nicht nach Updates suchen.',
     connectionSettings: 'Verbindungseinstellungen',
     openDownloadPage: 'Download-Seite öffnen',
     latestBody: 'Sie verwenden die neueste Version.',
@@ -4683,8 +4683,8 @@ export const deOverrides = {
     manualTitle: 'Über Ihr Terminal aktualisieren',
     manualUnavailableTitle: 'Aktualisierung hier nicht möglich',
     manualBody:
-      'Sie haben Hermes über die Befehlszeile installiert, daher laufen Updates auch dort. Fügen Sie dies in Ihr Terminal ein:',
-    manualPickedUp: 'Hermes übernimmt die neue Version beim nächsten Start.',
+      'Sie haben CASTABOT über die Befehlszeile installiert, daher laufen Updates auch dort. Fügen Sie dies in Ihr Terminal ein:',
+    manualPickedUp: 'CASTABOT übernimmt die neue Version beim nächsten Start.',
     manualBodyBackend:
       'Das Hermes-Backend wird außerhalb dieser App verwaltet. Führen Sie dies auf dem Server aus, der es hostet:',
     manualPickedUpBackend: 'Das Backend lädt die neue Version, sobald das Update abgeschlossen ist.',
@@ -4695,20 +4695,20 @@ export const deOverrides = {
     copied: 'Kopiert',
     done: 'Fertig',
     applyingBody:
-      'Der Hermes-Updater übernimmt in einem eigenen Fenster und öffnet Hermes automatisch wieder, wenn er fertig ist. Bitte öffnen Sie Hermes während des Updates nicht selbst erneut.',
+      'Der Hermes-Updater übernimmt in einem eigenen Fenster und öffnet CASTABOT automatisch wieder, wenn er fertig ist. Bitte öffnen Sie CASTABOT während des Updates nicht selbst erneut.',
     applyingBodyBackend:
-      'Das Remote-Backend wendet das Update an und startet neu. Hermes verbindet sich automatisch wieder, wenn es zurück ist.',
-    applyingClose: 'Dieses Fenster schließt sich während des Updates, dann öffnet sich Hermes von selbst wieder.',
+      'Das Remote-Backend wendet das Update an und startet neu. CASTABOT verbindet sich automatisch wieder, wenn es zurück ist.',
+    applyingClose: 'Dieses Fenster schließt sich während des Updates, dann öffnet sich CASTABOT von selbst wieder.',
     errorTitle: 'Update nicht abgeschlossen',
     errorBody: 'Keine Sorge – es ging nichts verloren. Sie können es jetzt erneut versuchen.',
-    blockerTitle: 'Lokale Vorschauen schließen, um Hermes zu aktualisieren?',
+    blockerTitle: 'Lokale Vorschauen schließen, um CASTABOT zu aktualisieren?',
     blockerBody:
-      'Hermes muss diese lokalen Vorschauen vor dem Update stoppen. Ihre Dateien werden dabei weder geändert noch gelöscht.',
-    foreignBlockerTitle: 'Andere Prozesse schließen, um Hermes zu aktualisieren',
+      'CASTABOT muss diese lokalen Vorschauen vor dem Update stoppen. Ihre Dateien werden dabei weder geändert noch gelöscht.',
+    foreignBlockerTitle: 'Andere Prozesse schließen, um CASTABOT zu aktualisieren',
     foreignBlockerBody:
-      'Hermes kann diese Prozesse nicht sicher automatisch beenden. Schließen Sie die App, das Terminal oder den Dienst, zu dem sie gehören, und versuchen Sie das Update erneut.',
+      'CASTABOT kann diese Prozesse nicht sicher automatisch beenden. Schließen Sie die App, das Terminal oder den Dienst, zu dem sie gehören, und versuchen Sie das Update erneut.',
     mixedBlockerBody:
-      'Hermes kann die unten aufgeführten lokalen Vorschauen schließen. Andere Prozesse müssen manuell geschlossen werden, bevor das Update fortgesetzt werden kann.',
+      'CASTABOT kann die unten aufgeführten lokalen Vorschauen schließen. Andere Prozesse müssen manuell geschlossen werden, bevor das Update fortgesetzt werden kann.',
     closePreviewsAndUpdate: 'Vorschauen schließen und aktualisieren',
     closePreviewsAndCheckAgain: 'Vorschauen schließen und erneut prüfen',
     localPreview: 'Lokale Vorschau',
@@ -4748,12 +4748,12 @@ export const deOverrides = {
     sessionsTitle: 'Jedes Profil führt seine eigenen Sessions',
     sessionsText:
       'Diese Liste gehört zum Standardprofil. „Neue Session“ startet eine im jeweils gewählten Profil. Wechseln Sie Profile über die Leiste, und die Liste ändert sich mit.',
-    stayTitle: 'Hermes ist einen Klick entfernt',
+    stayTitle: 'CASTABOT ist einen Klick entfernt',
     stayText:
-      'Wechseln Sie ins Einrichtungsprofil und öffnen Sie „Willkommen bei Hermes“, wenn Sie Hilfe brauchen. Es bleibt dort.'
+      'Wechseln Sie ins Einrichtungsprofil und öffnen Sie „Willkommen bei CASTABOT“, wenn Sie Hilfe brauchen. Es bleibt dort.'
   },
   guidedGreeting: {
-    line: 'Hallo und willkommen. Ich bin Hermes. Geben Sie mir zwei Minuten, um alles für Sie einzurichten, dann setzen wir mich auf etwas an, das Sie wirklich erledigt haben möchten.\\n\\nAber zuerst: Wie soll ich Sie nennen?',
+    line: 'Hallo und willkommen. Ich bin CASTABOT. Geben Sie mir zwei Minuten, um alles für Sie einzurichten, dann setzen wir mich auf etwas an, das Sie wirklich erledigt haben möchten.\\n\\nAber zuerst: Wie soll ich Sie nennen?',
     nameSuggestion: name => `(Ich kann Sie auch einfach ${name} nennen, wenn Ihnen das lieber ist.)`
   },
   install: {
@@ -4764,7 +4764,7 @@ export const deOverrides = {
       skipped: 'Übersprungen',
       failed: 'Fehlgeschlagen'
     },
-    oneTimeTitle: 'Hermes braucht eine einmalige Installation',
+    oneTimeTitle: 'CASTABOT braucht eine einmalige Installation',
     unsupportedDesc: platform =>
       `Die automatische Installation beim ersten Start ist auf ${platform} noch nicht verfügbar. Öffnen Sie ein Terminal, führen Sie den Befehl unten aus und starten Sie die App dann neu. Bei späteren Starts wird dieser Schritt übersprungen.`,
     installCommand: 'Installationsbefehl',
@@ -4772,26 +4772,26 @@ export const deOverrides = {
     viewDocs: 'Installations-Doku ansehen',
     installTo: 'Wird installiert nach',
     retryAfterRun: "Ich hab's ausgeführt – erneut versuchen",
-    setupChoiceTitle: 'Hermes Desktop einrichten',
+    setupChoiceTitle: 'CASTABOT Desktop einrichten',
     setupChoiceDesc:
-      'Verbinden Sie diese App mit einem Hermes Gateway, das Sie bereits betreiben, oder installieren Sie Hermes lokal auf diesem Computer.',
-    connectExistingTitle: 'Mit bestehendem Hermes verbinden',
+      'Verbinden Sie diese App mit einem CASTABOT Gateway, das Sie bereits betreiben, oder installieren Sie CASTABOT lokal auf diesem Computer.',
+    connectExistingTitle: 'Mit bestehendem CASTABOT verbinden',
     connectExistingShort: 'Bestehendes verbinden',
     connectExistingDesc:
       'Ein Remote-Backend mit Session-Token oder Browser-Anmeldung verwenden. Es wird keine lokale Installation gestartet.',
-    installLocalTitle: 'Hermes lokal installieren',
+    installLocalTitle: 'CASTABOT lokal installieren',
     installLocalDesc:
-      'Hermes herunterladen, seine Python-Umgebung erstellen und das Backend auf diesem Computer ausführen.',
+      'CASTABOT herunterladen, seine Python-Umgebung erstellen und das Backend auf diesem Computer ausführen.',
     localStartUnavailable:
-      'Die lokale Installation konnte nicht gestartet werden. Starten Sie Hermes Desktop neu und versuchen Sie es erneut.',
-    remoteSetupTitle: 'Mit bestehendem Hermes verbinden',
+      'Die lokale Installation konnte nicht gestartet werden. Starten Sie CASTABOT Desktop neu und versuchen Sie es erneut.',
+    remoteSetupTitle: 'Mit bestehendem CASTABOT verbinden',
     remoteSetupDesc:
-      'Geben Sie die URL Ihres Gateways ein. Hermes Desktop erkennt, ob ein Token oder eine Browser-Anmeldung nötig ist.',
+      'Geben Sie die URL Ihres Gateways ein. CASTABOT Desktop erkennt, ob ein Token oder eine Browser-Anmeldung nötig ist.',
     remoteUrlTitle: 'Gateway-URL',
-    remoteUrlDesc: 'Verwenden Sie die Basis-URL des Hermes Gateways, bei Remote-Gateways einschließlich https://.',
+    remoteUrlDesc: 'Verwenden Sie die Basis-URL des CASTABOT Gateways, bei Remote-Gateways einschließlich https://.',
     remoteUrlPlaceholder: 'https://gateway.example.com/hermes',
     probing: 'Gateway-Authentifizierung wird erkannt...',
-    probeError: 'Dieses Hermes Gateway konnte nicht erreicht werden.',
+    probeError: 'Dieses CASTABOT Gateway konnte nicht erreicht werden.',
     probeErrorDetails: 'Details',
     identityProvider: 'Ihr Identity-Provider',
     authTitle: 'Authentifizierung',
@@ -4812,7 +4812,7 @@ export const deOverrides = {
     applyRemote: 'Übernehmen und neu verbinden',
     backToSetup: 'Zurück',
     failedTitle: 'Installation fehlgeschlagen',
-    settingUpTitle: 'Hermes Agent wird eingerichtet',
+    settingUpTitle: 'CASTABOT wird eingerichtet',
     finishingTitle: 'Wird abgeschlossen',
     failedDesc:
       'Einer der Installationsschritte ist fehlgeschlagen. Unter Windows kann das passieren, wenn eine andere Hermes-CLI- oder Desktop-Instanz läuft. Beenden Sie alle laufenden Hermes-Instanzen und versuchen Sie es dann erneut. Das vollständige Protokoll finden Sie in den Details unten oder im Desktop-Log.',
@@ -4835,12 +4835,12 @@ export const deOverrides = {
     openLogs: 'Logs öffnen'
   },
   onboarding: {
-    headerTitle: 'Hermes Agent für Sie einrichten',
+    headerTitle: 'CASTABOT für Sie einrichten',
     headerDesc:
       'Verbinden Sie einen Modell-Anbieter, um mit dem Chatten zu beginnen. Die meisten Optionen brauchen nur einen Klick.',
     preparingInstall:
-      'Hermes schließt die Installation ab. Das dauert beim ersten Start normalerweise unter einer Minute.',
-    starting: 'Hermes wird gestartet…',
+      'CASTABOT schließt die Installation ab. Das dauert beim ersten Start normalerweise unter einer Minute.',
+    starting: 'CASTABOT wird gestartet…',
     lookingUpProviders: 'Anbieter werden gesucht...',
     collapse: 'Einklappen',
     otherProviders: 'Andere Anbieter',
@@ -4848,7 +4848,7 @@ export const deOverrides = {
     chooseLater: 'Ich wähle später einen Anbieter',
     recommended: 'Empfohlen',
     connected: 'Verbunden',
-    featuredPitch: 'Ein Abo, 300+ Frontier-Modelle – die empfohlene Art, Hermes zu nutzen',
+    featuredPitch: 'Ein Abo, 300+ Frontier-Modelle – die empfohlene Art, CASTABOT zu nutzen',
     fireworksPitch: 'Direkte Model-API – Fireworks-gehostete Frontier-Modelle',
     localModelsTitle: 'Modelle lokal ausführen',
     localModelsPitch: 'Kein Konto nötig – laden Sie ein Modell herunter und führen Sie es auf diesem Rechner aus',
@@ -4877,7 +4877,7 @@ export const deOverrides = {
       local: {
         short: 'selbst gehostet',
         description:
-          'Verbinden Sie Hermes mit einem lokalen oder selbst gehosteten OpenAI-kompatiblen Endpunkt (vLLM, llama.cpp, Ollama usw.).'
+          'Verbinden Sie CASTABOT mit einem lokalen oder selbst gehosteten OpenAI-kompatiblen Endpunkt (vLLM, llama.cpp, Ollama usw.).'
       }
     },
     backToSignIn: 'Zurück zur Anmeldung',
@@ -4891,7 +4891,7 @@ export const deOverrides = {
     update: 'Aktualisieren',
     flowSubtitles: {
       pkce: 'Öffnet Ihren Browser zur Anmeldung und fährt dann hier fort',
-      device_code: 'Öffnet eine Verifizierungsseite in Ihrem Browser – Hermes verbindet sich automatisch',
+      device_code: 'Öffnet eine Verifizierungsseite in Ihrem Browser – CASTABOT verbindet sich automatisch',
       external: 'Melden Sie sich einmal in Ihrem Terminal an und kehren Sie dann zum Chatten zurück'
     },
     startingSignIn: provider => `Anmeldung für ${provider} wird gestartet...`,
@@ -4909,12 +4909,12 @@ export const deOverrides = {
     pickDifferentProvider: 'Einen anderen Anbieter wählen',
     signInWith: provider => `Mit ${provider} anmelden`,
     openedBrowser: provider => `Wir haben ${provider} in Ihrem Browser geöffnet.`,
-    authorizeThere: 'Autorisieren Sie Hermes dort.',
+    authorizeThere: 'Autorisieren Sie CASTABOT dort.',
     copyAuthCode: 'Kopieren Sie den Autorisierungscode und fügen Sie ihn unten ein.',
     pasteAuthCode: 'Autorisierungscode einfügen',
     reopenAuthPage: 'Autorisierungsseite erneut öffnen',
     autoBrowser: provider =>
-      `Wir haben ${provider} in Ihrem Browser geöffnet. Autorisieren Sie Hermes dort, und Sie werden automatisch verbunden – nichts zu kopieren oder einzufügen.`,
+      `Wir haben ${provider} in Ihrem Browser geöffnet. Autorisieren Sie CASTABOT dort, und Sie werden automatisch verbunden – nichts zu kopieren oder einzufügen.`,
     reopenSignInPage: 'Anmeldeseite erneut öffnen',
     waitingAuthorize: 'Warten auf Ihre Autorisierung…',
     externalPending: provider =>
@@ -4935,7 +4935,7 @@ export const deOverrides = {
   freeTier: {
     providerRowTitle: 'Nous · Gratis-Tarif',
     providerRowPitch: 'Melden Sie sich mit einem Nous-Konto an, um mehr Modelle und Tools freizuschalten.',
-    readyTitle: 'Hermes ist bereit.',
+    readyTitle: 'CASTABOT ist bereit.',
     readyCaption: 'Kostenlos · Verbindungen inklusive',
     begin: 'Loslegen',
     signInInstead: 'Stattdessen mit einem Nous-Konto anmelden',
@@ -4974,20 +4974,20 @@ export const deOverrides = {
     errorBody: 'Die Anmeldung wurde nicht abgeschlossen; starten Sie sie erneut.',
     busyHeading: 'Fast geschafft',
     busyBody: wait =>
-      `Hermes konnte Ihre Anmeldung nicht abschließen, weil der Nous-Dienst ausgelastet ist. Versuchen Sie es in ${wait} erneut. Ihre Session bleibt so lange erhalten.`,
+      `CASTABOT konnte Ihre Anmeldung nicht abschließen, weil der Nous-Dienst ausgelastet ist. Versuchen Sie es in ${wait} erneut. Ihre Session bleibt so lange erhalten.`,
     unreachableBody:
-      'Hermes konnte den Nous-Dienst nicht erreichen, um Ihre Anmeldung abzuschließen. Prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut. Ihre Session bleibt erhalten.',
+      'CASTABOT konnte den Nous-Dienst nicht erreichen, um Ihre Anmeldung abzuschließen. Prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut. Ihre Session bleibt erhalten.',
     alreadySignedInHeading: 'Bereits angemeldet.',
-    alreadySignedInBody: 'Dieses Hermes ist bereits mit einem Nous-Konto angemeldet.',
+    alreadySignedInBody: 'Dieses CASTABOT ist bereits mit einem Nous-Konto angemeldet.',
     setupFailed: {
       gateClosed:
         'Diese Hermes-Version kann ohne Nous-Konto nicht starten. Melden Sie sich an oder legen Sie eines an – kostenlos und in einer Minute erledigt.',
       paused:
-        'Chatten ohne Anmeldung ist vorübergehend pausiert. Hermes prüft weiter. Die Anmeldung ist kostenlos, und Sie können sofort weitermachen.',
+        'Chatten ohne Anmeldung ist vorübergehend pausiert. CASTABOT prüft weiter. Die Anmeldung ist kostenlos, und Sie können sofort weitermachen.',
       rateLimited: wait =>
-        `Gerade starten sehr viele Leute, deshalb versucht Hermes es in ${wait} erneut. Die Anmeldung ist kostenlos und überspringt das Warten.`,
+        `Gerade starten sehr viele Leute, deshalb versucht CASTABOT es in ${wait} erneut. Die Anmeldung ist kostenlos und überspringt das Warten.`,
       unreachable:
-        'Hermes konnte den Nous-Dienst nicht erreichen. Prüfen Sie Ihre Internetverbindung und tippen Sie dann auf „Erneut versuchen“. Oder verbinden Sie vorerst einen anderen Anbieter.',
+        'CASTABOT konnte den Nous-Dienst nicht erreichen. Prüfen Sie Ihre Internetverbindung und tippen Sie dann auf „Erneut versuchen“. Oder verbinden Sie vorerst einen anderen Anbieter.',
       serverError:
         'Beim Nous-Dienst ist ein Fehler aufgetreten. Tippen Sie gleich auf „Erneut versuchen“ oder verbinden Sie vorerst einen anderen Anbieter.',
       powRequired:
@@ -4995,7 +4995,7 @@ export const deOverrides = {
       locked:
         'Diese Session kann ohne Anmeldung nicht fortgesetzt werden. Melden Sie sich an oder legen Sie ein kostenloses Nous-Konto an, um weiterzumachen.',
       generic:
-        'Hermes konnte den kostenlosen Zugang ohne Anmeldung nicht einrichten. Die Anmeldung ist kostenlos — oder verbinden Sie einen anderen Anbieter.',
+        'CASTABOT konnte den kostenlosen Zugang ohne Anmeldung nicht einrichten. Die Anmeldung ist kostenlos — oder verbinden Sie einen anderen Anbieter.',
       signInBelow: 'Die Anmeldung ist kostenlos. Wählen Sie unten Nous.',
       tryAgain: 'Erneut versuchen',
       retrying: 'Wird erneut versucht…'
@@ -5105,13 +5105,13 @@ export const deOverrides = {
       update: 'Update',
       updateInProgress: 'Update läuft',
       commitsBehind: (count, branch) => `${count} commit${count === 1 ? '' : 's'} hinter ${branch}`,
-      desktopVersion: version => `Hermes Desktop v${version}`,
+      desktopVersion: version => `CASTABOT Desktop v${version}`,
       backendVersion: version => `Backend v${version}`,
       clientLabel: version => `Client v${version}`,
       connectionSsh: host => `SSH: ${host}`,
       connectionRemote: host => `Remote: ${host}`,
       connectionCloud: host => `Cloud: ${host}`,
-      connectionCloudTooltip: host => `Hermes Cloud · ${host}`,
+      connectionCloudTooltip: host => `CASTABOT Cloud · ${host}`,
       connectionSshTooltip: host => `SSH · ${host}`,
       connectionRemoteTooltip: host => `Remote · ${host}`,
       backendLabel: version => `Backend v${version}`,
@@ -5268,7 +5268,7 @@ export const deOverrides = {
     binaryTitle: 'Das sieht wie eine Binärdatei aus',
     binaryBody: label => `Die Vorschau von ${label} könnte unlesbaren Text zeigen.`,
     largeTitle: 'Diese Datei ist groß',
-    largeBody: (label, size) => `${label} ist ${size}. Hermes zeigt nur die ersten 512 KB an.`,
+    largeBody: (label, size) => `${label} ist ${size}. CASTABOT zeigt nur die ersten 512 KB an.`,
     previewAnyway: 'Trotzdem anzeigen',
     truncated: 'Die ersten 512 KB werden angezeigt.',
     noInlineTitle: 'Keine Inline-Vorschau',
@@ -5311,11 +5311,11 @@ export const deOverrides = {
         'Diese Adresse verweist auf den Rechner, auf dem Ihr Agent läuft – nicht auf diesen. Das Browserfenster lädt Seiten lokal, daher braucht ein entfernter Entwicklungsserver eine Portweiterleitung oder einen erreichbaren Hostnamen.',
       failedToLoad: 'Vorschau konnte nicht geladen werden',
       tryAgain: 'Nochmal versuchen',
-      restarting: 'Hermes wird neu gestartet …',
-      askRestart: 'Hermes bitten, den Server neu zu starten',
-      lookingRestart: taskId => `Hermes sucht nach einem Vorschau-Server zum Neustarten (${taskId})`,
+      restarting: 'CASTABOT wird neu gestartet …',
+      askRestart: 'CASTABOT bitten, den Server neu zu starten',
+      lookingRestart: taskId => `CASTABOT sucht nach einem Vorschau-Server zum Neustarten (${taskId})`,
       restartingTitle: 'Vorschau-Server wird neu gestartet',
-      restartingMessage: 'Hermes arbeitet im Hintergrund. Beobachte im Fortschritt die Vorschau-Konsole.',
+      restartingMessage: 'CASTABOT arbeitet im Hintergrund. Beobachte im Fortschritt die Vorschau-Konsole.',
       startRestartFailed: message => `Server-Neustart konnte nicht gestartet werden: ${message}`,
       restartFailed: 'Server-Neustart fehlgeschlagen',
       hideConsole: 'Vorschau-Konsole ausblenden',
@@ -5327,16 +5327,16 @@ export const deOverrides = {
       reload: 'Seite neu laden',
       address: 'Adresse',
       addressPlaceholder: 'Adresse eingeben',
-      blankPageBody: 'Geben Sie oben eine Adresse ein, um zu browsen, oder bitten Sie Hermes, eine Seite zu öffnen.',
-      finishedRestarting: message => `Hermes hat den Vorschau-Server neu gestartet${message ? `: ${message}` : ''}`,
+      blankPageBody: 'Geben Sie oben eine Adresse ein, um zu browsen, oder bitten Sie CASTABOT, eine Seite zu öffnen.',
+      finishedRestarting: message => `CASTABOT hat den Vorschau-Server neu gestartet${message ? `: ${message}` : ''}`,
       failedRestarting: message => `Server-Neustart fehlgeschlagen: ${message}`,
       unknownError: 'unbekannter Fehler',
       restartedTitle: 'Vorschau-Server neu gestartet',
       reloadingNow: 'Die Vorschau wird jetzt neu geladen.',
       restartFailedTitle: 'Vorschau-Neustart fehlgeschlagen',
-      restartFailedMessage: 'Hermes konnte den Server nicht neu starten.',
+      restartFailedMessage: 'CASTABOT konnte den Server nicht neu starten.',
       stillWorking:
-        'Hermes arbeitet noch, aber es ist noch kein Ergebnis des Neustarts eingetroffen. Der Server-Befehl läuft möglicherweise im Vordergrund.',
+        'CASTABOT arbeitet noch, aber es ist noch kein Ergebnis des Neustarts eingetroffen. Der Server-Befehl läuft möglicherweise im Vordergrund.',
       workspaceReloading: 'Arbeitsbereich geändert, Vorschau wird neu geladen',
       fileChanged: url => `Datei geändert, Vorschau wird neu geladen: ${url}`,
       filesChanged: (count, url) => `${count} Dateiänderungen, Vorschau wird neu geladen: ${url}`,
@@ -5361,12 +5361,12 @@ export const deOverrides = {
   },
   interfaceMode: {
     title: 'Oberflächenmodus',
-    hint: 'Ändert, was angezeigt wird, nicht was Hermes kann.',
+    hint: 'Ändert, was angezeigt wird, nicht was CASTABOT kann.',
     sessionNote:
       'Vom einfachen Modus festgelegt. Eine Änderung hier gilt für diese Session; wechseln Sie zu „Erweitert“, um sie dauerhaft zu übernehmen.',
     simple: {
       label: 'Einfach',
-      description: 'Zum Chatten mit Hermes. Seitenleiste und Chat; keine Terminal-, Datei- oder Diff-Bereiche.'
+      description: 'Zum Chatten mit CASTABOT. Seitenleiste und Chat; keine Terminal-, Datei- oder Diff-Bereiche.'
     },
     advanced: {
       label: 'Erweitert',
@@ -5450,7 +5450,7 @@ export const deOverrides = {
     thread: {
       loadingSession: 'Session wird geladen',
       showEarlier: 'Frühere Nachrichten anzeigen',
-      loadingResponse: 'Hermes lädt eine Antwort',
+      loadingResponse: 'CASTABOT lädt eine Antwort',
       loadingLocalModel: model => `${model} wird in den Speicher geladen`,
       processingPrompt: 'Verarbeite Prompt',
       resumeWhenBackgroundDone: count =>
@@ -5486,17 +5486,17 @@ export const deOverrides = {
         auth: 'Der KI-Dienst hat Ihre Anmeldung abgelehnt. Prüfen Sie die Zugangsdaten für diesen Anbieter und senden Sie Ihre Nachricht erneut.',
         billing:
           'Ihr Konto hat bei diesem Anbieter kein Guthaben mehr. Laden Sie Guthaben auf oder wechseln Sie den Anbieter und senden Sie erneut.',
-        disk: 'Ihre Festplatte ist voll, daher konnte Hermes dieses Gespräch nicht speichern. Geben Sie Speicherplatz frei und versuchen Sie es erneut.',
+        disk: 'Ihre Festplatte ist voll, daher konnte CASTABOT dieses Gespräch nicht speichern. Geben Sie Speicherplatz frei und versuchen Sie es erneut.',
         endpoint:
-          'Hermes erreicht Ihren eigenen Modellserver nicht. Prüfen Sie, ob er läuft, und senden Sie Ihre Nachricht erneut.',
+          'CASTABOT erreicht Ihren eigenen Modellserver nicht. Prüfen Sie, ob er läuft, und senden Sie Ihre Nachricht erneut.',
         gateway:
-          'Beim Starten dieser Antwort ist in Hermes ein internes Problem aufgetreten. Senden Sie Ihre Nachricht erneut; wenn es bestehen bleibt, senden Sie Diagnosedaten.',
+          'Beim Starten dieser Antwort ist in CASTABOT ein internes Problem aufgetreten. Senden Sie Ihre Nachricht erneut; wenn es bestehen bleibt, senden Sie Diagnosedaten.',
         generic:
           'Beim Antworten ist etwas schiefgelaufen. Versuchen Sie es erneut oder kopieren Sie die Details, wenn es bestehen bleibt.',
         provider:
           'Der KI-Dienst konnte diese Anfrage nicht abschließen. Versuchen Sie es gleich erneut oder wechseln Sie den Anbieter.',
         runtime:
-          'Beim Starten dieser Antwort ist in Hermes ein internes Problem aufgetreten. Senden Sie Ihre Nachricht erneut; wenn es bestehen bleibt, senden Sie Diagnosedaten.',
+          'Beim Starten dieser Antwort ist in CASTABOT ein internes Problem aufgetreten. Senden Sie Ihre Nachricht erneut; wenn es bestehen bleibt, senden Sie Diagnosedaten.',
         streaming:
           'Die Verbindung ist abgebrochen, bevor die Antwort fertig war. Versuchen Sie es erneut, um sie noch einmal zu senden.'
       },
@@ -5543,7 +5543,7 @@ export const deOverrides = {
         },
         no_reply: {
           title: 'Die Antwort wurde nicht fertig',
-          body: 'Hermes hat diesen Durchlauf ohne Antwort beendet. Versuchen Sie es erneut, um sie noch einmal zu senden.'
+          body: 'CASTABOT hat diesen Durchlauf ohne Antwort beendet. Versuchen Sie es erneut, um sie noch einmal zu senden.'
         },
         stream_drop: {
           title: 'Die Antwort wurde abgebrochen',
@@ -5557,7 +5557,7 @@ export const deOverrides = {
         ssl_cert_verification: {
           title: 'Sichere Verbindung fehlgeschlagen',
           body: provider =>
-            `Hermes konnte die sichere Verbindung zu ${provider} nicht verifizieren. Prüfen Sie Ihre Netzwerk- oder Proxy-Einstellungen oder wechseln Sie den Anbieter und senden Sie Ihre Nachricht erneut.`
+            `CASTABOT konnte die sichere Verbindung zu ${provider} nicht verifizieren. Prüfen Sie Ihre Netzwerk- oder Proxy-Einstellungen oder wechseln Sie den Anbieter und senden Sie Ihre Nachricht erneut.`
         },
         context_overflow: {
           title: 'Dieses Gespräch ist zu lang',
@@ -5594,15 +5594,15 @@ export const deOverrides = {
         invalid_response: {
           title: 'Der KI-Dienst hat eine unlesbare Antwort geschickt',
           body: provider =>
-            `${provider} hat etwas zurückgegeben, das Hermes nicht lesen konnte. Versuchen Sie es gleich erneut.`
+            `${provider} hat etwas zurückgegeben, das CASTABOT nicht lesen konnte. Versuchen Sie es gleich erneut.`
         },
         empty_response: {
           title: 'Der KI-Dienst hat eine leere Antwort geschickt',
           body: provider => `${provider} hat auf diese Nachricht nichts zurückgegeben. Versuchen Sie es gleich erneut.`
         },
         loop_error: {
-          title: 'Hermes ist in einer Schleife hängen geblieben',
-          body: 'Die Antwort hat dieselben Schritte wiederholt, daher hat Hermes sie gestoppt. Versuchen Sie es erneut oder starten Sie einen neuen Chat, wenn es wieder passiert.'
+          title: 'CASTABOT ist in einer Schleife hängen geblieben',
+          body: 'Die Antwort hat dieselben Schritte wiederholt, daher hat CASTABOT sie gestoppt. Versuchen Sie es erneut oder starten Sie einen neuen Chat, wenn es wieder passiert.'
         },
         SESSION_NOT_OWNED: {
           title: 'Dieser Chat ist woanders offen',
@@ -5610,7 +5610,7 @@ export const deOverrides = {
         },
         disk_full: {
           title: 'Festplatte voll',
-          body: 'Ihre Festplatte ist voll, daher konnte Hermes dieses Gespräch nicht speichern. Geben Sie Speicherplatz frei und versuchen Sie es erneut.'
+          body: 'Ihre Festplatte ist voll, daher konnte CASTABOT dieses Gespräch nicht speichern. Geben Sie Speicherplatz frei und versuchen Sie es erneut.'
         },
         free_tier_disabled: {
           title: 'Chatten ohne Anmeldung ist gerade abgeschaltet',
@@ -5626,10 +5626,10 @@ export const deOverrides = {
         },
         free_tier_model_not_free: {
           title: 'Dieses Modell gibt es ohne Anmeldung nicht',
-          body: 'Hermes verwendet vorerst das kostenlose Modell. Melden Sie sich mit einem Nous-Konto an, um mehr Modelle zu nutzen – es ist kostenlos.'
+          body: 'CASTABOT verwendet vorerst das kostenlose Modell. Melden Sie sich mit einem Nous-Konto an, um mehr Modelle zu nutzen – es ist kostenlos.'
         },
         free_tier_route: {
-          title: 'Hermes hat das kostenlose Modell über diese Route nicht erreicht',
+          title: 'CASTABOT hat das kostenlose Modell über diese Route nicht erreicht',
           body: 'Melden Sie sich mit einem Nous-Konto an – es ist kostenlos – oder prüfen Sie die Einstellung NOUS_INFERENCE_BASE_URL.'
         },
         free_tier_outage: {
@@ -5637,7 +5637,7 @@ export const deOverrides = {
           body: 'Versuchen Sie in einer Minute, Ihre Nachricht erneut zu senden.'
         },
         free_tier_refused: {
-          title: 'Hermes konnte das ohne Anmeldung nicht senden',
+          title: 'CASTABOT konnte das ohne Anmeldung nicht senden',
           body: 'Eine Anmeldung mit einem Nous-Konto ist kostenlos.'
         }
       },
@@ -5653,7 +5653,7 @@ export const deOverrides = {
       },
       errorDetails: 'Details',
       errorGenericProvider: 'Der KI-Dienst',
-      errorToastTitle: 'Hermes konnte die Antwort nicht fertigstellen',
+      errorToastTitle: 'CASTABOT konnte die Antwort nicht fertigstellen',
       errorRetry: 'Erneut versuchen',
       errorLimitResets: (time: string) => `Limit wird um ${time} zurückgesetzt`,
       errorRetryAtReset: (time: string) => `Erneut versuchen, wenn das Limit zurückgesetzt wird (${time})`,
@@ -5704,7 +5704,7 @@ export const deOverrides = {
       sendFailed: 'Genehmigungsantwort konnte nicht gesendet werden',
       reconnect: 'Neu verbinden',
       timedOutSystemLine:
-        'Die Freigabe ist abgelaufen — der Befehl wurde nicht ausgeführt. Bitten Sie Hermes, es erneut zu versuchen, oder erhöhen Sie das Limit unter Einstellungen → Sicherheit → Freigabe-Timeout.',
+        'Die Freigabe ist abgelaufen — der Befehl wurde nicht ausgeführt. Bitten Sie CASTABOT, es erneut zu versuchen, oder erhöhen Sie das Limit unter Einstellungen → Sicherheit → Freigabe-Timeout.',
       openSafetySettings: 'Sicherheitseinstellungen öffnen',
       run: 'Ausführen',
       command: 'Befehl',
@@ -5715,7 +5715,7 @@ export const deOverrides = {
       reject: 'Ablehnen',
       alwaysTitle: 'Diesen Befehl immer erlauben?',
       alwaysDescription: pattern =>
-        `Dies fügt das Muster „${pattern}“ Ihrer dauerhaften Zulassungsliste hinzu (~/.hermes/config.yaml). Hermes fragt bei solchen Befehlen nicht mehr nach – weder in dieser noch in zukünftigen Sessions.`,
+        `Dies fügt das Muster „${pattern}“ Ihrer dauerhaften Zulassungsliste hinzu (~/.hermes/config.yaml). CASTABOT fragt bei solchen Befehlen nicht mehr nach – weder in dieser noch in zukünftigen Sessions.`,
       alwaysAllow: 'Immer erlauben'
     },
     clarify: {
@@ -5975,14 +5975,14 @@ export const deOverrides = {
     secretSendFailed: 'Geheimnis konnte nicht gesendet werden',
     sudoTitle: 'Administrator-Passwort',
     sudoDesc:
-      'Hermes benötigt Ihr Sudo-Passwort, um einen privilegierten Befehl auszuführen. Es wird nur an Ihren lokalen Agenten gesendet.',
+      'CASTABOT benötigt Ihr Sudo-Passwort, um einen privilegierten Befehl auszuführen. Es wird nur an Ihren lokalen Agenten gesendet.',
     sudoCommandUnavailable:
       'Dieser Agent hat den Befehl nicht mitgeliefert. Brechen Sie ab, wenn Sie ihn im Gespräch nicht überprüfen können.',
     sudoInstallDesc:
-      'Hermes benötigt Ihr sudo-Passwort, um die Bot-Screen-Pakete (TigerVNC + Xfce) auf dem Gateway-Host zu installieren. Es wird nur an diesen Host gesendet.',
+      'CASTABOT benötigt Ihr sudo-Passwort, um die Bot-Screen-Pakete (TigerVNC + Xfce) auf dem Gateway-Host zu installieren. Es wird nur an diesen Host gesendet.',
     sudoPlaceholder: 'Sudo-Passwort',
     secretTitle: 'Geheimnis erforderlich',
-    secretDesc: 'Hermes benötigt eine Zugangsdaten, um fortzufahren.',
+    secretDesc: 'CASTABOT benötigt eine Zugangsdaten, um fortzufahren.',
     secretPlaceholder: 'Geheimnis-Wert',
     vaultUnlockSendFailed: 'Master-Passwort konnte nicht gesendet werden',
     vaultUnlockTitle: name => `${name} entsperren`,
@@ -5994,7 +5994,7 @@ export const deOverrides = {
     vaultSaveSendFailed: 'Login konnte nicht gespeichert werden',
     vaultSaveTitle: site => `${site}-Login speichern?`,
     vaultSaveDesc: origin =>
-      `Hermes ist auf eine Anmeldeseite unter ${origin} gestoßen und hat dafür keinen Login. Geben Sie ihn einmal hier ein; er wird auf diesem Rechner verschlüsselt und in die Seite eingetragen, ohne dass das Modell das Passwort je sieht.`,
+      `CASTABOT ist auf eine Anmeldeseite unter ${origin} gestoßen und hat dafür keinen Login. Geben Sie ihn einmal hier ein; er wird auf diesem Rechner verschlüsselt und in die Seite eingetragen, ohne dass das Modell das Passwort je sieht.`,
     vaultSaveIdentifierLabel: 'E-Mail oder Benutzername',
     vaultSaveIdentifierPlaceholder: 'name@example.com',
     vaultSavePasswordPlaceholder: 'Passwort',
@@ -6004,10 +6004,10 @@ export const deOverrides = {
     vaultCodeSendFailed: 'Code konnte nicht gesendet werden',
     vaultCodeTitle: site => `Bestätigungscode für ${site}`,
     vaultCodeDesc: site =>
-      `${site} verlangt einen Einmalcode (SMS, E-Mail oder Authenticator-App). Geben Sie ihn hier ein, Hermes trägt ihn in die Seite ein; das Modell sieht ihn nie.`,
+      `${site} verlangt einen Einmalcode (SMS, E-Mail oder Authenticator-App). Geben Sie ihn hier ein, CASTABOT trägt ihn in die Seite ein; das Modell sieht ihn nie.`,
     vaultCodeLabel: 'Code',
     vaultCodeFootnote:
-      'Tipp: Speichern Sie den Authentifizierungsschlüssel zusammen mit diesem Login unter Einstellungen → Passwörter & Logins, dann gibt Hermes die Codes für Sie ein.',
+      'Tipp: Speichern Sie den Authentifizierungsschlüssel zusammen mit diesem Login unter Einstellungen → Passwörter & Logins, dann gibt CASTABOT die Codes für Sie ein.',
     vaultCodeSkip: 'Überspringen',
     vaultCodeConfirm: 'Code eingeben'
   },
@@ -6081,8 +6081,8 @@ export const deOverrides = {
     sessionExportFailed: 'Session konnte nicht exportiert werden',
     imageSaved: 'Bild gespeichert',
     downloadStarted: 'Download gestartet',
-    restartToUseSaveImage: 'Starten Sie Hermes Desktop neu, um „Bild speichern“ zu verwenden.',
-    restartToSaveImages: 'Starten Sie Hermes Desktop neu, um Bilder zu speichern',
+    restartToUseSaveImage: 'Starten Sie CASTABOT Desktop neu, um „Bild speichern“ zu verwenden.',
+    restartToSaveImages: 'Starten Sie CASTABOT Desktop neu, um Bilder zu speichern',
     imageDownloadFailed: 'Bild-Download fehlgeschlagen',
     openImage: 'Bild öffnen',
     downloadImage: 'Bild herunterladen',
@@ -6116,14 +6116,14 @@ export const deOverrides = {
       },
       skills: {
         title: 'Einmal beibringen',
-        text: 'Skills sind Ordner mit Anweisungen, die Hermes lädt, wenn die Arbeit danach verlangt.'
+        text: 'Skills sind Ordner mit Anweisungen, die CASTABOT lädt, wenn die Arbeit danach verlangt.'
       },
       messaging: {
-        title: 'Hermes abseits Ihres Schreibtischs',
+        title: 'CASTABOT abseits Ihres Schreibtischs',
         text: 'Verbinden Sie Telegram, Discord, Slack und mehr – derselbe Agent, dasselbe Gedächtnis.'
       },
       artifacts: {
-        title: 'Alles, was Hermes gemacht hat',
+        title: 'Alles, was CASTABOT gemacht hat',
         text: 'Bilder, Dateien und Links aus jeder Session, an einem Ort indexiert.'
       },
       cron: {
@@ -6136,7 +6136,7 @@ export const deOverrides = {
       },
       profiles: {
         title: 'Profile sind getrennt',
-        text: 'Jedes ist sein eigenes Hermes — eigene Schlüssel, eigenes Gedächtnis, eigene Sessions.'
+        text: 'Jedes ist sein eigenes CASTABOT — eigene Schlüssel, eigenes Gedächtnis, eigene Sessions.'
       },
       'composer-mentions': {
         title: 'Anhängen und befehlen',
